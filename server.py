@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response, render_template, redirect, session,  url_for, render_template_string
+from flask import Flask, request, jsonify, make_response, render_template, redirect, session, url_for, render_template_string#, current_app as app
 from flask_sqlalchemy import SQLAlchemy
 import jwt
 import datetime
@@ -307,7 +307,7 @@ def register():
         db.session.commit()
 
         # send confirmation email
-        token = jwt.encode({'user_id': new_user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+        token = jwt.encode({'user_id': new_user.id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'], algorithm='HS256')
         
         send_email(data['email'], token, type="register")
 
