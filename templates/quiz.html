@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data_company.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/quiz/style/style.css') }}">
+</head>
+<body>
+    <section class="wpr_tests">
+        <div class="wrapper">
+            <div class="vote_container" style="--text-clr: {{ data_company.theme_color }};">
+                <div class="bg">
+                    <div class="timer invisible">
+                        <svg viewBox="0 0 23353 26754" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><path d="M13029 3478c2059 237 3955 1011 5545 2177l1631-1817 1873 1683-1645 1832c1817 2058 2920 4762 2920 7724 0 6448-5228 11677-11676 11677C5228 26754 0 21525 0 15077 0 9080 4552 4049 10511 3458V2321H7599V0h8343v2321h-2913v1157zm-2598 14132c2571 1928 5501-1982 2930-3909-866-651-5389-1681-6808-2050 752 1257 3011 5312 3878 5959zm7664-8952c-1642-1641-3912-2658-6418-2658-5014 0-9077 4063-9077 9077 0 5013 4063 9076 9077 9076 5013 0 9076-4063 9076-9076 0-2507-1016-4776-2658-6419z" fill="#fff" fill-rule="nonzero" class="fill-000000"></path></svg>
+                        <span id="timer_quiz"><span class="minutes">00</span>:<span class="sec">00</span>:<span class="msec">00</span></span>
+                    </div>
+                </div>
+                <div class="container_text">
+                    <div class="wrapper_quiz">
+                        <div class="bg_small">
+                            <img src="{{ data_company.image }}" alt="Company background">
+                        </div>
+                        <div class="content_quiz_start">
+                            <dib class="status_quiz_start">
+                                <p>Name of survey</p>
+                            </dib>
+                            <div class="title_quiz">
+                                {{ data_company.title_quiz }}
+                            </div>
+                            
+
+                            {% if data_company.request == "email"  %}
+                                <div class="form_request">
+                                    <input type="text" type_v="email" class="v-form" placeholder="Email" value="">
+                                    <button disabled class="start" style="--primary: {{ data_company.theme_color }};">
+                                        <svg id="Layer_1" fill="#fff" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M322.7,128.4L423,233.4c6,5.8,9,13.7,9,22.4c0,8.7-3,16.5-9,22.4L322.7,383.6c-11.9,12.5-31.3,12.5-43.2,0  c-11.9-12.5-11.9-32.7,0-45.2l48.2-50.4h-217C93.7,288,80,273.7,80,256c0-17.7,13.7-32,30.6-32h217l-48.2-50.4  c-11.9-12.5-11.9-32.7,0-45.2C291.4,115.9,310.7,115.9,322.7,128.4z"></path></svg>
+                                    </button>
+                                </div>
+                            {% elif data_company.request == "phone"  %}
+                                <div class="form_request">
+                                    <input type="text" type_v="phone" class="v-form" placeholder="Phone" value="">
+                                    <button disabled class="start" style="--primary: {{ data_company.theme_color }};">
+                                        <svg id="Layer_1" fill="#fff" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M322.7,128.4L423,233.4c6,5.8,9,13.7,9,22.4c0,8.7-3,16.5-9,22.4L322.7,383.6c-11.9,12.5-31.3,12.5-43.2,0  c-11.9-12.5-11.9-32.7,0-45.2l48.2-50.4h-217C93.7,288,80,273.7,80,256c0-17.7,13.7-32,30.6-32h217l-48.2-50.4  c-11.9-12.5-11.9-32.7,0-45.2C291.4,115.9,310.7,115.9,322.7,128.4z"></path></svg>
+                                    </button>
+                                </div>
+                            {% elif data_company.request == "name"  %}
+                                <div class="form_request">
+                                    <input type="text" type_v="name" class="v-form" placeholder="Your name" value="">
+                                    <button disabled class="start" style="--primary: {{ data_company.theme_color }};">
+                                        <svg id="Layer_1" fill="#fff" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M322.7,128.4L423,233.4c6,5.8,9,13.7,9,22.4c0,8.7-3,16.5-9,22.4L322.7,383.6c-11.9,12.5-31.3,12.5-43.2,0  c-11.9-12.5-11.9-32.7,0-45.2l48.2-50.4h-217C93.7,288,80,273.7,80,256c0-17.7,13.7-32,30.6-32h217l-48.2-50.4  c-11.9-12.5-11.9-32.7,0-45.2C291.4,115.9,310.7,115.9,322.7,128.4z"></path></svg>
+                                    </button>
+                                </div>
+                            {% else  %}
+                                <div class="data_quiz">
+                                    <button class="start" style="--primary: {{ data_company.theme_color }};"><span>Start a survey</span></button>
+                                </div>
+                            {% endif  %}
+                            
+
+                        </div>
+                        <div class="content_quiz hidden">
+                            <dib class="status_quiz"><p>Question <span>1</span>/<count>10</count></p></dib>
+                            <div class="question_quiz">{{ data_company.encoded_data.question }}</div>
+                            <div class="grid_button">
+                                {% for item_data in data_company.encoded_data.buttons %}
+                                    <button class="button">
+                                        <div class="content_btn">{{ item_data }}</div>
+                                    </button>
+                                {% endfor %}
+                            </div>
+                            <div class="continue"><button class="" disabled>Continue</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thank_you hidden">
+                <div class="load">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                </div>
+                <div class="circle_abs"></div>
+                <div class="content_thankyou hidden">
+                    <svg id="completion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 101">
+                        <style>
+                          .st0{fill:#d0ff00; fill-opacity:1;} .st1{fill:#0F4B5594;fill-opacity:0.5;} .st2{fill:#00FFBE;}
+                        </style>
+                        <g id="configurator">
+                          <g id="configurator_completion">
+                            <g id="stars">
+                              <circle id="Oval" class="st0" cx="14" cy="18" r="1"/>
+                              <circle id="Oval-Copy-4" class="st0" cx="27" cy="20" r="1"/>
+                              <circle id="Oval-Copy-10" class="st0" cx="76" cy="20" r="1"/>
+                              <circle id="Oval-Copy-2" class="st0" cx="61.5" cy="12.5" r="1.5"/>
+                              <circle id="Oval-Copy-9" class="st0" cx="94" cy="53" r="1"/>
+                              <circle id="Oval-Copy-6" class="st0" cx="88" cy="14" r="1"/>
+                              <circle id="Oval-Copy-7" class="st0" cx="59" cy="1" r="1"/>
+                              <circle id="Oval_1_" class="st0" cx="43" cy="9" r="2"/>
+                              <path id="ster-01" class="st0" d="M28.5 3.8L26 6l2.2-2.5L26 1l2.5 2.2L31 1l-2.2 2.5L31 6z"/>
+                              <path id="ster-01" class="st0" d="M3.5 50.9l-2.1 2.4 1.7-2.7-2.9-1.2 3.1.8.2-3.2.2 3.2 3.1-.8-2.9 1.2 1.7 2.7z"/>
+                              <path id="ster-01" class="st0" d="M93.5 27.8L91 30l2.2-2.5L91 25l2.5 2.2L96 25l-2.2 2.5L96 30z"/>
+                              <circle id="Oval-Copy-5" class="st0" cx="91" cy="40" r="2"/>
+                              <circle id="Oval-Copy-3" class="st0" cx="7" cy="36" r="2"/>
+                              <circle id="Oval-Copy-8" class="st0" cx="7.5" cy="5.5" r=".5"/>
+                            </g>
+                          </g>
+                        </g>
+                        <g id="cirkel">
+                          <g id="Mask">
+                            <path id="path-1_1_" class="st1" d="M49 21c22.1 0 40 17.9 40 40s-17.9 40-40 40S9 83.1 9 61s17.9-40 40-40z"/>
+                          </g>
+                        </g>
+                        <path id="check" class="st2" d="M31.3 64.3c-1.2-1.5-3.4-1.9-4.9-.7-1.5 1.2-1.9 3.4-.7 4.9l7.8 10.4c1.3 1.7 3.8 1.9 5.3.4L71.1 47c1.4-1.4 1.4-3.6 0-5s-3.6-1.4-5 0L36.7 71.5l-5.4-7.2z"/>
+                    </svg>
+                    <h2>Thank you for taking the survey, we have already sent the results to the interviewer.</h2>
+                </div>
+            </div>
+        </div>
+        <div class="powered">powered by <a href="/">KnowEmployee</a></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    {{ data_company.questions|safe }}
+    <script src="{{ url_for('static', filename='assets/quiz/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ data_company.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+</head>
+<body>
+    <section class="wpr_tests" id="wpr_tests" d-type="{{data_company.type}}" d-app="{{data_company.checked}}">
+        <div class="wrapper">
+
+            {% if data_company.type == "custom" %}
+                {% if data_company.multiple == False and data_company.checked == True %}
+
+                {% else %}
+                <div class="content">
+                    <div class="hd">
+                        <div class="company">
+                            <div class="image">
+                                <img src="{{ '../../static/company.png' if data_company.avatar == '0' else data_company.avatar }}" alt="{{ data_company.company_name }}">
+                            </div>
+                            <h3>{{ data_company.company_name }}</h3>
+                            <p>{{ data_company.slogan if data_company.slogan != "" and data_company.slogan != '0' else "" }}</p>
+                        </div>
+
+                        {% if data_company.anonimus_feedback == "1" %}
+                            <div class="row_user">
+                                <p class="type">Anonymous company review, to improve quality in the work environment</p>
+                                <span>Important! do not worry that your feedback can be seen, we do not save your feedback not your voice feedback. The employer will only get a squeeze of artificial intelligence.</span>
+                            </div>
+                        {% else %}
+                            <div class="row_user">
+                                <p class="type">You can provide feedback here, but be aware that your responses will be shared with management. To leave an anonymous review for this company, <a href="{{ data_company.anonimus_feedback_link  }}">click here</a></p>
+                            </div>
+                        {% endif %}
+                        
+                        {% if data_company.username_bool == True %}
+                        <div class="input_user">
+                            <input type="text" placeholder="Your name">
+                        </div>
+                        {% endif %}
+
+                        <div class="submit">
+                            
+                            <button class="bt" type="button" 
+                                {% if data_company.username_bool %}disabled="disabled"{% endif %}
+                                type_test="{{ 'custom' if data_company.type == 'custom' else 'anonymous' }}" 
+                                id="startRecording">
+                                <span>Start testing</span>
+                                <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M69.844 43.388 33.842 13.386a6.003 6.003 0 0 0-7.688 9.223L56.624 48l-30.47 25.39a6.003 6.003 0 0 0 7.688 9.223l36.002-30.001a6.01 6.01 0 0 0 0-9.223Z" fill="#ffffff" class="fill-000000"></path></svg>
+                            </button>
+                            <span id="error"></span>
+                        </div>
+
+                        {% if data_company.anonimus_feedback == "0" %}
+                            <span class="confident_accept">By clicking the "Start testing" button you agree to the processing and transfer of data to your management team.</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="load">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    </div>
+                </div>
+                <div class="q hidden">
+                    <div class="question">
+                        <div class="slide">
+                            <h3></h3>
+                            <h3></h3>
+                        </div>
+                        <div class="q_count"><span id="a">1</span>/<span id="c"></span></div>
+                        <div class="recognize">
+                            <canvas id="visualization"></canvas>
+                        </div>
+
+                        <div class="row_button">
+                            <button class="bt" type="button" id="stopRecording">
+                                <span>I answered, continue</span>
+                                <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M69.844 43.388 33.842 13.386a6.003 6.003 0 0 0-7.688 9.223L56.624 48l-30.47 25.39a6.003 6.003 0 0 0 7.688 9.223l36.002-30.001a6.01 6.01 0 0 0 0-9.223Z" fill="#ffffff" class="fill-000000"></path></svg>
+                            </button>
+                        </div>
+
+                        <h5>Please answer the questions for accurate analysis, you will have the opportunity to add information from yourself at the end of the thesis</h5>
+                        
+                    </div>
+                    <div class="load hidden">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    </div>
+                </div>
+                <div class="boxed_info">
+                    <div class="content_info">
+                        <h3>How does it work?</h3>
+                        <div class="list">
+                            <div class="box">
+                                <span class="cube">1</span>
+                                <p>We prepare questions to determine necessary changes in your company.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">2</span>
+                                <p>We process your answers confidentially without recording voice messages.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">3</span>
+                                <p>After the questionnaire, you can provide further feedback for analysis.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">4</span>
+                                <p>Our service informs the employer about staff preferences and concerns.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">5</span>
+                                <p>Your company receives insights for workflow improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% elif data_company.type == "anonymous" %}
+                <div class="content">
+                    <div class="hd">
+                        <div class="company">
+                            <div class="image">
+                                <img src="{{ '../../static/company.png' if data_company.avatar == '0' else data_company.avatar }}" alt="{{ data_company.company_name }}">
+                            </div>
+                            <h3>{{ data_company.company_name }}</h3>
+                            <p>{{ data_company.slogan if data_company.slogan != "" and data_company.slogan != '0' else "" }}</p>
+                        </div>
+
+                        <div class="row_user">
+                            <p class="type">Anonymous company review, to improve quality in the work environment</p>
+                            <span>Important! do not worry that your feedback can be seen, we do not save your feedback not your voice feedback. The employer will only get a squeeze of artificial intelligence.</span>
+                        </div>
+
+                        <div class="submit">
+                            <button class="bt" type="button" type_test="{{ 'custom' if data_company.type == 'custom' else 'anonymous' }}" id="startRecording">
+                                <span>Start testing</span>
+                                <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M69.844 43.388 33.842 13.386a6.003 6.003 0 0 0-7.688 9.223L56.624 48l-30.47 25.39a6.003 6.003 0 0 0 7.688 9.223l36.002-30.001a6.01 6.01 0 0 0 0-9.223Z" fill="#ffffff" class="fill-000000"></path></svg>
+                            </button>
+                            <span id="error"></span>
+                    
+                        </div>
+                    </div>
+
+                    <div class="load">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    </div>
+                </div>
+                <div class="q hidden">
+                    <div class="question">
+                        <div class="slide">
+                            <h3></h3>
+                            <h3></h3>
+                        </div>
+                        <div class="q_count"><span id="a">1</span>/<span id="c"></span></div>
+                        <div class="recognize">
+                            <canvas id="visualization"></canvas>
+                        </div>
+
+                        <div class="row_button">
+                            <button class="bt" type="button" id="stopRecording">
+                                <span>I answered, continue</span>
+                                <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><path d="M69.844 43.388 33.842 13.386a6.003 6.003 0 0 0-7.688 9.223L56.624 48l-30.47 25.39a6.003 6.003 0 0 0 7.688 9.223l36.002-30.001a6.01 6.01 0 0 0 0-9.223Z" fill="#ffffff" class="fill-000000"></path></svg>
+                            </button>
+                        </div>
+
+                        <h5>Please answer the questions for accurate analysis, you will have the opportunity to add information from yourself at the end of the thesis</h5>
+                        
+                    </div>
+                    <div class="load hidden">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    </div>
+                </div>
+                <div class="boxed_info">
+                    <div class="content_info">
+                        <h3>How does it work?</h3>
+                        <div class="list">
+                            <div class="box">
+                                <span class="cube">1</span>
+                                <p>We prepare questions to determine necessary changes in your company.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">2</span>
+                                <p>We process your answers confidentially without recording voice messages.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">3</span>
+                                <p>After the questionnaire, you can provide further feedback for analysis.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">4</span>
+                                <p>Our service informs the employer about staff preferences and concerns.</p>
+                            </div>
+                            <div class="box">
+                                <span class="cube">5</span>
+                                <p>Your company receives insights for workflow improvement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thank_you hidden">
+                    <div class="load">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    </div>
+                    <div class="circle_abs"></div>
+                    <div class="content_thankyou hidden">
+                        <h2>Thank you for your feedback</h2>
+                        <div class="star"></div>
+                        <p>We hope your feedback can improve quality in the workplace</p>
+                    </div>
+                </div>
+            {% endif  %}
+
+            <div class="thank_you {{ '' if data_company.multiple == False and data_company.checked == True else 'hidden' }}">
+                <div class="load">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                </div>
+                <div class="circle_abs"></div>
+                <div class="content_thankyou hidden">
+                    {% if data_company.multiple == False and data_company.checked == True and data_company.username != "" %}
+                        <h1 style="color: #fff;">{{ data_company.username }}</h1>
+                    {% endif %}
+
+                    <h2>Thank you for your feedback</h2>
+                    <div class="star"></div>
+                    <p>We hope your feedback can improve quality in the workplace.</p>
+
+                    {% if data_company.checked == True %}
+                        <p style="margin: 0;">You have already left a review. This link is disposable!</p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <div class="powered">powered by <a href="/">KnowEmployee</a></div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    {{ data_company.questions|safe }}
+    <script src="{{ url_for('static', filename='js/testing.js') }}"></script>
+</body>
+</html>
