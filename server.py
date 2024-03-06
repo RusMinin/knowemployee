@@ -28,6 +28,7 @@ import base64
 from PIL import Image
 import io
 
+# DOMAIN = "http://localhost:5000"
 DOMAIN = "http://127.0.0.1:5000"
 NAME_PLATFORM = "KnowEmployee"
 app = Flask(__name__)
@@ -161,7 +162,7 @@ def send_mail(recipient, token, type="register"):
     global body
     try:
         msg = MIMEText(body)
-        body = f"Click the link to confirm: http://localhost:5000/confirm/{token}"
+        body = f"Click the link to confirm: {DOMAIN}/confirm/{token}"
         subject = NAME_PLATFORM + ' | eMail confirmation'
         sender = "xmax2006@gmail.com"
         email_password = "Liokap01"
