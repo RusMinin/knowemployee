@@ -1599,4 +1599,4 @@ if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade
     run_migrations()
-    app.run(debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
