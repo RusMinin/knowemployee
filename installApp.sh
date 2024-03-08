@@ -17,7 +17,12 @@ sudo apt autoremove -y # Remove all tails (if there are any)
 # Download and extract msfonts
 wget https://www.freedesktop.org/software/fontconfig/webfonts/webfonts.tar.gz
 tar -xzf webfonts.tar.gz
+rm -rf webfonts.tar.gz
 cd msfonts/
 cabextract *.exe
 rm -rf *.exe *.EXE
+cd ..
+
+# Add service file to system directory
+sudo cp knowemployee.service /etc/systemd/system/
 
