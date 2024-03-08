@@ -11,4 +11,13 @@ pip  install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptogr
 
 sudo apt install sqlite3 sqlitebrowser -y # We need SQLite
 sudo apt install nginx -y # We need NGINX 
+sudo apt install cabextract -y # This is needed for msfonts extraction
 sudo apt autoremove -y # Remove all tails (if there are any)
+
+# Download and extract msfonts
+wget https://www.freedesktop.org/software/fontconfig/webfonts/webfonts.tar.gz
+tar -xzf webfonts.tar.gz
+cd msfonts/
+cabextract *.exe
+rm -rf *.exe
+

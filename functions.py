@@ -28,7 +28,7 @@ def create_image_with_qrcode(url, company_name, background_image_path):
     base_img.paste(qr_img, (x, y))
 
     draw = ImageDraw.Draw(base_img)
-    font_path = "/System/Library/Fonts/Supplemental/Arial.ttf"
+    font_path = "msfonts/Arial.ttf"
     font = ImageFont.truetype(font_path, 35)
     
     #text_width, text_height = draw.textlength(company_name, font=font_path)
