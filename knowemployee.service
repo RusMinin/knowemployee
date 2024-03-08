@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=ubuntu
 Group=www-data
-WorkingDirectory=/home/ubuntu/KnowEmployee
+WorkingDirectory=/home/ubuntu/knowemployee
 Environment="PATH=/home/ubuntu/env/knowemployee/bin"
 ExecStart=/home/ubuntu/env/knowemployee/bin/gunicorn --workers 3 --bind unix:knowemployee.sock -m 007 wsgi:app
 

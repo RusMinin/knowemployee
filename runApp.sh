@@ -19,5 +19,5 @@ wget https://www.freedesktop.org/software/fontconfig/webfonts/webfonts.tar.gz
 tar -xzf webfonts.tar.gz
 cd msfonts/
 cabextract *.exe
-rm -rf *.exe
+rm -rf *.exe *.EXE
 
