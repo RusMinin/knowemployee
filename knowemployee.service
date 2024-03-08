@@ -1,0 +1,14 @@
+### sudo vim /etc/systemd/system/knowemployee.service ###
+[Unit]
+Description=Gunicorn instance to serve peak Flash app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/KnowEmploee
+Environment="PATH=/home/ubuntu/env/KnowEmployee/bin"
+ExecStart=/home/ubuntu/env/KnowEmployee/bin/gunicorn --workers 3 --bind unix:server.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target

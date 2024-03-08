@@ -9,3 +9,5 @@ For running on Ubuntu server in dev environment, please use the
 "runApp.sh" script (take care of executing permissions in case it doesn't run propriately)
 
 for any questions, please contact "askme@knowemployee.com"
+
+
