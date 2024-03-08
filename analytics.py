@@ -1,4 +1,4 @@
-from server import app, db, TestingResult, GPTPricer, decrypt
+from knowemployee import app, db, TestingResult, GPTPricer, decrypt
 import time
 import json
 import openai
