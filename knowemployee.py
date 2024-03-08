@@ -28,7 +28,7 @@ import base64
 from PIL import Image
 import io
 
-# DOMAIN = "http://localhost:5000"
+
 DOMAIN = "http://127.0.0.1:5000"
 NAME_PLATFORM = "KnowEmployee"
 app = Flask(__name__)
