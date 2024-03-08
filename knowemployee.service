@@ -7,8 +7,8 @@ After=network.target
 User=ubuntu
 Group=www-data
 WorkingDirectory=/home/ubuntu/KnowEmploee
-Environment="PATH=/home/ubuntu/env/KnowEmployee/bin"
-ExecStart=/home/ubuntu/env/KnowEmployee/bin/gunicorn --workers 3 --bind unix:server.sock -m 007 wsgi:app
+Environment="PATH=/home/ubuntu/env/knowemployee/bin"
+ExecStart=/home/ubuntu/env/knowemployee/bin/gunicorn --workers 3 --bind unix:knowemployee.sock -m 007 wsgi:app
 
 [Install]
 WantedBy=multi-user.target
