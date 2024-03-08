@@ -29,7 +29,8 @@ from PIL import Image
 import io
 
 
-DOMAIN = "http://127.0.0.1:5000"
+# DOMAIN = "http://127.0.0.1:5000"
+DOMAIN = "knowemployee.com"
 NAME_PLATFORM = "KnowEmployee"
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '97473497e94c7289a98fae8e9636ae67'
