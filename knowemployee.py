@@ -160,27 +160,31 @@ def qrCodeAnonimusFeedback(hash, company_name):
     return base64_img
 
 def send_mail(recipient, token, type="register"):
-    global body
+
+    msg = MIMEText(body)
+    body = f"Click the link to confirm: {DOMAIN}/confirm/{token}"
+    subject = NAME_PLATFORM + ' | eMail confirmation'
+    sender = "knowemployee.ca@gmail.com"
+    email_password = "uhfazfpcwrknqqna"
+
+    msg['Subject'] = subject
+    msg['From'] = sender
+    msg['To'] = recipient
+    msg['Body'] = body
+    
     try:
-        msg = MIMEText(body)
-        body = f"Click the link to confirm: {DOMAIN}/confirm/{token}"
-        subject = NAME_PLATFORM + ' | eMail confirmation'
-        sender = "xmax2006@gmail.com"
-        email_password = "Liokap01"
-
-        msg['Subject'] = subject
-        msg['From'] = sender
-        msg['To'] = recipient
-        msg['Body'] = body
-
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-            smtp_server.login(sender, email_password)
-            smtp_server.sendmail(sender, recipient, msg.as_string())
-            print("Verifivation eMail sent!")
+        smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        
+        smtp_server.login(sender, email_password)
+        smtp_server.sendmail(sender, recipient, msg.as_string())
+        smtp_server.quit()
+        print("Verifivation eMail sent!")
         
         return True
+    
     except Exception as e:
         print(f"Error sending email: {e}")
+        
         return False
 
 @app.route('/')
