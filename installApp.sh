@@ -8,7 +8,7 @@ python3 -m venv ~/env/knowemployee # Create python virtual environment
 sleep 3 # it may take time, so let's give it 3 seconds :)
 source ~/env/knowemployee/bin/activate # Connect to python virtual environment
 
-pip  install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptography openai python-dotenv qrcode Pillow flask_migrate requests scrypt gunicorn # Install needed dependencies 
+pip  install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptography openai python-dotenv qrcode Pillow flask_migrate requests scrypt wheel gunicorn # Install needed dependencies 
 
 sudo apt install sqlite3 sqlitebrowser -y # We need SQLite
 sudo apt install nginx -y # We need NGINX 
