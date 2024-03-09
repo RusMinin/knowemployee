@@ -4,7 +4,7 @@ sudo apt install -y python # We need python
 
 git clone git@github.com:KnowEmploee/knowemployee.git # Clone KnowEmployee repository as local branch
 
-python -m venv ~/env/knowemployee # Create python virtual environment
+python3 -m venv ~/env/knowemployee # Create python virtual environment
 sleep 3 # it may take time, so let's give it 3 seconds :)
 source ~/env/knowemployee/bin/activate # Connect to python virtual environment
 
