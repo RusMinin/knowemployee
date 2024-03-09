@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt update -y # Update server to latest stable version
-sudo apt install -y python # We need python
+sudo apt install -y python*-venv # We need python
 
 git clone git@github.com:KnowEmploee/knowemployee.git # Clone KnowEmployee repository as local branch
 
@@ -26,4 +26,8 @@ cd ..
 
 # Add service file to system directory
 sudo cp knowemployee.service /etc/systemd/system/
+
+# Add configuration file to NGINX
+sudo cp knowemployee.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/knowemployee.conf /etc/nginx/sites-enabled
 
