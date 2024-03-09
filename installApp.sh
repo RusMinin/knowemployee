@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt update -y # Update server to latest stable version
+sudo apt install -y python # We need python
 
 git clone git@github.com:KnowEmploee/knowemployee.git # Clone KnowEmployee repository as local branch
 
