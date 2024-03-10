@@ -6,6 +6,7 @@ import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 import smtplib, ssl
 from email.message import EmailMessage
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import uuid
 from deepgram import Deepgram
@@ -29,7 +30,7 @@ from PIL import Image
 import io
 
 
-# DOMAIN = "http://127.0.0.1:5000"
+# DOMAIN = "http://127.0.0.1:3000"
 DOMAIN = "knowemployee.com"
 NAME_PLATFORM = "KnowEmployee"
 app = Flask(__name__)
@@ -161,16 +162,17 @@ def qrCodeAnonimusFeedback(hash, company_name):
 
 def send_mail(recipient, token, type="register"):
 
-    msg = MIMEText(body)
+    msg = MIMEMultipart()
     body = f"Click the link to confirm: {DOMAIN}/confirm/{token}"
     subject = NAME_PLATFORM + ' | eMail confirmation'
     sender = "knowemployee.ca@gmail.com"
-    email_password = "uhfazfpcwrknqqna"
+    email_password = "xeuvnobietzcfdld"
 
+    
     msg['Subject'] = subject
     msg['From'] = sender
     msg['To'] = recipient
-    msg['Body'] = body
+    msg.attach(MIMEText(body, 'plain'))
     
     try:
         smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
@@ -1604,4 +1606,4 @@ if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade
     run_migrations()
-    app.run('0.0.0.0', port=5000, debug=True)
+    app.run('0.0.0.0', port=3000, debug=True)
