@@ -12,3 +12,5 @@ Pillow==10.0.1
 flask_migrate==4.0.5
 scrypt==0.8.20
 requests==2.31.0
+wheel
+gunicorn
