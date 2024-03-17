@@ -31,3 +31,9 @@ sudo cp knowemployee.service /etc/systemd/system/
 sudo cp knowemployee.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/knowemployee.conf /etc/nginx/sites-enabled
 
+# Create log files for gunicorn logging 
+me = $(whoami)
+sudo mkdir /var/log/gunicorn
+sudo chown $me:$me /var/log/gunicorn
+touch /var/log/gunicorn/gunicorn.access.log
+touch /var/log/gunicorn/gunicorn.error.log
