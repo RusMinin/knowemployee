@@ -896,9 +896,20 @@ $hover_box: #0a88ffe8;
         font-size: 15px;
       }
 
+      .logo {
+        margin-top: -35px;
+      }
+
       p {
         font-size: 15px;
         color: #838383;
+      }
+
+      @media (max-width: 768px) {
+        .logo {
+          margin-top: 25px;
+          text-align: center;
+        }
       }
     }
   }

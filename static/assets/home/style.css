@@ -729,9 +729,17 @@ body {
   color: #838383;
   font-size: 15px; }
 
+.footer .content .about_us_short .logo {
+  margin-top: -35px; }
+
 .footer .content .about_us_short p {
   font-size: 15px;
   color: #838383; }
+
+@media (max-width: 768px) {
+  .footer .content .about_us_short .logo {
+    margin-top: 25px;
+    text-align: center; } }
 
 .footer .copyright {
   width: 100%;
