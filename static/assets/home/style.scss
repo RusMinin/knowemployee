@@ -5,12 +5,18 @@
   font-family: "Helvetica Neue", "Arial";
 }
 
+$dark_g: #37A408;
+$light_g: #53EB12;
+$dark_bg: #424141;
+$light_t: #D9D9D9;
+$dark_t: #AFAFAF;
+
+
 a, button {
   cursor: pointer;
 }
 
 .wrapper {
-  display: none;
   max-width: 1200px;
   width: 90%;
   padding: 0 20px;
@@ -35,7 +41,6 @@ a, button {
     backdrop-filter: blur(10px);
     padding: 0;
 
-
     .menu_h {
       border-radius: 10px;
       display: flex;
@@ -50,7 +55,6 @@ a, button {
       .menu_h {
         flex-direction: row;
       }
-
     }
 
     .l {
@@ -89,6 +93,7 @@ a, button {
         width: 100%;
         padding: 25px 0;
       }
+
       .toggle {
         display: block;
         position: absolute;
@@ -98,8 +103,9 @@ a, button {
         height: 40px;
         background: transparent;
         cursor: pointer;
-        box-shadow: inset 0 2px 0 #37A408, inset 0 12px 0 #f8f8f8, inset 0 13px 0 #53EB12, inset 0 14px 0 #37A408, inset 0 24px 0 #f8f8f8, inset 0 25px 0 #53EB12, inset 0 26px 0 #37A408;
+        box-shadow: inset 0 2px 0 $dark_g, inset 0 12px 0 #f8f8f8, inset 0 13px 0 $light_g, inset 0 14px 0 $dark_g, inset 0 24px 0 #f8f8f8, inset 0 25px 0 $light_g, inset 0 26px 0 $dark_g;
       }
+
       .cross {
         display: block;
         position: absolute;
@@ -118,35 +124,35 @@ a, button {
         width: 50px;
         height: 4px;
         background: transparent;
-        box-shadow: 0px 2px #53EB12;
+        box-shadow: 0px 2px $light_g;
       }
 
       .cross::before {
         transform: translate(-44%, -50%) rotate(40deg);
       }
-
       .cross::after {
         transform: translate(-50%, -50%) rotate(-40deg);
       }
-
-
-      .menu {
-        display: block;
-        display: flex;
-        flex-direction: column;
-      }
-
       .r {
         width: 100%;
 
         .menu {
+          display: flex;
+          flex-direction: column;
+
           a {
+            padding: 12px 20px;
             display: block;
             text-align: center;
-            box-shadow: 0 1px 0 #53EB12,
-            0 2px 0 #37A408;
+            box-shadow: 0 1px 0 $light_g,
+            0 2px 0 $dark_g;
             border-radius: 0;
             font-size: 20px;
+          }
+
+          a:hover {
+            box-shadow: inset 0 4px 10px 1px #37A408,
+            inset 0 -4px 10px 1px #53EB12;
           }
 
           .up {
@@ -154,6 +160,21 @@ a, button {
             color: inherit;
           }
         }
+      }
+
+      .menu_h {
+        align-items: flex-start;
+      }
+
+      .l {
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (min-width: 767px) {
+      .menu {
+        flex-direction: row;
       }
     }
 

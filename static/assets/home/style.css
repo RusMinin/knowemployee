@@ -8,7 +8,6 @@ a, button {
   cursor: pointer; }
 
 .wrapper {
-  display: none;
   max-width: 1200px;
   width: 90%;
   padding: 0 20px; }
@@ -103,21 +102,32 @@ a, button {
     transform: translate(-44%, -50%) rotate(40deg); }
   .wrapper_container .header .cross::after {
     transform: translate(-50%, -50%) rotate(-40deg); }
-  .wrapper_container .header .menu {
-    display: block;
-    display: flex;
-    flex-direction: column; }
   .wrapper_container .header .r {
     width: 100%; }
+  .wrapper_container .header .r .menu {
+    display: flex;
+    flex-direction: column; }
   .wrapper_container .header .r .menu a {
+    padding: 12px 20px;
     display: block;
     text-align: center;
-    box-shadow: 0 1px 0 #53EB12, 0 2px 0 #37A408;
+    box-shadow: 0 1px 0 #53EB12, 0 2px 0 #37A408;
     border-radius: 0;
     font-size: 20px; }
+  .wrapper_container .header .r .menu a:hover {
+    box-shadow: inset 0 4px 10px 1px #37A408, inset 0 -4px 10px 1px #53EB12; }
   .wrapper_container .header .r .menu .up {
     background-color: transparent;
-    color: inherit; } }
+    color: inherit; }
+  .wrapper_container .header .menu_h {
+    align-items: flex-start; }
+  .wrapper_container .header .l {
+    width: 90%;
+    margin: 0 auto; } }
+
+@media (min-width: 767px) {
+  .wrapper_container .header .menu {
+    flex-direction: row; } }
 
 .wrapper_container .header .content {
   width: 100%;
