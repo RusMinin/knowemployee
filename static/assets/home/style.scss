@@ -376,6 +376,49 @@ body {
   }
 }
 
+.w-features {
+  width: 100%;
+  background-color: $dark_bg;
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .feature_item {
+    width: 200px;
+    margin-top: 24px;
+    margin-bottom: 50px;
+    font-weight: 600;
+    position: relative;
+    text-align: center;
+    color: $light_t;
+
+    h3 {
+      margin-bottom: 5px;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.feature_item::before {
+  content: url(icon.svg);
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: -55px;
+  left: -36px;
+  overflow: hidden;
+}
+
 .w-short {
   width: 100%;
   display: flex;
