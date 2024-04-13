@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-if(document.querySelector('.w-services')){
-    $('.w-services .wrap_slider .box').click((e)=>{
+if (document.querySelector('.w-services')) {
+    $('.w-services .wrap_slider .box').click((e) => {
         let target = $(e.target)
         let father_index = $(target).closest('.box').index()
         $('.w-services .wrap_slider .box').removeClass('active');
@@ -35,3 +35,22 @@ if(document.querySelector('.w-services')){
         $(el).removeClass("hidden")
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const crossButton = document.querySelector('.cross');
+    const toggleButton = document.querySelector('.toggle');
+    const menu = document.querySelector('.menu');
+    const button = document.querySelector('.menu_toggler');
+
+    button.addEventListener('click', () => {
+        if (button.classList.contains('cross')) {
+            button.classList.remove('cross');
+            menu.style.display = 'none';
+            button.classList.add('toggle');
+        } else {
+            button.classList.remove('toggle');
+            menu.style.display = 'block'
+            button.classList.add('cross');
+        }
+    });
+});
