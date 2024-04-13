@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", "SansSerif", serif; }
+  font-family: "Open Sans", "SansSerif", sans-serif; }
 
 .button {
   display: flex;
@@ -23,7 +23,8 @@
   font-weight: 700; }
 
 .button:active {
-  background-color: #34DD0A; }
+  background-color: #34DD0A;
+  color: #424141; }
 
 /*Visually hidden class used
  for better interaction with
@@ -636,6 +637,29 @@ body {
 .w-know-dark .wrapper .title {
   color: white; }
 
+.bg-dark {
+  background-color: #424141; }
+
+.w-contact-us {
+  width: 100%; }
+
+.w-contact-us .wrapper {
+  max-width: 1200px;
+  margin: 80px auto 55px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.w-contact-us .wrapper .description {
+  max-width: 620px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 20px; }
+
+.w-contact-us .wrapper .button {
+  width: 222px; }
+
 .footer {
   width: 100%;
   min-height: 500px;
@@ -654,11 +678,14 @@ body {
   width: 100%;
   flex: 1 1 auto;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .footer .content .list {
   display: flex;
-  gap: 80px; }
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center; }
 
 .footer .content .list .column {
   display: flex;
@@ -685,6 +712,12 @@ body {
   color: #ffffffd2;
   font-size: 15px;
   text-decoration: none; }
+
+@media (max-width: 768px) {
+  .footer .content .list .column {
+    align-items: center; }
+  .footer .content .list .column li {
+    justify-content: center; } }
 
 .footer .content .about_us_short {
   max-width: 300px;

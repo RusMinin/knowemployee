@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", "SansSerif", serif;
+  font-family: "Open Sans", "SansSerif", sans-serif;
 }
 
 $dark_g: #37A408;
@@ -32,6 +32,7 @@ $dark_t: #AFAFAF;
 
 .button:active {
   background-color: $light_g;
+  color: $dark_bg;
 }
 
 /*Visually hidden class used
@@ -766,6 +767,7 @@ $hover_box: #0a88ffe8;
 .w-know-light {
   .wrapper {
     color: #000000;
+
     .description {
       color: $dark-t;
     }
@@ -774,13 +776,43 @@ $hover_box: #0a88ffe8;
 
 .w-know-dark {
   background-color: $dark_bg;
+
   .wrapper {
     color: $dark-t;
+
     .title {
       color: white;
     }
   }
 
+}
+
+.bg-dark {
+  background-color: $dark_bg;
+}
+
+.w-contact-us {
+  width: 100%;
+
+  .wrapper {
+    max-width: 1200px;
+    margin: 80px auto 55px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .description {
+      max-width: 620px;
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 20px;
+    }
+
+    .button {
+      width: 222px;
+    }
+  }
 }
 
 .footer {
@@ -803,14 +835,18 @@ $hover_box: #0a88ffe8;
     flex: 1 1 auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .list {
       display: flex;
+      flex-wrap: wrap;
       gap: 80px;
+      justify-content: center;
 
       .column {
         display: flex;
         flex-direction: column;
+
 
         h2 {
           color: #fff;
@@ -835,6 +871,15 @@ $hover_box: #0a88ffe8;
               font-size: 15px;
               text-decoration: none;
             }
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        .column {
+          align-items: center;
+          li {
+            justify-content: center;
           }
         }
       }
