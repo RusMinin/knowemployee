@@ -202,8 +202,9 @@ def home():
                 is_authenticated = True
         except (jwt.ExpiredSignatureError, jwt.InvalidTokenError):
             pass
+    year = datetime.datetime.now().year
 
-    return render_template('index.html', is_authenticated=is_authenticated)
+    return render_template('index.html', year=year, is_authenticated=is_authenticated)
 
 def token_required(f):
     @wraps(f)
