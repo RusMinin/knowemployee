@@ -414,7 +414,8 @@ body {
 }
 
 .item::before,
-.feature_item::before {
+.feature_item::before,
+.subscribe-content::before {
   content: url(icon.svg);
   width: 165px;
   height: 180px;
@@ -878,6 +879,7 @@ $hover_box: #0a88ffe8;
       @media (max-width: 768px) {
         .column {
           align-items: center;
+
           li {
             justify-content: center;
           }
@@ -1057,5 +1059,64 @@ $hover_box: #0a88ffe8;
   .box span i:nth-child(2) {
     font-style: initial;
     color: #D4fC70;
+  }
+}
+
+
+.w-subscribe {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .wrapper {
+    margin: 0 auto;
+  }
+
+  .subscribe-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 500px;
+
+    h3 {
+      margin-top: 120px;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 27px;
+    }
+
+    p {
+      width: 196px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      color: $dark_t;
+      text-align: center;
+    }
+  }
+
+  .subscribe-content::before {
+    top: 76%;
+    left: 50%;
+    transform: translate(-63%, -51%);
+  }
+
+  .subscribe-content::after {
+    content: '';
+    background: url("../images/people.png") center / cover no-repeat;
+    position: absolute;
+    top: 430px;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 449px;
+  }
+
+  .logo {
+    width: 100%;
+    background-color: $dark_bg;
+    display: flex;
+    justify-content: center;
   }
 }
