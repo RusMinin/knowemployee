@@ -1,7 +1,11 @@
+@import url('https://fonts.google.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 $dark_g: #37A408;
@@ -235,7 +239,6 @@ body {
 
     .content {
       width: 100%;
-      min-height: 500px;
       align-items: center;
       display: flex;
       justify-content: center;
@@ -256,6 +259,7 @@ body {
 
         .welcome {
           width: 60%;
+          padding: 25px 0;
           display: flex;
           gap: 15px;
           background-color: $dark_bg;
