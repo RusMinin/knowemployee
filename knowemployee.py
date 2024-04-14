@@ -206,6 +206,10 @@ def home():
 
     return render_template('index.html', year=year, is_authenticated=is_authenticated)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):

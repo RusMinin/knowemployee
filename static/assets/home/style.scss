@@ -1,8 +1,9 @@
+@import url('https://fonts.google.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", "SansSerif", sans-serif;
 }
 
 $dark_g: #37A408;
@@ -1104,7 +1105,7 @@ $hover_box: #0a88ffe8;
 
   .subscribe-content::after {
     content: '';
-    background: url("../images/people.png") center / cover no-repeat;
+    background: url("../images/people.png") center / contain no-repeat;
     position: absolute;
     top: 430px;
     left: 47%;
