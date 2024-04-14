@@ -318,16 +318,6 @@ body {
           }
         }
 
-        .welcome::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          right: -300px;
-          background: url(welcome.png) center / contain no-repeat;
-          z-index: 1;
-        }
 
         @media (max-width: 768px) {
           .welcome {
@@ -1124,4 +1114,16 @@ $hover_box: #0a88ffe8;
   background-color: $dark_bg;
   display: flex;
   justify-content: center;
+}
+
+
+.welcome::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -300px;
+  background: url(welcome.png) center / contain no-repeat;
+  z-index: 1;
 }
