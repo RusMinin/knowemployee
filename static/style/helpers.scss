@@ -1,5 +1,6 @@
-// home/style.scss 17-39
-//code duplicates
+@import url('https://fonts.google.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
+
+
 $dark_g: #37A408;
 $light_g: #34DD0A;
 $dark_bg: #424141;
@@ -25,11 +26,6 @@ $dark_t: #AFAFAF;
   cursor: pointer;
   border: none;
   cursor: pointer;
-}
-
-.button:active {
-  background-color: $light_g;
-  color: $dark_bg;
 }
 
 
@@ -74,3 +70,20 @@ body {
   font-size: 15px;
 }
 
+.button_big {
+  margin: 0 auto;
+  padding: 16px;
+  width: 295px;
+  display: block;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+
+.button:active {
+  background-color: $light_g;
+  color: $dark_bg;
+}

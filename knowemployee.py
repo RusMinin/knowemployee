@@ -1608,9 +1608,15 @@ def get_user_data(current_user):
     return jsonify({'status': True, 'data': output})
 
 
-@app.route("/chunks")
-def chunks():
+@app.route("/chunks/pre-questionary")
+def pre_questionary():
     return render_template("ui_chunks/pre-questionary.html")
+
+@app.route("/chunks/ai-team")
+def ai_team():
+    return render_template("ui_chunks/ai-team.html")
+
+
 
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"
