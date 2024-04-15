@@ -138,11 +138,37 @@ $dark_t: #AFAFAF;
 
   .button_big {
     margin: 0 auto;
+    padding: 16px;
     width: 295px;
     display: block;
     border-radius: 10px;
+    font-size: 25px;
     font-weight: 800;
     text-align: center;
+    text-transform: capitalize;
+  }
+
+  .wrapper {
+    margin: 0 auto 88px;
+    max-width: 960px;
+
+    .title {
+      margin-top: 75px;
+      order: 1;
+    }
+
+    .description {
+      margin-top: 0;
+      order: 0;
+    }
+
+    .items {
+      order: 3;
+
+      .item {
+        margin-top: 94px;
+      }
+    }
   }
 
   .button-wrapper {
