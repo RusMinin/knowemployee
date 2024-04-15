@@ -1607,6 +1607,11 @@ def get_user_data(current_user):
 
     return jsonify({'status': True, 'data': output})
 
+
+@app.route("/chunks")
+def chunks():
+    return render_template("ui_chunks/pre-questionary.html")
+
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade

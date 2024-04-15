@@ -1,0 +1,176 @@
+//code duplicates
+$dark_g: #37A408;
+$light_g: #34DD0A;
+$dark_bg: #424141;
+$light_t: #D9D9D9;
+$dark_t: #AFAFAF;
+
+// home/style.scss 17-39
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-sizing: border-box;
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 20px;
+  margin-top: 10px;
+  background-color: #000000;
+  font-size: 12px;
+  line-height: 27px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+//end code duplicates
+
+
+
+//styles for w-know
+.w-know {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto 146px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    margin-top: 40px;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 27px;
+  }
+
+  .description {
+    margin-top: 65px;
+    max-width: 830px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .items {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .item {
+    margin: 90px 0 2px;
+    width: 263px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .item::before {
+    left: 30px;
+  }
+}
+
+.item::before,
+.feature_item::before,
+.subscribe-content::before {
+  content: url(../home/icon.svg);
+  width: 165px;
+  height: 180px;
+  position: absolute;
+  bottom: -45px;
+  left: -6px;
+  overflow: hidden;
+}
+
+.w-know-light {
+  .wrapper {
+    color: #000000;
+
+    .description {
+      color: $dark_t;
+    }
+  }
+}
+
+.w-know-dark, .footer-logo-dark {
+  background-color: $dark_bg;
+
+  .wrapper {
+    color: $dark_t;
+
+    .title {
+      color: #ffffff;
+    }
+  }
+}
+
+//end w-know
+
+.pre-questionary {
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .image {
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .button_big {
+    margin: 0 auto;
+    width: 295px;
+    display: block;
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  .button-wrapper {
+    padding-bottom: 90px;
+  }
+
+  .button_big-light {
+    background-color: $light_t;
+  }
+
+  .button_big-dark {
+    background-color: $dark_bg;
+  }
+
+  .light {
+    background-color: inherit;
+  }
+
+  .dark {
+    background-color: $dark_bg;
+  }
+}
+
+
+.button:active {
+  background-color: $light_g;
+  color: $light_t;
+}
+
+
+
