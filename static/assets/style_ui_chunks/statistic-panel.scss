@@ -1,0 +1,21 @@
+@import '../../style/helpers.scss';
+
+.survey {
+  .wrapper {
+    max-width: 1275px;
+    margin: 40px auto 192px;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 27px;
+
+    .logo {
+      width: 25%;
+      background: $dark_bg;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 80%;
+    }
+  }
+}

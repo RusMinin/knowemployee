@@ -36,7 +36,8 @@
       }
 
       input {
-        width: 482px;
+        width: 90%;
+        max-width: 482px;
         padding: 20px;
         margin: 38px 0 25px;
         border: none;
@@ -55,6 +56,20 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+      align-content: center;
+      margin-bottom: 80px;
+
+      .container .question {
+        margin-top: 55px;
+      }
+    }
+  }
 }
+
+
 
 

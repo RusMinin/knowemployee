@@ -1621,6 +1621,11 @@ def ai_team():
 def survey():
     return render_template("ui_chunks/survey.html")
 
+@app.route("/chunks/statistic")
+def statistic_panel():
+    return render_template("ui_chunks/statistic-panel.html")
+
+
 
 
 

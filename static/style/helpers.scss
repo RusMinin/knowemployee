@@ -69,12 +69,10 @@ a, button {
 
 body {
   font-size: 15px;
+  margin: 0;
+  background: #ffffff;
 }
 
-.button:active {
-  background-color: $light_g;
-  color: $dark_bg;
-}
 
 .button_big {
   margin: 0 auto;
@@ -90,7 +88,8 @@ body {
   text-transform: capitalize;
 }
 
-body {
-  margin: 0;
-  background: #ffffff;
+
+.button:active {
+  background-color: $light_g;
+  color: #ffffff;
 }
