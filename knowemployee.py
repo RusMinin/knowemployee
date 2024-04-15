@@ -1617,6 +1617,12 @@ def ai_team():
     return render_template("ui_chunks/ai-team.html")
 
 
+@app.route("/chunks/survey")
+def survey():
+    return render_template("ui_chunks/survey.html")
+
+
+
 
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"

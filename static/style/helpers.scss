@@ -7,6 +7,7 @@ $dark_bg: #424141;
 $light_t: #D9D9D9;
 $dark_t: #AFAFAF;
 
+
 .button {
   display: flex;
   justify-content: center;
@@ -70,20 +71,26 @@ body {
   font-size: 15px;
 }
 
+.button:active {
+  background-color: $light_g;
+  color: $dark_bg;
+}
+
 .button_big {
   margin: 0 auto;
   padding: 16px;
   width: 295px;
   display: block;
   border-radius: 10px;
+  color: #ffffff;
+  background-color: $dark_bg;
   font-size: 25px;
   font-weight: 800;
   text-align: center;
   text-transform: capitalize;
 }
 
-
-.button:active {
-  background-color: $light_g;
-  color: $dark_bg;
+body {
+  margin: 0;
+  background: #ffffff;
 }
