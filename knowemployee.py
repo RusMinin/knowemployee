@@ -206,9 +206,6 @@ def home():
 
     return render_template('index.html', year=year, is_authenticated=is_authenticated)
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
 
 def token_required(f):
     @wraps(f)
@@ -1625,7 +1622,9 @@ def survey():
 def statistic_panel():
     return render_template("ui_chunks/statistic-panel.html")
 
-
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 
