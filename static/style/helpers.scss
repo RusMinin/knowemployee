@@ -37,6 +37,11 @@ $dark_t: #AFAFAF;
   font-family: 'Open Sans', sans-serif;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 /*Visually hidden class used
  for better interaction with
  screen readers and better accessibility*/
@@ -93,3 +98,4 @@ body {
   background-color: $light_g;
   color: #ffffff;
 }
+

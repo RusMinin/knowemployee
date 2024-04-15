@@ -5,29 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/style_ui_chunks/statistic-panel.css') }}"
           type="text/css">
-    <title>Survey Suestions</title>
+    <title>Employee Feedback</title>
 </head>
-<body class="survey">
-<div class="wrapper">
-    <div class="logo">
-        <img src="./../../static/assets/images/logo-light.svg">
+<body>
+<h1 class="visually-hidden">Statistic of your feedbacks</h1>
+<div class="sidebar">
+    <img src="./../../static/assets/images/logo-light.svg">
+    <nav>
+        <ul class="sidebar_items">
+            <li><a class="button button_big" href="#">Dashboard</a></li>
+            <li><a class="button button_big" href="#">Analytics</a></li>
+            <li><a class="button button_big" href="#">Settings</a></li>
+            <li><a class="button button_big" href="#">Support</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <div class="feedback-header">
+        <h3>Anonymous Feedback</h3>
+        <span class="feedback-date">12 Oct 2023 11:43</span>
     </div>
-    <div class="container">
-        <div class="question">
-            <p class="question_info">Question 1/10</p>
-            <p class="question_content">How would you rate overall culture and climate of the company on a scale from 1 to 10? Please, specify
-                the
-                reasons of your rating.</p>
+    <div class="feedback">
+        <p><span>Question 1:</span> How would you rate overall culture and climate of the company on a scale from 1
+            to 10? Please, specify the reasons of your rating.</p>
+        <p><span>Analysis:</span> While the rating is positive, the feedback suggests there is room for improvement.
+            The employee mentioned a desire for more opportunities for professional growth and development, which
+            could further enhance the overall satisfaction with the company's culture.</p>
+        <div class="summarization">
+            <h3>Summarization:</h3>
+            <p>
+                Employees particularly appreciate the collaborative work culture, with 88% expressing a sense of
+                camaraderie
+                and teamwork. Moreover, the flexible work arrangements have garnered positive feedback, with 94% of
+                respondents noting increased job satisfaction due to the adaptable scheduling options.</br>
+                While the majority of
+                employees feel supported by the company's leadership, some constructive feedback highlighted the desire
+                for
+                more professional development opportunities. We are committed to addressing these concerns and fostering
+                an
+                environment that not only maintains high satisfaction levels but also promotes continuous growth and
+                well-being among our valued team members.
+            </p>
         </div>
-        <input type="text"/>
-        <div class="disclaimer">
-            Your thoughtful and honest responses are crucial for your employer. Answering thoughtfully ensures
-            meaningful
-            insights that contribute to a better work environment. Rest assured, your responses are completely
-            anonymous,
-            prioritizing your privacy throughout the process.
-        </div>
-        <a href="#" class="button button_big">Continue</a>
     </div>
 </div>
 </body>
