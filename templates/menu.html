@@ -1,7 +1,7 @@
 <div class="menu_h wrapper">
     <div class="l">
         <div class="logo">
-            <img src="{{ url_for('static', filename='assets/images/logo-dark.svg') }}" alt="KnowEmployee">
+            <img src="../static/assets/images/logo-dark.svg" alt="KnowEmployee">
             <h3 class="menu_lang">EN</h3>
         </div>
         <nav class="navigation">
@@ -11,9 +11,9 @@
     <div class="r">
         <div class="menu">
             <a href="/">Home</a>
-            <a href="{{url_for('contact')}}">Contact</a>
-            <a href="{{url_for('register')}}">Sign Up</a>
-            <a class="up" href="{{url_for('login')}}">Sign In</a>
+            <a href="/contact">Contact</a>
+            <a href="/register">Sign Up</a>
+            <a class="up" href="/login">Sign In</a>
         </div>
     </div>
 </div>
