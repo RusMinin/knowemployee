@@ -1,0 +1,57 @@
+@import '../../style/helpers.scss';
+
+html, body {
+  height: 100%;
+}
+
+.ai-team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image {
+    margin-bottom: 10px;
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    background-color: $light-t;
+  }
+
+  .button_big {
+    margin-top: 80px;
+    background-color: $dark_bg;
+  }
+
+  .button_big:active {
+    background-color: $light_g;
+  }
+}
+
+
+
+.header h1 {
+  color: #000000;
+  font-weight: 800;
+  margin-bottom: 34px;
+}
+
+.description p {
+  color: $dark_bg;
+  font-size: 18px;
+}
+
+.description p:first-child {
+  font-weight: 700;
+}
+
+.description p:last-child {
+  color: $dark_t;
+}

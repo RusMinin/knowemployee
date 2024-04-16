@@ -202,8 +202,10 @@ def home():
                 is_authenticated = True
         except (jwt.ExpiredSignatureError, jwt.InvalidTokenError):
             pass
+    year = datetime.datetime.now().year
 
-    return render_template('index.html', is_authenticated=is_authenticated)
+    return render_template('index.html', year=year, is_authenticated=is_authenticated)
+
 
 def token_required(f):
     @wraps(f)
@@ -1601,6 +1603,30 @@ def get_user_data(current_user):
         output.append(record_data)
 
     return jsonify({'status': True, 'data': output})
+
+
+@app.route("/chunks/pre-questionary")
+def pre_questionary():
+    return render_template("ui_chunks/pre-questionary.html")
+
+@app.route("/chunks/ai-team")
+def ai_team():
+    return render_template("ui_chunks/ai-team.html")
+
+
+@app.route("/chunks/survey")
+def survey():
+    return render_template("ui_chunks/survey.html")
+
+@app.route("/chunks/statistic")
+def statistic_panel():
+    return render_template("ui_chunks/statistic-panel.html")
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
 
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"

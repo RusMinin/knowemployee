@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-if(document.querySelector('.w-services')){
-    $('.w-services .wrap_slider .box').click((e)=>{
+if (document.querySelector('.w-services')) {
+    $('.w-services .wrap_slider .box').click((e) => {
         let target = $(e.target)
         let father_index = $(target).closest('.box').index()
         $('.w-services .wrap_slider .box').removeClass('active');

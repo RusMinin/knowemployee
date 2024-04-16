@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style_ui_chunks/survey.css') }}"
+          type="text/css">
+    <title>Survey Suestions</title>
+</head>
+<body class="survey">
+<div class="wrapper">
+    <div class="logo">
+        <img src="./../../static/assets/images/logo-dark.svg" alt="Know Employee survey page">
+    </div>
+    <div class="container">
+        <div class="question">
+            <p class="question_info">Question 1/10</p>
+            <p class="question_content">How would you rate overall culture and climate of the company on a scale from 1 to 10? Please, specify
+                the
+                reasons of your rating.</p>
+        </div>
+        <label for="answer">
+            <input id="answer" name="answer" type="text"/>
+        </label>
+        <div class="disclaimer">
+            Your thoughtful and honest responses are crucial for your employer. Answering thoughtfully ensures
+            meaningful
+            insights that contribute to a better work environment. Rest assured, your responses are completely
+            anonymous,
+            prioritizing your privacy throughout the process.
+        </div>
+        <a href="#" class="button button_big">Continue</a>
+    </div>
+</div>
+</body>
+</html>

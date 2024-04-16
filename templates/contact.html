@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='assets/contact/style.css') }}" type="text/css">
+{% endblock %}
+{% block title %}Contact KnowEmployee {% endblock %}
+{% block headercontent %}
+{% include 'header-contact.html' %}
+{% endblock %}
+{% block maincontent %}
+{% include "footer-logo.html" %}
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='assets/menu/script.js') }}"></script>
+{% endblock %}

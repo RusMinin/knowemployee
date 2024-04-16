@@ -1,0 +1,66 @@
+@import url('https://fonts.google.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
+
+$dark_g: #37A408;
+$light_g: #34DD0A;
+$dark_bg: #424141;
+$light_t: #D9D9D9;
+$dark_t: #AFAFAF;
+
+
+.h {
+  display: none;
+}
+
+.header-contact {
+  margin-top: 130px;
+  margin-bottom: 150px;
+  font-size: 25px;
+  line-height: 27px;
+  font-weight: 400;
+  color: $light_t;
+
+  .title {
+    margin-bottom: 50px;
+    font-weight: 800;
+    text-transform: capitalize;
+    font-size: 25px;
+    line-height: 27px;
+  }
+
+  .virtual-contacts {
+    margin-bottom: 15px;
+
+    a {
+      margin-left: 0 !important;
+      text-decoration: none;
+      color: $light_t;
+      font-size: 25px;
+      line-height: 27px;
+    }
+  }
+
+  address {
+    margin-left: 25px;
+    font-weight: inherit;
+    font-size: 25px;
+    line-height: 27px;
+    font-style: normal;
+    color: $light_t;
+    position: relative;
+  }
+
+  address::before {
+    display: block;
+    position: absolute;
+    content: url("./icon-location.svg");
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: -30px;
+    transform: scale(0.9);
+  }
+}
+
+.welcome::after {
+  background: url(../images/people.png) center / contain no-repeat;
+}

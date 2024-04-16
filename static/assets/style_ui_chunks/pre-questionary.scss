@@ -1,0 +1,155 @@
+@import '../../style/helpers.scss';
+
+
+//styles for w-know
+.w-know {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    max-width: 1000px;
+    margin: 40px auto 146px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    margin-top: 40px;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 27px;
+  }
+
+  .description {
+    margin-top: 65px;
+    max-width: 830px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  .items {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .item {
+    margin: 90px 0 2px;
+    width: 263px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .item::before {
+    left: 30px;
+  }
+}
+
+.item::before,
+.feature_item::before,
+.subscribe-content::before {
+  content: url(../home/icon.svg);
+  width: 165px;
+  height: 180px;
+  position: absolute;
+  bottom: -45px;
+  left: -6px;
+  overflow: hidden;
+}
+
+.w-know-light {
+  .wrapper {
+    color: #000000;
+
+    .description {
+      color: $dark_t;
+    }
+  }
+}
+
+.w-know-dark, .footer-logo-dark {
+  background-color: $dark_bg;
+
+  .wrapper {
+    color: $dark_t;
+
+    .title {
+      color: #ffffff;
+    }
+  }
+}
+
+//end w-know
+
+.pre-questionary {
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .image {
+    padding-top: 60px;
+    width: 100%;
+  }
+
+  .wrapper {
+    margin: 0 auto 88px;
+    max-width: 960px;
+
+    .title {
+      margin-top: 75px;
+      order: 1;
+    }
+
+    .description {
+      margin-top: 0;
+      order: 0;
+    }
+
+    .items {
+      order: 3;
+
+      .item {
+        margin-top: 94px;
+      }
+    }
+  }
+
+  .button-wrapper {
+    padding-bottom: 90px;
+  }
+
+  .button_big-light {
+    background-color: $dark_t;
+  }
+
+  .button_big-dark {
+    background-color: $dark_bg;
+  }
+
+  .light {
+    background-color: inherit;
+  }
+
+  .dark {
+    background-color: $dark_bg;
+  }
+}
+
+
+.button:active {
+  background-color: $light_g;
+  color: $light_t;
+}
+
+
+
