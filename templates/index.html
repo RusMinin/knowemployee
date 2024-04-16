@@ -3,7 +3,6 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='assets/home/style.css') }}" type="text/css">
 {% endblock %}
 {% block title %}KnowEmployee{% endblock %}
-
 {% block headercontent %} {% include "header-main.html" %} {% endblock %}
 {% block maincontent %}
 <section class="w-features">
@@ -22,19 +21,19 @@
         </div>
     </div>
 </section>
-{% set active_color = "light" %}
-{% include "w-know.html" %}
+{% set active_color = "light" %} {% include "w-know.html" %}
 <section class="w-contact-us bg-dark">
     <div class="wrapper">
-        <p class="description">Still have questions about our product? Would you like to test a product in your
-            company? Contact us to receive a personal advantageous offer.</p>
-        <a class="button" href="{{url_for('contact')}}">Contact us</a>
+        <p class="description">
+            Still have questions about our product? Would you like to test a product
+            in your company? Contact us to receive a personal advantageous offer.
+        </p>
+        <a class="button" href="/contact">Contact us</a>
     </div>
 </section>
 {% include "subscribe.html" %}
 {% include "footer-logo.html" %}
 {% include "footer.html" %}
-
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='assets/home/script.js') }}"></script>
