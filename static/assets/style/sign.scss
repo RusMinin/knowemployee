@@ -1,19 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&family=Noto+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import "static/style/helpers.scss";
 
 *{
     margin: 0;
     padding: 0;
-    // font-family: 'Gabarito';
-    font-family: 'Rubik';
+    font-family: 'Open Sans';
     box-sizing: border-box;
 }
 
 html, body{
     width: 100%;
     min-height: 100vh;
-    background: #ffffff;
+    background: $light_t;
+    background-image: url("../images/bg_inner.png");
 }
 
 body{
@@ -108,9 +107,9 @@ a:hover{
     height: 100%;
     overflow: hidden;
     border-radius: 10px;
-    
-    @include mq(0px){align-items: center; padding: 10px; display: flex; flex-direction: column;}  
-    @include mq(940px){padding: 0px; grid-template-columns: 1fr 1fr; display: grid; flex-direction: row;}  
+
+    @include mq(0px){align-items: center; padding: 10px; display: flex; flex-direction: column;}
+    @include mq(940px){padding: 0px; grid-template-columns: 1fr 1fr; display: grid; flex-direction: row;}
 }
 
 .q_acc{
@@ -347,7 +346,7 @@ $line1: #757efac2;
     }
 
     .email_comfirm{
-        @include mq(0px){width: 80%;}  
+        @include mq(0px){width: 80%;}
         @include mq(860px){width: 500px;}
         min-height: 300px;
         display: flex;
@@ -401,7 +400,7 @@ $line1: #757efac2;
     }
 
     .sign{
-        @include mq(0px){width: 80%;}  
+        @include mq(0px){width: 80%;}
         @include mq(860px){width: 800px;}
         display: flex;
         align-items: center;
@@ -415,7 +414,7 @@ $line1: #757efac2;
         .info{
             width: 100%;
             height: 100%;
-            @include mq(0px){display: none;}  
+            @include mq(0px){display: none;}
             @include mq(940px){display: flex;}
             justify-content: center;
             position: relative;
@@ -423,7 +422,7 @@ $line1: #757efac2;
             background: url(../images/q1.jpg) center / cover no-repeat;
 
             .logo_com{
-                @include mq(0px){display: none;}  
+                @include mq(0px){display: none;}
                 @include mq(940px){display: flex;}
                 position: absolute;
                 top: 20px;
@@ -434,7 +433,7 @@ $line1: #757efac2;
                 background: #fff;
                 border-radius: 50%;
             }
-        
+
             .blur{
                 width: 70%;
                 height: 70%;
@@ -458,7 +457,7 @@ $line1: #757efac2;
                     div{
                         padding-left: 20px;
                         position: relative;
-                    
+
                         svg{
                             width: 15px;
                             height: 15px;
@@ -593,8 +592,8 @@ $line1: #757efac2;
                 align-items: center;
             }
 
-            
-            
+
+
             input[type=text],
             input[type=password]{
                 margin-bottom: 10px;
@@ -619,15 +618,15 @@ $line1: #757efac2;
             display: flex;
             margin-top: 10px;
             color: #4e4e4e;
-            
-            @include mq(0px){font-size: 5vw;}  
-            @include mq(340px){font-size: 20px;}  
+
+            @include mq(0px){font-size: 5vw;}
+            @include mq(340px){font-size: 20px;}
             @include mq(490px){font-size: 25px;}
             font-family: 'Rubik';
         }
     }
     .sign_in{
-        @include mq(0px){width: 80%;}  
+        @include mq(0px){width: 80%;}
         @include mq(860px){width: 400px;}
         display: flex;
         align-items: center;
@@ -641,7 +640,7 @@ $line1: #757efac2;
         .info{
             width: 100%;
             height: 100%;
-            @include mq(0px){display: none;}  
+            @include mq(0px){display: none;}
             @include mq(940px){display: flex;}
             justify-content: center;
             position: relative;
@@ -649,7 +648,7 @@ $line1: #757efac2;
             background: url(../images/q1.jpg) center / cover no-repeat;
 
             .logo_com{
-                @include mq(0px){display: none;}  
+                @include mq(0px){display: none;}
                 @include mq(940px){display: flex;}
                 position: absolute;
                 top: 20px;
@@ -660,7 +659,7 @@ $line1: #757efac2;
                 background: #fff;
                 border-radius: 50%;
             }
-        
+
             .blur{
                 width: 70%;
                 height: 70%;
@@ -684,7 +683,7 @@ $line1: #757efac2;
                     div{
                         padding-left: 20px;
                         position: relative;
-                    
+
                         svg{
                             width: 15px;
                             height: 15px;
@@ -819,8 +818,8 @@ $line1: #757efac2;
                 align-items: center;
             }
 
-            
-            
+
+
             input[type=text],
             input[type=password]{
                 margin-bottom: 10px;
@@ -845,9 +844,9 @@ $line1: #757efac2;
             display: flex;
             margin-top: 10px;
             color: #4e4e4e;
-            
-            @include mq(0px){font-size: 5vw;}  
-            @include mq(340px){font-size: 20px;}  
+
+            @include mq(0px){font-size: 5vw;}
+            @include mq(340px){font-size: 20px;}
             @include mq(490px){font-size: 25px;}
             font-family: 'Rubik';
         }
