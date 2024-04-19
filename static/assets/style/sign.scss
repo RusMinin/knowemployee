@@ -24,12 +24,12 @@ input[type=checkbox] {
 }
 
 a {
-  color: $light_g;
+  color: $dark_bg;
   transition: 0.3s ease;
 }
 
 a:hover {
-  color: $dark_g;
+  color: $light_g;
   transition: 0.3s ease;
 }
 
@@ -203,9 +203,13 @@ a:hover {
     right: 10px;
     z-index: 1000;
 
+    @include mq(0){
+      top: 8px;
+      right: 18px;
+    }
+
     @include mq(490px) {
       top: 18px;
-      right: 18px;
     }
 
     svg {
@@ -285,9 +289,17 @@ a:hover {
   }
 }
 
+.container {
+  max-width: 1380px;
+  margin: 0 auto;
+
+  img {
+    margin-top: 10px;
+  }
+}
+
 .wrapper {
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -296,7 +308,7 @@ a:hover {
     padding-top: 30px;
   }
   @include mq(500px) {
-    padding-top: 120px;
+    padding-top: 64px;
   }
   position: relative;
   padding-bottom: 100px;
