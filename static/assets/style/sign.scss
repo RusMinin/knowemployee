@@ -203,7 +203,7 @@ a:hover {
     right: 10px;
     z-index: 1000;
 
-    @include mq(0){
+    @include mq(0) {
       top: 8px;
       right: 18px;
     }
@@ -835,6 +835,15 @@ a:hover {
     .set:not(:disabled):hover {
       background: $light_g;
       transition: 0.4s ease;
+    }
+
+    .set {
+      border: none;
+      cursor: pointer;
+      transition: 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .button_big {
