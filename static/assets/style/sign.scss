@@ -379,216 +379,37 @@ a:hover {
     width: 80%;
   }
   @include mq(860px) {
-    width: 800px;
+    width: 938px;
+    border-radius: 37px;
   }
   display: flex;
   align-items: center;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 16px;
   position: relative;
   background: #fff;
   z-index: 2;
   box-shadow: 0 0 30px #6161616c;
 
-  .info {
-    width: 100%;
-    height: 100%;
-    @include mq(0px) {
-      display: none;
-    }
-    @include mq(940px) {
-      display: flex;
-    }
-    justify-content: center;
-    position: relative;
-    align-items: center;
-    background: url(../images/q1.jpg) center / cover no-repeat;
-
-    .logo_com {
-      @include mq(0px) {
-        display: none;
-      }
-      @include mq(940px) {
-        display: flex;
-      }
-      position: absolute;
-      top: 20px;
-      width: 50px;
-      height: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      border-radius: 50%;
-    }
-
-    .blur {
-      width: 70%;
-      height: 70%;
-      background: #8d489e6b;
-      border-radius: 20px;
-      backdrop-filter: blur(5px);
-      padding: 20px;
-      flex-direction: column;
-      display: none;
-      justify-content: space-between;
-      font-weight: 600;
-      color: #ffffff;
-      box-shadow: 0 0 20px #00000081;
-
-      .list {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-
-        div {
-          padding-left: 20px;
-          position: relative;
-
-          svg {
-            width: 15px;
-            height: 15px;
-            position: absolute;
-            top: 5px;
-            left: 0;
-          }
-        }
-
-        h4 {
-          font-size: 16px;
-        }
-
-        span {
-          font-size: 12px;
-          font-family: 'Rubik';
-          font-style: italic;
-        }
-      }
-
-      p {
-        font-family: 'Rubik';
-        font-style: italic;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .form {
-    @include mq(0px) {
-      padding: 0;
-      width: 97%;
-    }
-    @include mq(500px) {
-      padding: 50px 30px;
+  .alr {
+    box-sizing: border-box;
+    @include mq(0) {
       width: 100%;
     }
-  }
-
-  form {
-    margin-top: 10px;
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    display: flex;
-    border: none;
-    position: relative;
-    margin-top: 30px;
-    flex-direction: column;
-
-    .hold.show {
-      opacity: 0.5;
-      transition: 0.4s ease;
-
-      .abs_panel {
-        display: flex !important;
-      }
+    @include mq(768px) {
+      width: 49%;
+      max-width: 420px;
     }
 
-    .hold {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      transition: 0.4s ease;
-      position: relative;
+    .address {
+      width: 59%;
+      max-width: 256px;
     }
 
-    .abs_panel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: none;
-      background: rgba(216, 216, 216, 0.582);
-      width: 100%;
-      height: 100%;
-      z-index: 10000;
-      transform: scale(1.05);
-      border-radius: 5px;
+    .zip-code {
+      width: 39%;
+      max-width: 151px;
     }
-
-    .select2 {
-      img {
-        width: 20px;
-        height: 15px;
-        object-fit: cover;
-        margin-right: 5px;
-        transform: translateY(1px);
-      }
-    }
-
-    .row {
-      margin-top: 10px;
-    }
-
-    label {
-      color: #414141bb;
-      font-size: 12px;
-      user-select: auto;
-      font-weight: 500;
-      font-family: 'Rubik';
-    }
-
-    input[type=checkbox] {
-      width: 15px;
-      height: 15px;
-    }
-
-    input[type=text],
-    input[type=password] {
-      transition: 0.1s ease;
-      background-color: #ffffff;
-    }
-
-    input[type=text]:focus,
-    input[type=password]:focus {
-      outline: 3px solid #00a2ff46;
-      transition: 0.1s ease;
-    }
-
-    .set:disabled {
-      opacity: 0.3;
-      cursor: auto;
-      box-shadow: 0 0 20px #000000;
-    }
-
-    .set:not(:disabled):hover {
-      background: $dark_g;
-      transition: 0.4s ease;
-    }
-
-    .set {
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      transition: 0.4s ease;
-      background: $light_g;
-      height: 45px;
-      border-radius: 10px;
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
 
     input[type=text],
     input[type=password] {
@@ -605,28 +426,254 @@ a:hover {
       cursor: text;
       color: #00000096;
       font-size: 17px;
+      box-shadow: 0 0 10px #6161616c;
+
+      @include mq(490px) {
+        margin-bottom: 8px;
+        padding: 5px 15px;
+        height: 64px;
+        border-radius: 16px;
+      }
     }
   }
 
-  h2 {
-    width: 100%;
-    text-align: left;
+  .business-details {
     display: flex;
-    margin-top: 10px;
-    color: #4e4e4e;
+    justify-content: space-between;
+    @include mq(768px) {
+      max-width: 420px;
+    }
+  }
 
-    @include mq(0px) {
-      font-size: 5vw;
+  .disclaimer {
+    margin: 0 auto;
+    margin-top: 20px;
+    @include mq(0) {
+      order: 1;
     }
-    @include mq(340px) {
-      font-size: 20px;
+    @include mq(768px) {
+      max-width: 735px;
+      order: 0;
+      margin-top: 10px;
     }
-    @include mq(500px) {
-      font-size: 25px;
+
+    a {
+      text-decoration: none;
+      color: $light_g;
     }
-    font-family: 'Rubik';
+
+    label {
+      font-size: 15px;
+      line-height: 27px;
+      font-weight: 600;
+      color: #000000;
+    }
+  }
+
+  .pass {
+    @include mq(0) {
+      width: 100%;
+      order: 1;
+    }
+    @include mq(490px) {
+      width: 100%;
+    }
+    @include mq(768px) {
+      width: 49%;
+      max-width: 420px;
+      order: 0;
+    }
+  }
+
+  .pass .alr {
+    width: 100%;
+  }
+
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq(0) {
+      flex-direction: column;
+    }
+
+    @include mq(490px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .button_big {
+    width: auto;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000000;
+    background-color: $light_t;
+
+    .button_big:active, .button_big:hover {
+      background-color: $light_g;
+    }
+
+    @include mq(768px){
+      width: 320px;
+      border-radius: 16px;
+    }
   }
 }
+
+.form {
+  @include mq(0px) {
+    padding: 0;
+    width: 97%;
+  }
+  @include mq(500px) {
+    padding: 50px 30px;
+    width: 100%;
+  }
+}
+
+form {
+  margin-top: 10px;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  display: flex;
+  border: none;
+  position: relative;
+  margin-top: 30px;
+  flex-direction: column;
+
+  .hold.show {
+    opacity: 0.5;
+    transition: 0.4s ease;
+
+    .abs_panel {
+      display: flex !important;
+    }
+  }
+
+  .hold {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.4s ease;
+    position: relative;
+  }
+
+  .abs_panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: rgba(216, 216, 216, 0.582);
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    transform: scale(1.05);
+    border-radius: 5px;
+  }
+
+  .select2 {
+    img {
+      width: 20px;
+      height: 15px;
+      object-fit: cover;
+      margin-right: 5px;
+      transform: translateY(1px);
+    }
+  }
+
+  .row {
+    margin-top: 10px;
+  }
+
+  label {
+    color: #414141bb;
+    font-size: 12px;
+    user-select: auto;
+    font-weight: 500;
+  }
+
+  input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+  }
+
+  input[type=text],
+  input[type=password] {
+    transition: 0.1s ease;
+    background-color: #ffffff;
+  }
+
+  input[type=text]:focus,
+  input[type=password]:focus {
+    outline: 3px solid #00a2ff46;
+    transition: 0.1s ease;
+  }
+
+  .set:disabled {
+    opacity: 0.3;
+    cursor: auto;
+    box-shadow: 0 0 20px #000000;
+  }
+
+  .set:not(:disabled):hover {
+    background: $light_g;
+    transition: 0.4s ease;
+  }
+
+  .set {
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+    background: $light_g;
+    height: 60px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  input[type=text],
+  input[type=password] {
+    margin-bottom: 10px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #b3b3b344;
+    background: transparent;
+    margin-top: 5px;
+    outline: none;
+    outline-color: #414141;
+    outline-width: 2px;
+    padding: 5px 10px;
+    cursor: text;
+    color: #00000096;
+    font-size: 17px;
+  }
+}
+
+h2 {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  margin-top: 10px;
+  color: #4e4e4e;
+
+  @include mq(0px) {
+    font-size: 5vw;
+  }
+  @include mq(340px) {
+    font-size: 20px;
+  }
+  @include mq(500px) {
+    font-size: 25px;
+  }
+}
+
 
 .sign_in {
   @include mq(0px) {
@@ -645,95 +692,6 @@ a:hover {
   background: #fff;
   z-index: 2;
   box-shadow: 0 0 30px #6161616c;
-
-  h2 {
-    justify-content: center;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-
-  .info {
-    width: 100%;
-    height: 100%;
-    @include mq(0px) {
-      display: none;
-    }
-    @include mq(940px) {
-      display: flex;
-    }
-    justify-content: center;
-    position: relative;
-    align-items: center;
-    background: url(../images/q1.jpg) center / cover no-repeat;
-
-    .logo_com {
-      @include mq(0px) {
-        display: none;
-      }
-      @include mq(940px) {
-        display: flex;
-      }
-      position: absolute;
-      top: 20px;
-      width: 50px;
-      height: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      border-radius: 50%;
-    }
-
-    .blur {
-      width: 70%;
-      height: 70%;
-      background: #8d489e6b;
-      border-radius: 20px;
-      backdrop-filter: blur(5px);
-      padding: 20px;
-      flex-direction: column;
-      display: none;
-      justify-content: space-between;
-      font-weight: 600;
-      color: #ffffff;
-      box-shadow: 0 0 20px #00000081;
-
-      .list {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-
-        div {
-          padding-left: 20px;
-          position: relative;
-
-          svg {
-            width: 15px;
-            height: 15px;
-            position: absolute;
-            top: 5px;
-            left: 0;
-          }
-        }
-
-        h4 {
-          font-size: 16px;
-        }
-
-        span {
-          font-size: 12px;
-          font-family: 'Rubik';
-          font-style: italic;
-        }
-      }
-
-      p {
-        font-family: 'Rubik';
-        font-style: italic;
-        font-size: 12px;
-      }
-    }
-  }
 
   .form {
     @include mq(0px) {
@@ -808,7 +766,6 @@ a:hover {
       font-size: 12px;
       user-select: auto;
       font-weight: 500;
-      font-family: 'Rubik';
     }
 
     input[type=checkbox] {
@@ -855,11 +812,11 @@ a:hover {
       font-size: 17px;
       transition: 0.4s ease;
       text-transform: uppercase;
-      box-shadow: 0 0 20px #000000;
+      box-shadow: 0 0 10px #000000;
     }
 
     .button_big:not(:disabled) {
-      box-shadow: 0 0 20px #6161616c;
+      box-shadow: 0 0 10px #6161616c;
     }
 
 
@@ -908,3 +865,78 @@ a:hover {
   }
 }
 
+
+.sign, .sign_in {
+  h2 {
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+}
+
+.sign_up {
+  .wrapper {
+    padding-top: 28px;
+  }
+}
+
+
+.check {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.checkmark {
+  position: absolute;
+  top: -2px;
+  left: -3px;
+  height: 25px;
+  width: 25px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px #6161616c;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+}
+
+.check:hover input ~ .checkmark {
+  background-color: $light_g;
+}
+
+.check input:checked ~ .checkmark {
+  background-color: white;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  left: -2px;
+  top: -3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: $light_g;
+  border: 3px solid white;
+  box-shadow: 0 0 10px #6161616c;
+}
