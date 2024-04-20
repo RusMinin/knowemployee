@@ -14,7 +14,7 @@ html, body {
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background: #ffffff;
+  background: #fafafa;
 }
 
 body {
@@ -102,6 +102,17 @@ a:hover {
   }
 }
 
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+body > .container {
+  @include mq(800px){
+    margin-top: 28px;
+  }
+}
+
 .wrapper:not(.alert) {
   width: 100%;
   height: 100%;
@@ -113,7 +124,8 @@ a:hover {
 
 .wrapper.alert {
   width: 100%;
-  height: calc(100vh - 45px);
+  padding-bottom: 25px;
+  min-height: calc(100vh - 45px);
   display: flex;
   justify-content: center;
   background: #fafafa;
@@ -220,7 +232,7 @@ a:hover {
   @include mq(0px) {
     display: none;
   }
-  @include mq(700px) {
+  @include mq(716px) {
     display: flex;
   }
   justify-content: center;
@@ -306,7 +318,8 @@ a:hover {
     }
     @include mq(800px) {
       width: 250px;
-      left: 2%!important;
+      min-height: 844px;
+      left: 2% !important;
       border-radius: 44px;
     }
   }
@@ -324,9 +337,6 @@ a:hover {
     padding-left: 20px;
   }
 
-  // .section_content{
-  //     padding-bottom: 80px;
-  // }
 }
 
 .section_content {
@@ -376,6 +386,12 @@ a:hover {
     cursor: pointer;
     border-radius: 20px;
     background: rgb(235, 235, 235);
+  }
+}
+
+.main {
+  @include mq(800px) {
+    margin-left: 54px;
   }
 }
 
@@ -1929,6 +1945,10 @@ a:hover {
   padding-bottom: 30px;
   flex-direction: column;
   border-radius: 5px;
+  @include mq(800px) {
+    margin: 115px 0 0 22px
+  }
+;
 
   .list {
     width: 100%;
@@ -2100,6 +2120,10 @@ a:hover {
     }
     @include mq(500px) {
       justify-content: space-between;
+    }
+
+    @include mq(716px) {
+      display: none;
     }
     padding-right: 20px;
 
