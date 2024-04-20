@@ -108,7 +108,7 @@ a:hover {
 }
 
 body > .container {
-  @include mq(800px){
+  @include mq(800px) {
     margin-top: 28px;
   }
 }
@@ -529,6 +529,12 @@ body > .container {
     box-shadow: none;
     margin-top: 10px;
     transition: all .3s ease;
+
+    @include mq(800px) {
+      margin-top: 24px;
+      width: 160px;
+      height: 160px;
+    }
 
     .file-feedback-upload,
     .file-upload {

@@ -639,6 +639,14 @@ a:hover {
   transition: all .3s ease;
 }
 
+@media screen and (min-width: 800px) {
+  .ava_container .avatar-wrapper {
+    margin-top: 24px;
+    width: 160px;
+    height: 160px;
+  }
+}
+
 .ava_container .avatar-wrapper .file-feedback-upload,
 .ava_container .avatar-wrapper .file-upload {
   opacity: 0;
