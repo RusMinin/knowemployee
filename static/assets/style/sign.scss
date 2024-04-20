@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800;900&display=swap');
-@import "static/style/helpers.scss";
+@import "../../style/helpers.scss";
 
 * {
   margin: 0;
@@ -12,7 +12,9 @@ html, body {
   width: 100%;
   min-height: 100vh;
   background: $light_t;
-  background-image: url("../images/bg_inner.png");
+  background-image: url("../images/bg_inner.jpg");
+  background-position: 100%;
+  background-size: cover;
 }
 
 body {
