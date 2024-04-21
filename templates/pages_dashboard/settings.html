@@ -2,7 +2,9 @@
     <div class="ava_container">
         <div class="wrapper_set">
             <div class="avatar-wrapper">
-                <img class="profile-pic" src="{{ '../../static/company.png' if data_page.user_data.avatar == '0' else data_page.user_data.avatar }}" alt="Logo you company">
+                <img class="profile-pic"
+                     src="{{ '../../static/company.png' if data_page.user_data.avatar == '0' else data_page.user_data.avatar }}"
+                     alt="Logo you company">
                 <div class="upload-button">
                     <i class="fa-solid fa-circle-plus" aria-hidden="true"></i>
                 </div>
@@ -10,26 +12,31 @@
             </div>
         </div>
     </div>
-    <p class="set_name_company">{{ data_page.user_data.company_name }}</p>
+    <p class="set_name_company">{{ data_page.user_data.company_name }}
+        <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+    </p>
+    <div class="change_data">
+        <span class="alr"></span>
+        <div class="row">
+            <label for="name_company" class="tc visually-hidden">Company name</label>
+            <input id="name_company" type="text"
+                   value="{{ '' if data_page.user_data.company_name == '0' else data_page.user_data.company_name }}"
+                   placeholder="Name Company">
+        </div>
+<!--        <button disabled id="name_save">Save changes</button>-->
+    </div>
 
 
     <div class="change_data f">
         <span class="alr"></span>
         <h3 class="tc visually-hidden">Company description</h3>
         <div class="row">
-            <textarea id="update_slogan" type="text" placeholder="Company Description">{{ "" if data_page.user_data.slogan == '0' else data_page.user_data.slogan }}</textarea>
+            <textarea id="update_slogan" type="text" placeholder="Company Description fa-fa">{{ "" if data_page.user_data.slogan == '0' else data_page.user_data.slogan }}</textarea>
+            <i class="fa-solid fa-pencil" aria-hidden="true"></i>
         </div>
         <button disabled id="slogan_save">Save changes</button>
     </div>
 
-    <div class="change_data">
-        <span class="alr"></span>
-        <h3 class="tc">Company name</h3>
-        <div class="row">
-            <input id="name_company" type="text" value="{{ '' if data_page.user_data.company_name == '0' else data_page.user_data.company_name }}" placeholder="Name Company">
-        </div>
-        <button disabled id="name_save">Save changes</button>
-    </div>
 
     <div class="change_data">
         <span class="alr"></span>
@@ -53,10 +60,11 @@
         <div class="delete_account">
             <div class="warning">
                 <h4>Watch out for the danger zone</h4>
-                <p>If you choose to delete your company account, your data will be irreversibly erased. We grant you the right to make this decision.</p>
+                <p>If you choose to delete your company account, your data will be irreversibly erased. We grant you the
+                    right to make this decision.</p>
             </div>
             <button>Delete account</button>
         </div>
     </div>
-    
+
 </div>

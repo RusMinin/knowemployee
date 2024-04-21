@@ -728,6 +728,10 @@ a:hover {
   }
 }
 
+.ava_container .avatar-wrapper .upload-button:hover .fa-circle-plus {
+  color: #53EB12;
+}
+
 .ava_container .avatar-wrapper .upload-feedback-button:hover .fa-arrow-circle-up,
 .ava_container .bg-quiz-wrapper .upload-button:hover .fa-arrow-circle-up,
 .ava_container .avatar-wrapper .upload-button:hover .fa-arrow-circle-up,
@@ -2071,10 +2075,6 @@ a:hover {
   color: #fff;
 }
 
-.change_data:not(.f) {
-  border-top: 1px solid #ccc;
-}
-
 .change_data {
   width: 100%;
   position: relative;
@@ -2151,11 +2151,30 @@ a:hover {
 }
 
 .profile p {
+  position: relative;
   text-align: center;
   justify-content: center;
   display: flex;
   margin-top: 15px;
-  font-size: 24px;
+  font-size: 21px;
+}
+
+.profile p .fa-pencil {
+  position: absolute;
+  right: -21px;
+  top: 9px;
+  font-size: 16px;
+}
+
+.profile #name_company {
+  display: none;
+}
+
+.fa-pencil {
+  position: absolute;
+  right: -21px;
+  top: 9px;
+  font-size: 16px;
 }
 
 .logo_container {
