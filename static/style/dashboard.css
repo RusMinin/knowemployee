@@ -627,7 +627,6 @@ a:hover {
 }
 
 .ava_container .avatar-wrapper {
-  position: relative;
   border: 1px solid #ccc;
   cursor: pointer;
   height: 120px;
@@ -697,7 +696,8 @@ a:hover {
 
 .ava_container .avatar-wrapper .upload-feedback-button .fa-arrow-circle-up,
 .ava_container .bg-quiz-wrapper .upload-button .fa-arrow-circle-up,
-.ava_container .avatar-wrapper .upload-button .fa-arrow-circle-up {
+.ava_container .avatar-wrapper .upload-button .fa-arrow-circle-up,
+.ava_container .avatar-wrapper .upload-button .fa-circle-plus {
   position: absolute;
   font-size: 243px;
   top: -16px;
@@ -708,9 +708,30 @@ a:hover {
   color: #e4eae7;
 }
 
+.ava_container .avatar-wrapper .upload-button .fa-circle-plus {
+  opacity: 1;
+  font-size: 20px;
+  color: #000000;
+}
+
+@media screen and (min-width: 0) {
+  .ava_container .avatar-wrapper .upload-button .fa-circle-plus {
+    left: 90px;
+    top: 108px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .ava_container .avatar-wrapper .upload-button .fa-circle-plus {
+    left: 120px;
+    top: 156px;
+  }
+}
+
 .ava_container .avatar-wrapper .upload-feedback-button:hover .fa-arrow-circle-up,
 .ava_container .bg-quiz-wrapper .upload-button:hover .fa-arrow-circle-up,
-.ava_container .avatar-wrapper .upload-button:hover .fa-arrow-circle-up {
+.ava_container .avatar-wrapper .upload-button:hover .fa-arrow-circle-up,
+.ava_container .avatar-wrapper .upload-button:hover .fa-circle-plus {
   opacity: .9;
 }
 
