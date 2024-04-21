@@ -23,16 +23,17 @@
                    value="{{ '' if data_page.user_data.company_name == '0' else data_page.user_data.company_name }}"
                    placeholder="Name Company">
         </div>
-<!--        <button disabled id="name_save">Save changes</button>-->
+        <!--        <button disabled id="name_save">Save changes</button>-->
     </div>
-
 
     <div class="change_data f">
         <span class="alr"></span>
         <h3 class="tc visually-hidden">Company description</h3>
         <div class="row">
-            <textarea id="update_slogan" type="text" placeholder="Company Description fa-fa">{{ "" if data_page.user_data.slogan == '0' else data_page.user_data.slogan }}</textarea>
-            <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+            <div id="update_slogan" contenteditable="true">
+                {{ "" if data_page.user_data.slogan == '0' else data_page.user_data.slogan }}
+                <i class="fa-solid fa-pencil icon-placeholder" aria-hidden="true"></i>
+            </div>
         </div>
         <button disabled id="slogan_save">Save changes</button>
     </div>

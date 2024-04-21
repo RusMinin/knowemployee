@@ -1,5 +1,5 @@
 @import url("https://fonts.google.com/css2?family=Open+Sans:wght@300;400;500;600;700;800;900&display=swap");
-.button {
+button, .button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,10 @@
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-  cursor: pointer;
+}
+
+button:hover, .button:hover {
+  background-color: #53EB12;
 }
 
 * {

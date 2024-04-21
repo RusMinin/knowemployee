@@ -363,49 +363,63 @@ if (document.querySelector('.delete_account button')) {
 }
 
 if (document.querySelector('#update_slogan')) {
-    let update_slogan = $('#update_slogan').val()
-    $('#update_slogan').on('input', () => {
-        if ($('#update_slogan').val() != update_slogan) {
-            $('#update_slogan').closest('.change_data').find('button').prop("disabled", false)
-        } else {
-            $('#update_slogan').closest('.change_data').find('button').prop("disabled", true)
-        }
-    })
+    const updateSlogan = $('#update_slogan');
+    const saveButton = $('#slogan_save');
+    let originalContent = updateSlogan.text().trim();
 
-    $("#slogan_save").click(() => {
-        update_slogan = $('#update_slogan').val()
+    updateSlogan.on('input', function() {
+        let currentContent = $(this).text().trim();
+        if (currentContent !== originalContent) {
+            saveButton.prop("disabled", false);
+        } else {
+            saveButton.prop("disabled", true);
+        }
+    });
+
+    saveButton.click(function() {
+        let updatedContent = updateSlogan.text().trim();
         $.ajax({
             url: '/api/update_slogan',
             method: 'POST',
-            data: JSON.stringify({"slogan": update_slogan}),
+            data: JSON.stringify({ "slogan": updatedContent }),
             contentType: "application/json",
-            success: function (response) {
-                if (response.status == true) {
-                    $('#update_slogan').closest('.change_data').find('.alr').removeClass('err')
-                    $('#update_slogan').closest('.change_data').find('.alr').addClass('done')
-                    $('#update_slogan').closest('.change_data').find('.alr').text(response.message)
-                    setTimeout(() => {
-                        $('#update_slogan').closest('.change_data').find('.alr').text("")
-                        $('#update_slogan').closest('.change_data').find('.alr').removeClass('done')
-                        $('#update_slogan').closest('.change_data').find('.alr').removeClass('err')
-                    }, 3000)
-                    $('#update_slogan').closest('.change_data').find('button').prop("disabled", true)
+            success: function(response) {
+                let alertSpan = updateSlogan.closest('.change_data').find('.alr');
+                if (response.status === true) {
+                    alertSpan.removeClass('err').addClass('done').text(response.message);
+                    originalContent = updatedContent;
+                    saveButton.prop("disabled", true);
                 } else {
-                    $('#update_slogan').closest('.change_data').find('.alr').removeClass('done')
-
-                    $('#update_slogan').closest('.change_data').find('.alr').addClass('err')
-                    $('#update_slogan').closest('.change_data').find('.alr').text(response.message)
-                    setTimeout(() => {
-                        $('#update_slogan').closest('.change_data').find('.alr').text("")
-                        $('#update_slogan').closest('.change_data').find('.alr').removeClass('done')
-                        $('#update_slogan').closest('.change_data').find('.alr').removeClass('err')
-                    }, 3000)
-                    $('#update_slogan').closest('.change_data').find('button').prop("disabled", false)
+                    alertSpan.removeClass('done').addClass('err').text(response.message);
+                    saveButton.prop("disabled", false);
                 }
+                setTimeout(function() {
+                    alertSpan.text("").removeClass('done err');
+                }, 3000);
             }
         });
-    })
+    });
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let updateSlogan = document.getElementById('update_slogan');
+    let icon = updateSlogan.querySelector('.icon-placeholder');
+    let saveButton = document.getElementById('slogan_save');
+
+    updateSlogan.addEventListener('focus', function() {
+        icon.style.display = 'none';
+    });
+
+    updateSlogan.addEventListener('blur', function() {
+        icon.style.display = 'block';
+    });
+
+    updateSlogan.addEventListener('input', function() {
+        saveButton.disabled = updateSlogan.textContent.trim() === '';
+    });
+});
+
 
 if (document.querySelector('.change_data #current_password') && document.querySelector('.change_data #new_password')) {
     let passwordField = $('.change_data #current_password');
@@ -2058,3 +2072,5 @@ if (document.querySelector('.quiz_veiwer .copy_link')) {
         }
     });
 }
+
+
