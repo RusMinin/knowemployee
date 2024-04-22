@@ -20,8 +20,12 @@ button, .button {
   border: none;
 }
 
-button:hover, .button:hover {
+button:hover(:not(:disabled)), .button:hover(:not(:disabled)) {
   background-color: #53EB12;
+}
+
+button:disabled, .button:disabled {
+  opacity: 0.1;
 }
 
 * {
@@ -498,12 +502,6 @@ a:hover {
   background: #ebebeb;
 }
 
-@media screen and (min-width: 800px) {
-  .main {
-    margin-left: 54px;
-  }
-}
-
 .main.menu-m::before {
   content: "";
   position: absolute;
@@ -963,10 +961,8 @@ a:hover {
   cursor: pointer;
   color: #fff;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 500;
   opacity: 1;
-  transition: 0.3s ease;
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -2081,8 +2077,8 @@ a:hover {
 .change_data {
   width: 100%;
   position: relative;
-  max-width: 890px;
-  margin-bottom: 20px;
+  max-width: 925px;
+  margin-bottom: 26px;
   padding-top: 20px;
 }
 
@@ -2109,7 +2105,7 @@ a:hover {
   gap: 1em;
 }
 
-.change_data textarea {
+.change_data #update_slogan {
   min-height: 100px;
   max-height: 300px;
   padding: 10px;
@@ -2118,7 +2114,7 @@ a:hover {
 }
 
 @media screen and (min-width: 800px) {
-  .change_data textarea {
+  .change_data #update_slogan {
     min-height: 136px;
     border-radius: 36px;
     padding: 12px 20px;
@@ -2126,7 +2122,7 @@ a:hover {
   }
 }
 
-.change_data textarea::placeholder {
+.change_data #update_slogan::placeholder {
   content: 'f303';
 }
 
@@ -2149,15 +2145,15 @@ a:hover {
   color: #000000;
 }
 
-.change_data button:disabled {
-  opacity: 0.5 !important;
-  cursor: auto;
-}
-
 .change_data button:not(:disabled):hover {
   background: #53EB12;
   color: #ffffff;
   transition: 0.4s ease;
+}
+
+.change_data button:disabled {
+  opacity: 0.5 !important;
+  cursor: auto;
 }
 
 .icon-placeholder {
@@ -2181,6 +2177,12 @@ a:hover {
   font-size: 21px;
 }
 
+@media screen and (min-width: 800px) {
+  .profile p {
+    margin-top: 30px;
+  }
+}
+
 .profile p .fa-pencil {
   position: absolute;
   right: -21px;
@@ -2188,8 +2190,80 @@ a:hover {
   font-size: 16px;
 }
 
+.profile .change_password {
+  display: flex;
+  align-items: flex-end;
+}
+
+.profile .change_password .row {
+  flex-wrap: wrap;
+  max-width: 438px;
+  font-size: 21px;
+}
+
+.profile .change_password .row .tc {
+  margin-left: 20px;
+  font-size: 21px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.profile .change_password .row input {
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 800px) {
+  .profile .change_password .row input {
+    height: 80px;
+    border-radius: 17px;
+  }
+}
+
+.profile .change_password .row input::placeholder {
+  font-size: 21px;
+  line-height: 27px;
+}
+
+.profile .change_password #save_changes {
+  width: 256px;
+  font-size: 21px;
+  line-height: 27px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 800px) {
+  .profile .change_password #save_changes {
+    margin-left: 40px;
+  }
+}
+
 .profile #name_company {
   display: none;
+}
+
+.profile button {
+  width: 247px;
+  background-color: #424141;
+}
+
+@media screen and (min-width: 800px) {
+  .profile button {
+    height: 74px;
+    border-radius: 17px;
+  }
+}
+
+.profile button:hover:not(:disabled) {
+  background-color: #53EB12;
+}
+
+.profile button:disabled {
+  opacity: 0.3;
 }
 
 .fa-pencil {
@@ -2423,6 +2497,12 @@ a:hover {
   overflow: hidden;
 }
 
+@media screen and (min-width: 800px) {
+  .main {
+    margin-left: 125px;
+  }
+}
+
 .main .header {
   width: 100%;
   height: 80px;
@@ -2553,8 +2633,6 @@ a:hover {
   height: 100%;
   padding-top: 10px;
   overflow: auto;
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #ccc;
   border-radius: 0 20px 0 0;
   padding-right: 10px;
   padding-bottom: 120px;
@@ -4341,7 +4419,6 @@ a:hover {
   color: grey;
   pointer-events: none;
   display: block;
-  /* For centering */
 }
 
 /*# sourceMappingURL=dashboard.css.map */

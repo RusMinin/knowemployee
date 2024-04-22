@@ -364,7 +364,7 @@ if (document.querySelector('.delete_account button')) {
 
 if (document.querySelector('#update_slogan')) {
     const updateSlogan = $('#update_slogan');
-    const saveButton = $('#slogan_save');
+    const saveButton = $('#save_changes');
     let originalContent = updateSlogan.text().trim();
 
     updateSlogan.on('input', function() {
@@ -405,7 +405,6 @@ if (document.querySelector('#update_slogan')) {
 document.addEventListener("DOMContentLoaded", function() {
     let updateSlogan = document.getElementById('update_slogan');
     let icon = updateSlogan.querySelector('.icon-placeholder');
-    let saveButton = document.getElementById('slogan_save');
 
     updateSlogan.addEventListener('focus', function() {
         icon.style.display = 'none';
@@ -415,33 +414,47 @@ document.addEventListener("DOMContentLoaded", function() {
         icon.style.display = 'block';
     });
 
-    updateSlogan.addEventListener('input', function() {
-        saveButton.disabled = updateSlogan.textContent.trim() === '';
-    });
 });
 
 
 if (document.querySelector('.change_data #current_password') && document.querySelector('.change_data #new_password')) {
     let passwordField = $('.change_data #current_password');
     let newPasswordField = $('.change_data #new_password');
-    let submitButton = passwordField.closest('.change_data').find('button');
+    let confirmPasswordField = $('.change_data #confirm_password');
+    let submitButton = $('#save_changes')
 
     function checkPasswordLengths() {
         let passwordValue = passwordField.val();
         let newPasswordValue = newPasswordField.val();
-        if (passwordValue.length > 10 && newPasswordValue.length > 10) {
+        let confirmPasswordValue = confirmPasswordField.val();
+
+        if (passwordValue.length > 10 && newPasswordValue.length > 10 && confirmPasswordValue > 10) {
             submitButton.prop("disabled", false);
         } else {
             submitButton.prop("disabled", true);
         }
     }
 
+    function comparePasswords(){
+       let newPasswordValue = newPasswordField.val();
+       let confirmPasswordValue = confirmPasswordField.val();
+
+       if (newPasswordValue === confirmPasswordValue){
+           submitButton.prop("disabled", false)
+       } else {
+           submitButton.prop("disabled", true)
+       }
+    }
+
     passwordField.on('input', checkPasswordLengths);
     newPasswordField.on('input', checkPasswordLengths);
+    confirmPasswordField.on('input', checkPasswordLengths, comparePasswords);
 
-    $("#save_password").click(() => {
+
+    $("#save_changes").click(() => {
         let password = $('.change_data #current_password').val()
         let new_password = $('.change_data #new_password').val()
+        let confirm_password = $('.change_data #confirm_password').val()
         $.ajax({
             url: '/api/change_password',
             method: 'POST',
@@ -451,6 +464,8 @@ if (document.querySelector('.change_data #current_password') && document.querySe
                 if (response.status == true) {
                     $('.change_data #current_password').val("")
                     $('.change_data #new_password').val("")
+                    $('.change_data #confirm_password').val("")
+
 
                     $('#current_password').closest('.change_data').find('.alr').removeClass('err')
                     $('#current_password').closest('.change_data').find('.alr').addClass('done')

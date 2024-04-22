@@ -26,8 +26,12 @@ button, .button {
   border: none;
 }
 
-button:hover, .button:hover {
+button:hover(:not(:disabled)), .button:hover(:not(:disabled)) {
   background-color: $light_g;
+}
+
+button:disabled, .button:disabled {
+  opacity: 0.1;
 }
 
 

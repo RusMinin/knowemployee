@@ -19,8 +19,12 @@ button, .button {
   border: none;
 }
 
-button:hover, .button:hover {
+button:hover(:not(:disabled)), .button:hover(:not(:disabled)) {
   background-color: #53EB12;
+}
+
+button:disabled, .button:disabled {
+  opacity: 0.1;
 }
 
 * {
