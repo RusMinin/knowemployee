@@ -704,7 +704,7 @@ body > .container {
     p {
       padding: 2px 10px;
       border-radius: 20px;
-      background: linear-gradient(45deg, #0084ff, #00b7ff);
+      background: linear-gradient(45deg $dark_g, $light_g);
       font-size: 12px !important;
       color: #fff !important;
     }
@@ -806,7 +806,7 @@ body > .container {
       transition: 0.3s ease;
       text-decoration: none;
       border: none;
-      background: linear-gradient(45deg, #0084ff, #00b7ff);
+      background: linear-gradient(45deg, $dark_g, $light_g);
       border-radius: 5px;
       cursor: pointer;
       color: #fff;
@@ -827,11 +827,12 @@ body > .container {
     button:disabled {
       opacity: 0.5;
       background: #c4c4c4;
+      color: #000000;
     }
   }
 
   .placeholder {
-    border: 2px dashed #00b7ff;
+    border: 2px dashed $dark_g;
     border-radius: 5px;
   }
 
@@ -852,7 +853,9 @@ body > .container {
     }
 
     #add:disabled {
-      background: #dfdfdf;
+      background: $dark_t;
+      color: #000;
+      opacity: 1;
     }
 
     #add {
@@ -863,13 +866,11 @@ body > .container {
       transition: 0.2s ease;
       flex: 1 1 auto;
       height: 35px;
-      background: #f1f1f1;
       cursor: pointer;
       border: none;
       border-radius: 4px;
-      background: linear-gradient(45deg, #0084ff, #00b7ff);
-      color: #fff;
-      transition: 0.2s ease;
+      background: linear-gradient(45deg, $dark_g, $light_g);
+      color: #000000;
     }
 
     .questions_quiz {
@@ -895,7 +896,7 @@ body > .container {
         span {
           width: 30px;
           height: 30px;
-          border: 2px solid #009efd;
+          border: 2px solid $dark_g;
           border-radius: 50%;
           display: flex;
           justify-content: center;
@@ -961,7 +962,7 @@ body > .container {
         span {
           width: 30px;
           height: 30px;
-          border: 2px solid #009efd;
+          border: 2px solid $dark_g;
           border-radius: 50%;
           display: flex;
           justify-content: center;
@@ -1038,7 +1039,7 @@ body > .container {
         text-decoration: none;
         border: none;
         width: 100%;
-        background: linear-gradient(45deg, #0084ff, #00b7ff);
+        background: linear-gradient(45deg, $dark_g, $light_g);
         border-radius: 4px;
         cursor: pointer;
         color: #fff;
@@ -1062,8 +1063,8 @@ body > .container {
 
 
     button.active {
-      background: linear-gradient(45deg, #0084ff, #00b7ff);
-      color: #fff;
+      background: linear-gradient(45deg, $dark_g, $light_g);
+      color: #000000;
       transition: 0.2s ease;
     }
 
@@ -1075,7 +1076,8 @@ body > .container {
       transition: 0.2s ease;
       flex: 1 1 auto;
       height: 35px;
-      background: #f1f1f1;
+      background: $light_t;
+      color: #000000;
       cursor: pointer;
       border: none;
       border-radius: 7px;
@@ -1914,9 +1916,11 @@ body > .container {
   }
 
   .row {
-    width: 100%;
     display: flex;
     gap: 1em;
+    @include mq(1000px) {
+      width: 100%;
+    }
   }
 
   #update_slogan {
@@ -1976,13 +1980,12 @@ body > .container {
 }
 
 .profile {
-  width: 100%;
   max-width: 890px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  @include mq(800px) {
+  @include mq(1100px) {
     margin-left: 95px;
   }
 
@@ -2008,7 +2011,13 @@ body > .container {
 
   .change_password {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+
+    @include mq(1000px) {
+      flex-direction: row;
+      align-items: flex-end;
+    }
 
     .row {
       flex-wrap: wrap;
@@ -2370,7 +2379,7 @@ body > .container {
 
       a.active,
       a:hover {
-        color: #3091ff;
+        color: $dark_g;
         transition: 0.3s ease;
       }
 
@@ -3050,7 +3059,7 @@ body > .container {
     }
 
     button.active {
-      background: linear-gradient(45deg, #0084ff, #00b7ff);
+      background: linear-gradient(45deg, $dark_g, $light_g);
       color: #fff;
       transition: 0.3s ease;
     }
@@ -3364,9 +3373,9 @@ body > .container {
 }
 
 .b-select.active {
-  border: 1px solid #0084ff;
+  border: 1px solid $light_g;
   transition: 0.3s ease;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, $dark_g, $light_g);
   color: #fff;
 }
 
@@ -3439,7 +3448,7 @@ body > .container {
   button {
     width: auto;
     min-width: 40px;
-    background: linear-gradient(45deg, #0084ff, #00b7ff);
+    background: linear-gradient(45deg, $dark_g, $light_g);
 
     svg {
       fill: #fff;
@@ -3503,7 +3512,7 @@ body > .container {
   }
 
   input:checked + .slider {
-    background-color: #0084ff;
+    background-color: $dark_g;
   }
 
   input:checked + .slider:before {

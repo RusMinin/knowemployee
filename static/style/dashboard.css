@@ -7,7 +7,7 @@ button, .button {
   text-decoration: none;
   transition: 0.3s ease;
   box-sizing: border-box;
-  color: #fff;
+  color: #ffffff;
   padding: 9px 20px;
   border-radius: 20px;
   margin-top: 10px;
@@ -824,7 +824,7 @@ a:hover {
 .info_answer .timer p {
   padding: 2px 10px;
   border-radius: 20px;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg #37A408, #53EB12);
   font-size: 12px !important;
   color: #fff !important;
 }
@@ -957,7 +957,7 @@ a:hover {
   transition: 0.3s ease;
   text-decoration: none;
   border: none;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, #37A408, #53EB12);
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
@@ -980,11 +980,12 @@ a:hover {
 .custom_link .name_link button:disabled {
   opacity: 0.5;
   background: #c4c4c4;
+  color: #000000;
 }
 
 .quiz_link .placeholder,
 .custom_link .placeholder {
-  border: 2px dashed #00b7ff;
+  border: 2px dashed #37A408;
   border-radius: 5px;
 }
 
@@ -1009,7 +1010,9 @@ a:hover {
 
 .quiz_link .link_line #add:disabled,
 .custom_link .link_line #add:disabled {
-  background: #dfdfdf;
+  background: #AFAFAF;
+  color: #000;
+  opacity: 1;
 }
 
 .quiz_link .link_line #add,
@@ -1021,13 +1024,11 @@ a:hover {
   transition: 0.2s ease;
   flex: 1 1 auto;
   height: 35px;
-  background: #f1f1f1;
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
-  color: #fff;
-  transition: 0.2s ease;
+  background: linear-gradient(45deg, #37A408, #53EB12);
+  color: #000000;
 }
 
 .quiz_link .link_line .questions_quiz,
@@ -1057,7 +1058,7 @@ a:hover {
 .custom_link .link_line .questions_quiz .q_text span {
   width: 30px;
   height: 30px;
-  border: 2px solid #009efd;
+  border: 2px solid #37A408;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1129,7 +1130,7 @@ a:hover {
 .custom_link .link_line .questions .q_text span {
   width: 30px;
   height: 30px;
-  border: 2px solid #009efd;
+  border: 2px solid #37A408;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1216,7 +1217,7 @@ a:hover {
   text-decoration: none;
   border: none;
   width: 100%;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, #37A408, #53EB12);
   border-radius: 4px;
   cursor: pointer;
   color: #fff;
@@ -1240,8 +1241,8 @@ a:hover {
 
 .quiz_link .check button.active,
 .custom_link .check button.active {
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
-  color: #fff;
+  background: linear-gradient(45deg, #37A408, #53EB12);
+  color: #000000;
   transition: 0.2s ease;
 }
 
@@ -1255,7 +1256,8 @@ a:hover {
   transition: 0.2s ease;
   flex: 1 1 auto;
   height: 35px;
-  background: #f1f1f1;
+  background: #D9D9D9;
+  color: #000000;
   cursor: pointer;
   border: none;
   border-radius: 7px;
@@ -2163,9 +2165,14 @@ a:hover {
 }
 
 .change_data .row {
-  width: 100%;
   display: flex;
   gap: 1em;
+}
+
+@media screen and (min-width: 1000px) {
+  .change_data .row {
+    width: 100%;
+  }
 }
 
 .change_data #update_slogan {
@@ -2224,7 +2231,6 @@ a:hover {
 }
 
 .profile {
-  width: 100%;
   max-width: 890px;
   display: flex;
   justify-content: flex-start;
@@ -2232,7 +2238,7 @@ a:hover {
   flex-direction: column;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1100px) {
   .profile {
     margin-left: 95px;
   }
@@ -2263,7 +2269,15 @@ a:hover {
 
 .profile .change_password {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 1000px) {
+  .profile .change_password {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 }
 
 .profile .change_password .row {
@@ -2656,7 +2670,7 @@ a:hover {
 
 .main .header .branch a.active,
 .main .header .branch a:hover {
-  color: #3091ff;
+  color: #37A408;
   transition: 0.3s ease;
 }
 
@@ -3380,7 +3394,7 @@ a:hover {
 }
 
 .column_box .buttons button.active {
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, #37A408, #53EB12);
   color: #fff;
   transition: 0.3s ease;
 }
@@ -3718,9 +3732,9 @@ a:hover {
 }
 
 .b-select.active {
-  border: 1px solid #0084ff;
+  border: 1px solid #53EB12;
   transition: 0.3s ease;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, #37A408, #53EB12);
   color: #fff;
 }
 
@@ -3789,7 +3803,7 @@ a:hover {
 .timer_select.active button {
   width: auto;
   min-width: 40px;
-  background: linear-gradient(45deg, #0084ff, #00b7ff);
+  background: linear-gradient(45deg, #37A408, #53EB12);
 }
 
 .timer_select.active button svg {
@@ -3852,7 +3866,7 @@ a:hover {
 }
 
 .switch input:checked + .slider {
-  background-color: #0084ff;
+  background-color: #37A408;
 }
 
 .switch input:checked + .slider:before {
