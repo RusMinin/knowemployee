@@ -2774,7 +2774,6 @@ body > .container {
 
     .line_row {
       padding: 10px;
-      background: rgba(234, 234, 234, 0.4392156863);
       border-radius: 5px;
       margin-top: 10px;
       width: 100%;
@@ -2789,6 +2788,13 @@ body > .container {
       p {
         font-size: 10px;
       }
+
+      .button_green {
+        background-color: $light_g;
+        color: #000000;
+      }
+
+
 
       .link {
         flex: 1;
@@ -2825,16 +2831,12 @@ body > .container {
           transition: 0.3s ease;
         }
 
-        .copy_link {
-          width: 30px;
-          height: 30px;
+        .copy_link, .qr_link {
           display: flex;
           justify-content: center;
           align-items: center;
           transition: 0.3s ease;
-          border: 1px solid #5c5c5c;
-          background: #ececec;
-          border-radius: 7px;
+
 
           svg {
             width: 20px;

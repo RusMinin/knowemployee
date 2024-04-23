@@ -3078,7 +3078,6 @@ a:hover {
 
 .container_grid:not(.err) .card_box .line_row {
   padding: 10px;
-  background: rgba(234, 234, 234, 0.439216);
   border-radius: 5px;
   margin-top: 10px;
   width: 100%;
@@ -3092,6 +3091,11 @@ a:hover {
 
 .container_grid:not(.err) .card_box .link_reviwe p {
   font-size: 10px;
+}
+
+.container_grid:not(.err) .card_box .link_reviwe .button_green {
+  background-color: #53EB12;
+  color: #000000;
 }
 
 .container_grid:not(.err) .card_box .link_reviwe .link {
@@ -3136,19 +3140,14 @@ a:hover {
   transition: 0.3s ease;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link .copy_link {
-  width: 30px;
-  height: 30px;
+.container_grid:not(.err) .card_box .link_reviwe .link .copy_link, .container_grid:not(.err) .card_box .link_reviwe .link .qr_link {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
-  border: 1px solid #5c5c5c;
-  background: #ececec;
-  border-radius: 7px;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link .copy_link svg {
+.container_grid:not(.err) .card_box .link_reviwe .link .copy_link svg, .container_grid:not(.err) .card_box .link_reviwe .link .qr_link svg {
   width: 20px;
   height: 20px;
 }

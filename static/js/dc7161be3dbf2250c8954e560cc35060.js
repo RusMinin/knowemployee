@@ -283,7 +283,6 @@ if (document.querySelector(".file-upload")) {
 }
 
 
-
 if (document.querySelector('#name_company')) {
     let name_company = $('#name_company').val()
     $('#name_company').on('input', function () {
@@ -310,7 +309,7 @@ if (document.querySelector('#name_company')) {
                 if (response.status == true) {
                     $('.company_data .company p').text(name_company)
 
-                    $('.section_content .content .profile .set_name_company').contents().filter(function() {
+                    $('.section_content .content .profile .set_name_company').contents().filter(function () {
                         return this.nodeType == 3
                     }).remove()
                     $('.section_content .content .profile .set_name_company').prepend(name_company)
@@ -367,7 +366,7 @@ if (document.querySelector('#update_slogan')) {
     const saveButton = $('#save_changes');
     let originalContent = updateSlogan.text().trim();
 
-    updateSlogan.on('input', function() {
+    updateSlogan.on('input', function () {
         let currentContent = $(this).text().trim();
         if (currentContent !== originalContent) {
             saveButton.prop("disabled", false);
@@ -376,14 +375,14 @@ if (document.querySelector('#update_slogan')) {
         }
     });
 
-    saveButton.click(function() {
+    saveButton.click(function () {
         let updatedContent = updateSlogan.text().trim();
         $.ajax({
             url: '/api/update_slogan',
             method: 'POST',
-            data: JSON.stringify({ "slogan": updatedContent }),
+            data: JSON.stringify({"slogan": updatedContent}),
             contentType: "application/json",
-            success: function(response) {
+            success: function (response) {
                 let alertSpan = updateSlogan.closest('.change_data').find('.alr');
                 if (response.status === true) {
                     alertSpan.removeClass('err').addClass('done').text(response.message);
@@ -393,7 +392,7 @@ if (document.querySelector('#update_slogan')) {
                     alertSpan.removeClass('done').addClass('err').text(response.message);
                     saveButton.prop("disabled", false);
                 }
-                setTimeout(function() {
+                setTimeout(function () {
                     alertSpan.text("").removeClass('done err');
                 }, 3000);
             }
@@ -402,15 +401,15 @@ if (document.querySelector('#update_slogan')) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let updateSlogan = document.getElementById('update_slogan');
     let icon = updateSlogan.querySelector('.icon-placeholder');
 
-    updateSlogan.addEventListener('focus', function() {
+    updateSlogan.addEventListener('focus', function () {
         icon.style.display = 'none';
     });
 
-    updateSlogan.addEventListener('blur', function() {
+    updateSlogan.addEventListener('blur', function () {
         icon.style.display = 'block';
     });
 
@@ -435,15 +434,15 @@ if (document.querySelector('.change_data #current_password') && document.querySe
         }
     }
 
-    function comparePasswords(){
-       let newPasswordValue = newPasswordField.val();
-       let confirmPasswordValue = confirmPasswordField.val();
+    function comparePasswords() {
+        let newPasswordValue = newPasswordField.val();
+        let confirmPasswordValue = confirmPasswordField.val();
 
-       if (newPasswordValue === confirmPasswordValue){
-           submitButton.prop("disabled", false)
-       } else {
-           submitButton.prop("disabled", true)
-       }
+        if (newPasswordValue === confirmPasswordValue) {
+            submitButton.prop("disabled", false)
+        } else {
+            submitButton.prop("disabled", true)
+        }
     }
 
     passwordField.on('input', checkPasswordLengths);
@@ -587,42 +586,42 @@ function startFullListCustomFeedbacks() {
                             const formattedDate = `${month}/${day}/${year} ${hours}:${minutes}`;
                             let checked_html = ``
                             if (item.checked == false) {
-                                checked_html = `<span>Left a review: <span class="false">Not review</span></span>`
+                                checked_html = `<span>Left Reviews <span class="false item_counts">0</span></span>`
                             } else {
-                                checked_html = `<span>Left a review: <span class="true">Has review</span> (${item.count})</span>`
+                                checked_html = `<span>Left Reviews <span class="true item_counts">(${item.count})</span></span>`
                             }
 
 
                             let domain = $('#_feead_custom').attr('domain');
                             html_table += `
                             <div class="card_box">
-                                
                                 <div class="content_box">
                                     <div class="box_row">
-                                        <span class="time">
-                                            <svg id="svg8" version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"><defs id="defs2"/><g id="g1307" style="display:inline" transform="translate(0,-290.65039)"><path d="m 12,292.65039 c -5.511,0 -10,4.489 -10,10 0,5.511 4.489,10 10,10 5.511,0 10,-4.489 10,-10 0,-5.511 -4.489,-10 -10,-10 z m 0,2 c 4.43012,0 8,3.56988 8,8 0,4.43012 -3.56988,8 -8,8 -4.43012,0 -8,-3.56988 -8,-8 0,-4.43012 3.56988,-8 8,-8 z" id="path1301" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1"/><path d="m 12,296.65039 a 1,1 0 0 0 -1,1 v 4.96875 a 1.0001,1.0001 0 0 0 0.29492,0.70898 l 3,2.98047 a 1,1 0 0 0 1.41406,-0.004 1,1 0 0 0 -0.004,-1.41407 L 13,302.20312 v -4.55273 a 1,1 0 0 0 -1,-1 z" id="path1303" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;stop-color:#000000;stop-opacity:1"/></g></svg>
-                                            Edit: ${formattedDate}
-                                        </span>
                                         <h3>${item.name}</h3>
                                         <div class="container">
-                                            <span>Request a name: ${item.username_bool ? `<span class="true">Yes</span>` : `<span class="false">No</span>`}</span>
-                                            <span>Multiple: ${item.multiple ? `<span class="true">Yes</span>` : `<span class="false">No</span>`}</span>
+                                            <span>${item.anonimus_feedback == "1" ? `<span class="true">Anonymous</span>` : `<span class="false">Non Anonymous</span>`}</span>
                                             ${checked_html}
-                                            <span>Anonymity: ${item.anonimus_feedback == "1" ? `<span class="true">Yes</span>` : `<span class="false">No</span>`}</span>
                                         </div>
                                         <div class="line_row">
-                                            <p>Link to leave feedback</p>
                                             <div class="link_reviwe">
                                                 <div class="link">
                                                     <a href="${domain}/feedback/${item.only}">
-                                                        <div>
+                                                        <div class="link_domain">
                                                         ${domain}/feedback/${item.only}
                                                         </div>
                                                     </a>
-                                                    <button class="copy_link">
-                                                        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M32 2H8C5.79 2 4 3.79 4 6v28h4V6h24V2zm6 8H16c-2.21 0-4 1.79-4 4v28c0 2.21 1.79 4 4 4h22c2.21 0 4-1.79 4-4V14c0-2.21-1.79-4-4-4zm0 32H16V14h22v28z"/></svg>
-                                                    </button>
+                                                
+                                                    <div class="link_buttons">
+                                                        <a class="copy_link button button_green">Copy the link</a>
+                                                        <a class="qr_link button button_green">
+                                                            qr code
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
+                                                                <path d="M13.1339 7.5H11.8752V3.33333C11.8752 2.875 11.5189 2.5 11.0835 2.5H7.91683C7.48141 2.5 7.12516 2.875 7.12516 3.33333V7.5H5.86641C5.16183 7.5 4.80558 8.4 5.30433 8.925L8.93808 12.75C9.24683 13.075 9.74558 13.075 10.0543 12.75L13.6881 8.925C14.1868 8.4 13.8385 7.5 13.1339 7.5ZM3.9585 15.8333C3.9585 16.2917 4.31475 16.6667 4.75016 16.6667H14.2502C14.6856 16.6667 15.0418 16.2917 15.0418 15.8333C15.0418 15.375 14.6856 15 14.2502 15H4.75016C4.31475 15 3.9585 15.375 3.9585 15.8333Z" fill="#111111"/>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                        
@@ -630,16 +629,20 @@ function startFullListCustomFeedbacks() {
                                     <div class="box_row row_two">
                                         <div class="abs">
                                             <a href="/dashboard/services/feedback/custom/edit/${item.only}" class="controller edit">
-                                                <svg fill="#0084ff" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="info"/><g id="icons"><g id="edit"><path d="M2,20c0,1.1,0.9,2,2,2h2.6L2,17.4V20z"/><path d="M21.6,5.6l-3.2-3.2c-0.8-0.8-2-0.8-2.8,0l-0.2,0.2C15,3,15,3.6,15.4,4L20,8.6c0.4,0.4,1,0.4,1.4,0l0.2-0.2    C22.4,7.6,22.4,6.4,21.6,5.6z"/><path d="M14,5.4c-0.4-0.4-1-0.4-1.4,0l-9.1,9.1C3,15,3,15.6,3.4,16L8,20.6c0.4,0.4,1,0.4,1.4,0l9.1-9.1c0.4-0.4,0.4-1,0-1.4    L14,5.4z"/></g></g></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32" fill="none">
+                                                    <path d="M18.75 8.00005L22.5 12M16.25 26.6667H26.25M6.25 21.3334L5 26.6667L10 25.3334L24.4825 9.88538C24.9512 9.3853 25.2145 8.70715 25.2145 8.00005C25.2145 7.29294 24.9512 6.61479 24.4825 6.11471L24.2675 5.88538C23.7987 5.38546 23.1629 5.10461 22.5 5.10461C21.8371 5.10461 21.2013 5.38546 20.7325 5.88538L6.25 21.3334Z" stroke="#9B9B9B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
                                             </a>
-                                            <button class="controller delete" token="${item.only}">
-                                                <svg class="feather feather-trash-2" fill="none" height="24" stroke="#ff2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
-                                            </button>
+                                            <a class="controller delete" token="${item.only}">
+                                                <svg class="feather feather-trash-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#AFAFAF">
+                                                    <path d="M4 8H20M10 12V18M14 12V18M5 8L6 20C6 20.5304 6.21071 21.0391 6.58579 21.4142C6.96086 21.7893 7.46957 22 8 22H16C16.5304 22 17.0391 21.7893 17.4142 21.4142C17.7893 21.0391 18 20.5304 18 20L19 8M9 8V5C9 4.73478 9.10536 4.48043 9.29289 4.29289C9.48043 4.10536 9.73478 4 10 4H14C14.2652 4 14.5196 4.10536 14.7071 4.29289C14.8946 4.48043 15 4.73478 15 5V8" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
                                         </div>
                                         
                                         <div class="view_container">
                                             <a href="/feedback/${item.only}" class="view">
-                                                <svg id="Layer_1" fill="#fff" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"xmlns="http://www.w3.org/2000/svg"><path d="M322.7,128.4L423,233.4c6,5.8,9,13.7,9,22.4c0,8.7-3,16.5-9,22.4L322.7,383.6c-11.9,12.5-31.3,12.5-43.2,0  c-11.9-12.5-11.9-32.7,0-45.2l48.2-50.4h-217C93.7,288,80,273.7,80,256c0-17.7,13.7-32,30.6-32h217l-48.2-50.4  c-11.9-12.5-11.9-32.7,0-45.2C291.4,115.9,310.7,115.9,322.7,128.4z"/></svg>
+                                                <svg id="Layer_1" fill="#fff" style="enable-background:new 0 0 512 512;" viewBox="0 0 512 512"xmlns="http://www.w3.org/2000/svg"><path d="M322.7,128.4L423,233.4c6,5.8,9,13.7,9,22.4c0,8.7-3,16.5-9,22.4L322.7,383.6c-11.9,12.5-31.3,12.5-43.2,0  c-11.9-12.5-11.9-32.7,0-45.2l48.2-50.4h-217C93.7,288,80,273.7,80,256c0-17.7,13.7-32,30.6-32h217l-48.2-50.4  c-11.9-12.5-11.9-32.7,0-45.2C291.4,115.9,310.7,115.9,322.7,128.4z"/></svg>
                                             </a>
                                         </div>
                                     </div>
@@ -654,7 +657,7 @@ function startFullListCustomFeedbacks() {
                             $('.box_row .copy_link').click(async (e) => {
                                 let target = $(e.target).closest('.copy_link');
                                 let father = $(target).closest('.link');
-                                let link = $(father).find('div').text();
+                                let link = $(father).find('.link_domain').text();
 
                                 try {
                                     await navigator.clipboard.writeText(link);
