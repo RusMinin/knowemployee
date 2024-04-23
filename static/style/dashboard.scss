@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', 'sans-serif';
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 }
@@ -334,7 +333,7 @@ body > .container {
   .content {
     padding-left: 20px;
     @include mq(800px) {
-      padding-left: 0;
+      padding-left: 3px;
     }
   }
 
@@ -1108,9 +1107,10 @@ body > .container {
 }
 
 .search_block {
-  margin-top: 20px;
+  margin: 20px 0;
   @include mq(800px) {
     margin-top: 45px;
+    margin-bottom: 60px;
   }
 
   h3 {
@@ -2722,6 +2722,7 @@ body > .container {
 
 .container_grid {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .container_grid.err {
@@ -2745,6 +2746,7 @@ body > .container {
   }
 
   .card_box {
+    box-sizing: border-box;
     width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 10px #00000012;
