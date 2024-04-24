@@ -333,7 +333,6 @@ body > .container {
   .content {
     padding-left: 20px;
     @include mq(800px) {
-      padding-left: 3px;
     }
   }
 
@@ -1318,7 +1317,6 @@ body > .container {
     border-radius: 5px;
     box-shadow: 0 0 10px #ccc;
     display: none;
-    font-family: "Rubik";
     font-size: 12px;
     justify-content: center;
     position: absolute;
@@ -1398,7 +1396,7 @@ body > .container {
         width: 15px;
         position: absolute;
         left: 25%;
-        @include mq(800px) {
+        @include mq(1000px) {
           width: 20px;
           bottom: 58px;
           left: auto;
@@ -1578,7 +1576,6 @@ body > .container {
       color: #fff;
       font-weight: 600;
       justify-content: center;
-      transition: 0.3s ease;
       align-items: center;
       border-radius: 4px;
       border: 1px solid rgba(179, 179, 179, 0.2666666667);
@@ -1620,7 +1617,6 @@ body > .container {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
     padding: 10px;
     margin-left: 10px;
     border-left: 1px solid rgba(179, 179, 179, 0.2666666667);
@@ -1719,11 +1715,10 @@ body > .container {
   display: none;
   flex-direction: column;
   padding: 10px;
-  border-top: 1px solid #f1f1f1;
   background-color: #f9f9f9;
   border: 1px solid rgba(179, 179, 179, 0.2666666667);
   border-top: none;
-  border-radius: 12;
+  border-radius: 12px;
 
   h3 {
     margin: 10px 0;
@@ -2306,7 +2301,7 @@ body > .container {
   overflow: hidden;
 
   @include mq(800px) {
-    margin-left: 34px;
+    margin-left: 15px;
     margin-top: 45px;
   }
 
@@ -2412,6 +2407,7 @@ body > .container {
   .section_content {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     .content::-webkit-scrollbar {
@@ -2433,7 +2429,6 @@ body > .container {
       padding-right: 10px;
       padding-bottom: 120px;
       @include mq(800px) {
-        padding-right: 0;
         padding-top: 0;
       }
     }
@@ -2734,12 +2729,7 @@ body > .container {
   box-sizing: border-box;
 }
 
-.container_grid.err {
-  display: flex;
-  justify-content: center;
-}
-
-.container_grid:not(.err) {
+.container_grid {
   display: grid;
   @include mq(0px) {
     grid-template-columns: 1fr;
@@ -2794,14 +2784,11 @@ body > .container {
         color: #000000;
       }
 
-
-
       .link {
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #e6e6e6;
         padding: 6px 5px;
         margin-top: 5px;
         border-radius: 6px;
@@ -2809,11 +2796,12 @@ body > .container {
         a {
           display: flex;
           flex: 1 1;
+          color: #000000;
+
           @include mq(0px) {
             max-width: 40vw;
           }
           @include mq(700px) {
-            max-width: auto;
           }
           overflow: hidden;
           text-overflow: ellipsis;
@@ -2898,7 +2886,7 @@ body > .container {
       @include mq(750px) {
         display: grid;
         flex-direction: row;
-        grid-template-columns: 1fr 50px;
+        grid-template-columns: 1fr;
       }
 
       .row_two {
@@ -2921,7 +2909,7 @@ body > .container {
           flex-direction: column;
           gap: 10px 30px;
         }
-        @include mq(500px) {
+        @include mq(800px) {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 10px 30px;
@@ -2998,7 +2986,7 @@ body > .container {
     }
 
     .view:hover {
-      opacity: 0.6s ease;
+      opacity: 0.6;
       transition: 0.3s ease;
     }
 

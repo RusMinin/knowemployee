@@ -437,12 +437,6 @@ a:hover {
   padding-left: 20px;
 }
 
-@media screen and (min-width: 800px) {
-  .wrapper.pined .content {
-    padding-left: 3px;
-  }
-}
-
 .section_content {
   height: calc(100% - 80px);
 }
@@ -1515,7 +1509,6 @@ a:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px #ccc;
   display: none;
-  font-family: "Rubik";
   font-size: 12px;
   justify-content: center;
   position: absolute;
@@ -1616,7 +1609,7 @@ a:hover {
   left: 25%;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .quiz_section .jw .create svg,
   .tabs_analytics .jw .create svg {
     width: 20px;
@@ -1821,7 +1814,6 @@ a:hover {
   color: #fff;
   font-weight: 600;
   justify-content: center;
-  transition: 0.3s ease;
   align-items: center;
   border-radius: 4px;
   border: 1px solid rgba(179, 179, 179, 0.266667);
@@ -1862,7 +1854,6 @@ a:hover {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  padding-left: 10px;
   padding: 10px;
   margin-left: 10px;
   border-left: 1px solid rgba(179, 179, 179, 0.266667);
@@ -1965,11 +1956,10 @@ a:hover {
   display: none;
   flex-direction: column;
   padding: 10px;
-  border-top: 1px solid #f1f1f1;
   background-color: #f9f9f9;
   border: 1px solid rgba(179, 179, 179, 0.266667);
   border-top: none;
-  border-radius: 12;
+  border-radius: 12px;
 }
 
 .accordion-content h3 {
@@ -2584,7 +2574,7 @@ a:hover {
 
 @media screen and (min-width: 800px) {
   .main {
-    margin-left: 34px;
+    margin-left: 15px;
     margin-top: 45px;
   }
 }
@@ -2701,6 +2691,7 @@ a:hover {
 .main .section_content {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -2726,7 +2717,6 @@ a:hover {
 
 @media screen and (min-width: 800px) {
   .main .section_content .content {
-    padding-right: 0;
     padding-top: 0;
   }
 }
@@ -3035,30 +3025,25 @@ a:hover {
   box-sizing: border-box;
 }
 
-.container_grid.err {
-  display: flex;
-  justify-content: center;
-}
-
-.container_grid:not(.err) {
+.container_grid {
   display: grid;
   gap: 20px;
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) {
+  .container_grid {
     grid-template-columns: 1fr;
   }
 }
 
-.container_grid:not(.err) .alert {
+.container_grid .alert {
   width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-.container_grid:not(.err) .card_box {
+.container_grid .card_box {
   box-sizing: border-box;
   width: 100%;
   border-radius: 5px;
@@ -3072,46 +3057,46 @@ a:hover {
   position: relative;
 }
 
-.container_grid:not(.err) .card_box .content_box {
+.container_grid .card_box .content_box {
   flex: 1;
 }
 
-.container_grid:not(.err) .card_box .line_row {
+.container_grid .card_box .line_row {
   padding: 10px;
   border-radius: 5px;
   margin-top: 10px;
   width: 100%;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe {
+.container_grid .card_box .link_reviwe {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe p {
+.container_grid .card_box .link_reviwe p {
   font-size: 10px;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .button_green {
+.container_grid .card_box .link_reviwe .button_green {
   background-color: #53EB12;
   color: #000000;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link {
+.container_grid .card_box .link_reviwe .link {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #e6e6e6;
   padding: 6px 5px;
   margin-top: 5px;
   border-radius: 6px;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link a {
+.container_grid .card_box .link_reviwe .link a {
   display: flex;
   flex: 1 1;
+  color: #000000;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -3120,64 +3105,58 @@ a:hover {
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .link_reviwe .link a {
+  .container_grid .card_box .link_reviwe .link a {
     max-width: 40vw;
   }
 }
 
-@media screen and (min-width: 700px) {
-  .container_grid:not(.err) .card_box .link_reviwe .link a {
-    max-width: auto;
-  }
-}
-
-.container_grid:not(.err) .card_box .link_reviwe .link a span {
+.container_grid .card_box .link_reviwe .link a span {
   flex: 1 1 auto;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link .copy_link:hover {
+.container_grid .card_box .link_reviwe .link .copy_link:hover {
   opacity: 0.4;
   transition: 0.3s ease;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link .copy_link, .container_grid:not(.err) .card_box .link_reviwe .link .qr_link {
+.container_grid .card_box .link_reviwe .link .copy_link, .container_grid .card_box .link_reviwe .link .qr_link {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
 }
 
-.container_grid:not(.err) .card_box .link_reviwe .link .copy_link svg, .container_grid:not(.err) .card_box .link_reviwe .link .qr_link svg {
+.container_grid .card_box .link_reviwe .link .copy_link svg, .container_grid .card_box .link_reviwe .link .qr_link svg {
   width: 20px;
   height: 20px;
 }
 
-.container_grid:not(.err) .card_box .abs {
+.container_grid .card_box .abs {
   position: relative;
   display: flex;
   gap: 10px;
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .abs {
+  .container_grid .card_box .abs {
     align-items: center;
     flex-direction: row;
   }
 }
 
 @media screen and (min-width: 750px) {
-  .container_grid:not(.err) .card_box .abs {
+  .container_grid .card_box .abs {
     align-items: flex-end;
     flex-direction: column;
   }
 }
 
-.container_grid:not(.err) .card_box .abs .controller:hover {
+.container_grid .card_box .abs .controller:hover {
   opacity: 0.6;
   transition: 0.5s ease;
 }
 
-.container_grid:not(.err) .card_box .abs .controller {
+.container_grid .card_box .abs .controller {
   width: 35px;
   height: 35px;
   display: flex;
@@ -3189,39 +3168,39 @@ a:hover {
   background: #f4f4f4;
 }
 
-.container_grid:not(.err) .card_box .abs .controller svg {
+.container_grid .card_box .abs .controller svg {
   width: 50%;
   height: 50%;
 }
 
-.container_grid:not(.err) .card_box .box_row {
+.container_grid .card_box .box_row {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.container_grid:not(.err) .card_box .content_box {
+.container_grid .card_box .content_box {
   width: 100%;
   height: 100%;
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .content_box {
+  .container_grid .card_box .content_box {
     display: flex;
     flex-direction: column;
   }
 }
 
 @media screen and (min-width: 750px) {
-  .container_grid:not(.err) .card_box .content_box {
+  .container_grid .card_box .content_box {
     display: grid;
     flex-direction: row;
-    grid-template-columns: 1fr 50px;
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .content_box .row_two {
+  .container_grid .card_box .content_box .row_two {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
@@ -3229,41 +3208,41 @@ a:hover {
 }
 
 @media screen and (min-width: 750px) {
-  .container_grid:not(.err) .card_box .content_box .row_two {
+  .container_grid .card_box .content_box .row_two {
     display: flex;
     flex-direction: column;
     margin-top: 0;
   }
 }
 
-.container_grid:not(.err) .card_box .content_box .container {
+.container_grid .card_box .content_box .container {
   width: 100%;
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .content_box .container {
+  .container_grid .card_box .content_box .container {
     display: flex;
     flex-direction: column;
     gap: 10px 30px;
   }
 }
 
-@media screen and (min-width: 500px) {
-  .container_grid:not(.err) .card_box .content_box .container {
+@media screen and (min-width: 800px) {
+  .container_grid .card_box .content_box .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px 30px;
   }
 }
 
-.container_grid:not(.err) .card_box .content_box .container span {
+.container_grid .card_box .content_box .container span {
   font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.container_grid:not(.err) .card_box .content_box h3 {
+.container_grid .card_box .content_box h3 {
   width: 100%;
   margin-bottom: 20px;
   margin-top: 10px;
@@ -3274,7 +3253,7 @@ a:hover {
   -webkit-line-clamp: 1;
 }
 
-.container_grid:not(.err) .card_box .time {
+.container_grid .card_box .time {
   position: relative;
   bottom: 0;
   left: 0;
@@ -3284,12 +3263,12 @@ a:hover {
   font-size: 12px;
 }
 
-.container_grid:not(.err) .card_box .time svg {
+.container_grid .card_box .time svg {
   width: 15px;
   height: 15px;
 }
 
-.container_grid:not(.err) .card_box .true {
+.container_grid .card_box .true {
   padding: 2px 7px;
   white-space: nowrap;
   border: 1px solid #000;
@@ -3299,7 +3278,7 @@ a:hover {
   font-weight: 500;
 }
 
-.container_grid:not(.err) .card_box .false {
+.container_grid .card_box .false {
   padding: 2px 7px;
   white-space: nowrap;
   border: 1px solid #000;
@@ -3309,7 +3288,7 @@ a:hover {
   font-weight: 500;
 }
 
-.container_grid:not(.err) .card_box .view_container {
+.container_grid .card_box .view_container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -3317,25 +3296,25 @@ a:hover {
 }
 
 @media screen and (min-width: 0px) {
-  .container_grid:not(.err) .card_box .view_container {
+  .container_grid .card_box .view_container {
     margin-top: 0px;
     flex: 1 auto;
   }
 }
 
 @media screen and (min-width: 750px) {
-  .container_grid:not(.err) .card_box .view_container {
+  .container_grid .card_box .view_container {
     margin-top: 10px;
     flex: none;
   }
 }
 
-.container_grid:not(.err) .card_box .view:hover {
-  opacity: 0.6s ease;
+.container_grid .card_box .view:hover {
+  opacity: 0.6;
   transition: 0.3s ease;
 }
 
-.container_grid:not(.err) .card_box .view {
+.container_grid .card_box .view {
   background: linear-gradient(45deg, #4fd2e9, #0099ff, #ae00ff);
   width: 35px;
   height: 35px;
@@ -3349,7 +3328,7 @@ a:hover {
   border-radius: 5px;
 }
 
-.container_grid:not(.err) .card_box .view svg {
+.container_grid .card_box .view svg {
   width: 25px;
   height: 25px;
 }
