@@ -598,7 +598,7 @@ function startFullListCustomFeedbacks() {
                                 <div class="content_box">
                                     <div class="box_row">
                                         <h3>${item.name}</h3>
-                                        <div class="container">
+                                        <div class="container container_info">
                                             <span>${item.anonimus_feedback == "1" ? `<span class="true">Anonymous</span>` : `<span class="false">Non Anonymous</span>`}</span>
                                             ${checked_html}
                                         </div>

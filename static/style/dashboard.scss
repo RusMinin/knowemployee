@@ -2787,6 +2787,7 @@ body > .container {
       .link {
         flex: 1;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         padding: 6px 5px;
@@ -2794,14 +2795,13 @@ body > .container {
         border-radius: 6px;
 
         a {
-          display: flex;
-          flex: 1 1;
           color: #000000;
 
           @include mq(0px) {
-            max-width: 40vw;
+            max-width: 70vw;
           }
           @include mq(700px) {
+            max-width: 40vw;
           }
           overflow: hidden;
           text-overflow: ellipsis;
@@ -2814,12 +2814,24 @@ body > .container {
           }
         }
 
+        .link_buttons {
+          width: 100%;
+
+          @include mq(700px) {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+          }
+        }
+
         .copy_link:hover {
           opacity: 0.4;
           transition: 0.3s ease;
         }
 
         .copy_link, .qr_link {
+          margin: 20px auto;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -2923,11 +2935,17 @@ body > .container {
         }
       }
 
+      .container_info {
+        max-width: 478px;
+      }
+
       h3 {
         width: 100%;
         margin-bottom: 20px;
         margin-top: 10px;
         overflow: hidden;
+        font-size: 21px;
+        font-weight: bold;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
