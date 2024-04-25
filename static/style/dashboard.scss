@@ -2768,6 +2768,10 @@ body > .container {
       margin-top: 10px;
       width: 100%;
 
+      @include mq(1000px) {
+        margin-top: 0;
+      }
+
     }
 
     .link_reviwe {
@@ -2789,18 +2793,27 @@ body > .container {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         padding: 6px 5px;
         margin-top: 5px;
         border-radius: 6px;
+
+        @include mq(1000px){
+          align-items: flex-start;
+          flex-wrap: nowrap;
+        }
 
         a {
           color: #000000;
 
           @include mq(0px) {
-            max-width: 70vw;
+            max-width: 75vw;
           }
           @include mq(700px) {
+            max-width: 50vw;
+          }
+
+          @include mq(1050px) {
             max-width: 40vw;
           }
           overflow: hidden;
@@ -2814,10 +2827,21 @@ body > .container {
           }
         }
 
+        .shadow {
+          padding: 12px 31px;
+          background-color: #fff;
+          border-radius: 16px;
+
+          @include mq(1000px){
+            margin-right: 30px;
+          }
+        }
+
         .link_buttons {
           width: 100%;
 
-          @include mq(700px) {
+          @include mq(1000px) {
+            max-width: 318px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -2835,12 +2859,28 @@ body > .container {
           display: flex;
           justify-content: center;
           align-items: center;
+          border-radius: 16px;
           transition: 0.3s ease;
 
+          @include mq(1000px){
+            margin: 0;
+          }
 
           svg {
             width: 20px;
             height: 20px;
+          }
+        }
+
+        .copy_link {
+          @include mq(1000px){
+            width: 188px;
+          }
+        }
+
+        .qr_link {
+          @include mq(1000px){
+            width: 122px;
           }
         }
       }
@@ -2937,6 +2977,10 @@ body > .container {
 
       .container_info {
         max-width: 478px;
+
+        span {
+          font-size: 21px;
+        }
       }
 
       h3 {
@@ -2973,7 +3017,6 @@ body > .container {
       white-space: nowrap;
       border: 1px solid #000;
       border-radius: 7px;
-      font-size: 10px !important;
       color: #000;
       font-weight: 500;
     }
@@ -2983,7 +3026,6 @@ body > .container {
       white-space: nowrap;
       border: 1px solid #000;
       border-radius: 7px;
-      font-size: 10px !important;
       color: #000;
       font-weight: 500;
     }
@@ -3912,6 +3954,9 @@ body > .container {
         justify-content: center;
         align-items: center;
         border: none;
+        @include mq(1000px){
+          width: 188px;
+        }
       }
     }
 

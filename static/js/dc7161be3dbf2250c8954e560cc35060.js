@@ -605,7 +605,7 @@ function startFullListCustomFeedbacks() {
                                         <div class="line_row">
                                             <div class="link_reviwe">
                                                 <div class="link">
-                                                    <a href="${domain}/feedback/${item.only}">
+                                                    <a class="shadow" href="${domain}/feedback/${item.only}">
                                                         <div class="link_domain">
                                                         ${domain}/feedback/${item.only}
                                                         </div>
@@ -620,11 +620,9 @@ function startFullListCustomFeedbacks() {
                                                             </svg>
                                                         </a>
                                                     </div>
-                                                </div>
-                                                
+                                                </div> 
                                             </div>
                                         </div>
-                                       
                                     </div>
                                     <div class="box_row row_two">
                                         <div class="abs">

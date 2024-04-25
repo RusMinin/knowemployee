@@ -94,4 +94,8 @@ body {
   color: #ffffff;
 }
 
+.shadow {
+  box-shadow: 0 0 10px #00000012;
+}
+
 /*# sourceMappingURL=helpers.css.map */

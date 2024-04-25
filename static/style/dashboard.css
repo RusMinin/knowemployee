@@ -95,6 +95,10 @@ body {
   color: #ffffff;
 }
 
+.shadow {
+  box-shadow: 0 0 10px #00000012;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -3068,6 +3072,12 @@ a:hover {
   width: 100%;
 }
 
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .line_row {
+    margin-top: 0;
+  }
+}
+
 .container_grid .card_box .link_reviwe {
   display: flex;
   align-items: flex-start;
@@ -3088,10 +3098,17 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 6px 5px;
   margin-top: 5px;
   border-radius: 6px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .link_reviwe .link {
+    align-items: flex-start;
+    flex-wrap: nowrap;
+  }
 }
 
 .container_grid .card_box .link_reviwe .link a {
@@ -3105,11 +3122,17 @@ a:hover {
 
 @media screen and (min-width: 0px) {
   .container_grid .card_box .link_reviwe .link a {
-    max-width: 70vw;
+    max-width: 75vw;
   }
 }
 
 @media screen and (min-width: 700px) {
+  .container_grid .card_box .link_reviwe .link a {
+    max-width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1050px) {
   .container_grid .card_box .link_reviwe .link a {
     max-width: 40vw;
   }
@@ -3119,12 +3142,25 @@ a:hover {
   flex: 1 1 auto;
 }
 
+.container_grid .card_box .link_reviwe .link .shadow {
+  padding: 12px 31px;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .link_reviwe .link .shadow {
+    margin-right: 30px;
+  }
+}
+
 .container_grid .card_box .link_reviwe .link .link_buttons {
   width: 100%;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
   .container_grid .card_box .link_reviwe .link .link_buttons {
+    max-width: 318px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -3142,12 +3178,31 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 16px;
   transition: 0.3s ease;
+}
+
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .link_reviwe .link .copy_link, .container_grid .card_box .link_reviwe .link .qr_link {
+    margin: 0;
+  }
 }
 
 .container_grid .card_box .link_reviwe .link .copy_link svg, .container_grid .card_box .link_reviwe .link .qr_link svg {
   width: 20px;
   height: 20px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .link_reviwe .link .copy_link {
+    width: 188px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .container_grid .card_box .link_reviwe .link .qr_link {
+    width: 122px;
+  }
 }
 
 .container_grid .card_box .abs {
@@ -3265,6 +3320,10 @@ a:hover {
   max-width: 478px;
 }
 
+.container_grid .card_box .content_box .container_info span {
+  font-size: 21px;
+}
+
 .container_grid .card_box .content_box h3 {
   width: 100%;
   margin-bottom: 20px;
@@ -3298,7 +3357,6 @@ a:hover {
   white-space: nowrap;
   border: 1px solid #000;
   border-radius: 7px;
-  font-size: 10px !important;
   color: #000;
   font-weight: 500;
 }
@@ -3308,7 +3366,6 @@ a:hover {
   white-space: nowrap;
   border: 1px solid #000;
   border-radius: 7px;
-  font-size: 10px !important;
   color: #000;
   font-weight: 500;
 }
@@ -4295,6 +4352,12 @@ a:hover {
   justify-content: center;
   align-items: center;
   border: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .info-quiz .info .copy .copy_link {
+    width: 188px;
+  }
 }
 
 .info-quiz .info .row {
