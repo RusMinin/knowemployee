@@ -952,7 +952,7 @@ a:hover {
   .custom_link .name_link button,
   .custom_link .name_link input {
     margin: 0;
-    max-width: 632px;
+    max-width: 648px;
     border-radius: 16px;
     font-size: 21px;
   }
@@ -1173,8 +1173,16 @@ a:hover {
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  gap: 5px;
+  gap: 10px;
   margin-top: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line .questions,
+  .custom_link .link_line .questions {
+    gap: 18px;
+    margin-top: 20px;
+  }
 }
 
 .quiz_link .link_line .questions .q_text,
@@ -1182,13 +1190,21 @@ a:hover {
   width: 100%;
   display: grid;
   min-height: 40px;
-  grid-template-columns: 30px 1fr 30px;
-  border: 1px solid rgba(179, 179, 179, 0.266667);
+  grid-template-columns: 30px 1fr 40px;
+  box-shadow: 1px 2px 5px 0 #53525240;
   border-radius: 6px;
   padding: 5px;
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line .questions .q_text,
+  .custom_link .link_line .questions .q_text {
+    gap: 10px;
+    border-radius: 16px;
+  }
 }
 
 .quiz_link .link_line .questions .q_text span,
@@ -1213,30 +1229,41 @@ a:hover {
   align-items: center;
 }
 
-.quiz_link .link_line .questions .q_text button:hover,
-.custom_link .link_line .questions .q_text button:hover {
-  background: #c5e0e1;
-  transition: 0.3s ease;
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line .questions .q_text p,
+  .custom_link .link_line .questions .q_text p {
+    align-items: flex-end;
+    font-size: 21px;
+  }
+}
+
+.quiz_link .link_line .questions .q_text button:hover svg path,
+.custom_link .link_line .questions .q_text button:hover svg path {
+  fill: black;
 }
 
 .quiz_link .link_line .questions .q_text button,
 .custom_link .link_line .questions .q_text button {
-  position: relative;
+  padding: 0;
+  margin-top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid rgba(179, 179, 179, 0.266667);
-  border-radius: 4px;
-  width: 30px;
   height: 30px;
-  background: #f7f7f7;
+  background: transparent;
+  color: #AFAFAF;
   transition: 0.3s ease;
 }
 
 .quiz_link .link_line .questions .q_text button svg,
 .custom_link .link_line .questions .q_text button svg {
-  width: 70%;
-  height: 70%;
+  width: 24px;
+  height: 24px;
+}
+
+.quiz_link .link_line .questions .q_text button svg path,
+.custom_link .link_line .questions .q_text button svg path {
+  fill: #AFAFAF;
 }
 
 .quiz_link .link_line .questions_quiz,
@@ -1809,16 +1836,12 @@ a:hover {
   display: none;
 }
 
-.qr_code:hover {
-  background: #f0f0f0;
-  transition: 0.3s ease;
-}
-
 .qr_code {
   width: 50px;
   height: 50px;
   transition: 0.3s ease;
-  background: transparent;
+  background: #424141;
+  align-items: flex-start;
   border-radius: 50%;
   position: relative;
   border: none;
@@ -1880,6 +1903,11 @@ a:hover {
   object-fit: cover;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.qr_code:hover {
+  background: #f0f0f0;
+  transition: 0.3s ease;
 }
 
 .row {
