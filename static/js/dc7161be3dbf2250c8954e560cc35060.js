@@ -597,7 +597,21 @@ function startFullListCustomFeedbacks() {
                             <div class="card_box">
                                 <div class="content_box">
                                     <div class="box_row">
-                                        <h3>${item.name}</h3>
+                                        <div class="box_row row_two">
+                                            <h3>${item.name}</h3>
+                                            <div class="abs">
+                                                <a href="/dashboard/services/feedback/custom/edit/${item.only}" class="controller edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32" fill="none">
+                                                        <path d="M18.75 8.00005L22.5 12M16.25 26.6667H26.25M6.25 21.3334L5 26.6667L10 25.3334L24.4825 9.88538C24.9512 9.3853 25.2145 8.70715 25.2145 8.00005C25.2145 7.29294 24.9512 6.61479 24.4825 6.11471L24.2675 5.88538C23.7987 5.38546 23.1629 5.10461 22.5 5.10461C21.8371 5.10461 21.2013 5.38546 20.7325 5.88538L6.25 21.3334Z" stroke="#9B9B9B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </a>
+                                                <a class="controller delete" token="${item.only}">
+                                                    <svg class="feather feather-trash-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#AFAFAF">
+                                                        <path d="M4 8H20M10 12V18M14 12V18M5 8L6 20C6 20.5304 6.21071 21.0391 6.58579 21.4142C6.96086 21.7893 7.46957 22 8 22H16C16.5304 22 17.0391 21.7893 17.4142 21.4142C17.7893 21.0391 18 20.5304 18 20L19 8M9 8V5C9 4.73478 9.10536 4.48043 9.29289 4.29289C9.48043 4.10536 9.73478 4 10 4H14C14.2652 4 14.5196 4.10536 14.7071 4.29289C14.8946 4.48043 15 4.73478 15 5V8" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
                                         <div class="container container_info">
                                             <span>${item.anonimus_feedback == "1" ? `<span class="true">Anonymous</span>` : `<span class="false">Non Anonymous</span>`}</span>
                                             ${checked_html}
@@ -605,15 +619,15 @@ function startFullListCustomFeedbacks() {
                                         <div class="line_row">
                                             <div class="link_reviwe">
                                                 <div class="link">
-                                                    <a class="shadow" href="${domain}/feedback/${item.only}">
+                                                    <a class="link_content shadow" href="${domain}/feedback/${item.only}">
                                                         <div class="link_domain">
                                                         ${domain}/feedback/${item.only}
                                                         </div>
                                                     </a>
                                                 
                                                     <div class="link_buttons">
-                                                        <a class="copy_link button button_green">Copy the link</a>
-                                                        <a class="qr_link button button_green">
+                                                        <a class="copy_link button button_green shadow">Copy the link</a>
+                                                        <a class="qr_link button button_green shadow">
                                                             qr code
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
                                                                 <path d="M13.1339 7.5H11.8752V3.33333C11.8752 2.875 11.5189 2.5 11.0835 2.5H7.91683C7.48141 2.5 7.12516 2.875 7.12516 3.33333V7.5H5.86641C5.16183 7.5 4.80558 8.4 5.30433 8.925L8.93808 12.75C9.24683 13.075 9.74558 13.075 10.0543 12.75L13.6881 8.925C14.1868 8.4 13.8385 7.5 13.1339 7.5ZM3.9585 15.8333C3.9585 16.2917 4.31475 16.6667 4.75016 16.6667H14.2502C14.6856 16.6667 15.0418 16.2917 15.0418 15.8333C15.0418 15.375 14.6856 15 14.2502 15H4.75016C4.31475 15 3.9585 15.375 3.9585 15.8333Z" fill="#111111"/>
@@ -624,19 +638,7 @@ function startFullListCustomFeedbacks() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="box_row row_two">
-                                        <div class="abs">
-                                            <a href="/dashboard/services/feedback/custom/edit/${item.only}" class="controller edit">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="32" viewBox="0 0 30 32" fill="none">
-                                                    <path d="M18.75 8.00005L22.5 12M16.25 26.6667H26.25M6.25 21.3334L5 26.6667L10 25.3334L24.4825 9.88538C24.9512 9.3853 25.2145 8.70715 25.2145 8.00005C25.2145 7.29294 24.9512 6.61479 24.4825 6.11471L24.2675 5.88538C23.7987 5.38546 23.1629 5.10461 22.5 5.10461C21.8371 5.10461 21.2013 5.38546 20.7325 5.88538L6.25 21.3334Z" stroke="#9B9B9B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                            </a>
-                                            <a class="controller delete" token="${item.only}">
-                                                <svg class="feather feather-trash-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#AFAFAF">
-                                                    <path d="M4 8H20M10 12V18M14 12V18M5 8L6 20C6 20.5304 6.21071 21.0391 6.58579 21.4142C6.96086 21.7893 7.46957 22 8 22H16C16.5304 22 17.0391 21.7893 17.4142 21.4142C17.7893 21.0391 18 20.5304 18 20L19 8M9 8V5C9 4.73478 9.10536 4.48043 9.29289 4.29289C9.48043 4.10536 9.73478 4 10 4H14C14.2652 4 14.5196 4.10536 14.7071 4.29289C14.8946 4.48043 15 4.73478 15 5V8" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                            </a>
-                                        </div>
+                                    
                                         
                                         <!--<div class="view_container">
                                             <a href="/feedback/${item.only}" class="view">
@@ -644,7 +646,6 @@ function startFullListCustomFeedbacks() {
                                             </a>
                                         </div>
                                         -->
-                                    </div>
                                 </div>
                             </div>`;
 

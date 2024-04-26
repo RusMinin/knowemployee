@@ -96,7 +96,7 @@ body {
 }
 
 .shadow {
-  box-shadow: 0 0 10px #00000012;
+  box-shadow: 1px 2px 5px 0 #53525240;
 }
 
 * {
@@ -3107,7 +3107,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 6px 5px;
-  margin-top: 5px;
+  margin-top: 10px;
   border-radius: 6px;
 }
 
@@ -3157,14 +3157,14 @@ a:hover {
   flex: 1 1 auto;
 }
 
-.container_grid .card_box .link_reviwe .link .shadow {
+.container_grid .card_box .link_reviwe .link .link_content {
   padding: 12px 31px;
   background-color: #fff;
   border-radius: 16px;
 }
 
 @media screen and (min-width: 1050px) {
-  .container_grid .card_box .link_reviwe .link .shadow {
+  .container_grid .card_box .link_reviwe .link .link_content {
     margin-right: 30px;
   }
 }
@@ -3222,8 +3222,10 @@ a:hover {
 }
 
 .container_grid .card_box .abs {
+  width: 110px;
   position: relative;
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 
@@ -3236,8 +3238,7 @@ a:hover {
 
 @media screen and (min-width: 750px) {
   .container_grid .card_box .abs {
-    align-items: flex-end;
-    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -3256,11 +3257,6 @@ a:hover {
   border-radius: 5px;
   border: none;
   background: #f4f4f4;
-}
-
-.container_grid .card_box .abs .controller svg {
-  width: 50%;
-  height: 50%;
 }
 
 .container_grid .card_box .box_row {
@@ -3298,17 +3294,9 @@ a:hover {
 
 @media screen and (min-width: 0px) {
   .container_grid .card_box .content_box .row_two {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
-  }
-}
-
-@media screen and (min-width: 750px) {
-  .container_grid .card_box .content_box .row_two {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
   }
 }
 

@@ -2799,7 +2799,7 @@ body > .container {
         align-items: center;
         justify-content: center;
         padding: 6px 5px;
-        margin-top: 5px;
+        margin-top: 10px;
         border-radius: 6px;
 
         @include mq(1050px) {
@@ -2837,7 +2837,7 @@ body > .container {
           }
         }
 
-        .shadow {
+        .link_content {
           padding: 12px 31px;
           background-color: #fff;
           border-radius: 16px;
@@ -2898,15 +2898,16 @@ body > .container {
     }
 
     .abs {
+      width: 110px;
       position: relative;
       display: flex;
+      justify-content: space-between;
       @include mq(0px) {
         align-items: center;
         flex-direction: row;
       }
       @include mq(750px) {
-        align-items: flex-end;
-        flex-direction: column;
+        align-items: flex-start;
       }
       gap: 10px;
 
@@ -2925,11 +2926,6 @@ body > .container {
         border-radius: 5px;
         border: none;
         background: #f4f4f4;
-
-        svg {
-          width: 50%;
-          height: 50%;
-        }
       }
     }
 
@@ -2958,14 +2954,9 @@ body > .container {
 
       .row_two {
         @include mq(0px) {
+          width: 100%;
           display: flex;
           flex-direction: row;
-          margin-top: 10px;
-        }
-        @include mq(750px) {
-          display: flex;
-          flex-direction: column;
-          margin-top: 0;
         }
       }
 
