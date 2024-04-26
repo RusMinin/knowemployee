@@ -99,6 +99,11 @@ body {
   box-shadow: 1px 2px 5px 0 #53525240;
 }
 
+.big_fields {
+  height: 55px;
+  border-radius: 16px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -144,9 +149,20 @@ input[type=password] {
   outline-color: #414141;
   outline-width: 2px;
   padding: 5px 10px;
+  box-shadow: 1px 2px 5px 0 #53525240;
   cursor: text;
   color: #00000096;
   font-size: 15px;
+}
+
+@media screen and (min-width: 1050px) {
+  textarea,
+  input[type=text],
+  input[type=password] {
+    height: 55px;
+    border-radius: 16px;
+    font-size: 21px;
+  }
 }
 
 input[type=text],
@@ -736,7 +752,7 @@ a:hover {
 .ava_container .bg-quiz-wrapper .upload-button:hover .fa-arrow-circle-up,
 .ava_container .avatar-wrapper .upload-button:hover .fa-arrow-circle-up,
 .ava_container .avatar-wrapper .upload-button:hover .fa-circle-plus {
-  opacity: .9;
+  opacity: .8;
 }
 
 .ava_container .avatar-header {
@@ -786,10 +802,8 @@ a:hover {
   cursor: pointer;
   color: #000;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 400;
   opacity: 1;
-  transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -875,9 +889,10 @@ a:hover {
 @media screen and (min-width: 1400px) {
   .quiz_link .fe,
   .custom_link .fe {
+    margin-top: 60px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
   }
 }
 
@@ -890,6 +905,7 @@ a:hover {
 .custom_link .name_link {
   width: 100%;
   display: flex;
+  margin-top: 20px;
   align-items: center;
   gap: 10px;
   position: relative;
@@ -905,7 +921,9 @@ a:hover {
 @media screen and (min-width: 500px) {
   .quiz_link .name_link,
   .custom_link .name_link {
+    margin-top: 36px;
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
@@ -924,6 +942,19 @@ a:hover {
   .custom_link .name_link button,
   .custom_link .name_link input {
     width: auto;
+    height: 55px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .name_link button,
+  .quiz_link .name_link input,
+  .custom_link .name_link button,
+  .custom_link .name_link input {
+    margin: 0;
+    max-width: 632px;
+    border-radius: 16px;
+    font-size: 21px;
   }
 }
 
@@ -933,7 +964,7 @@ a:hover {
   position: absolute;
   left: 0;
   font-size: 12px;
-  top: -15px;
+  top: -20px;
   font-style: italic;
 }
 
@@ -955,23 +986,42 @@ a:hover {
   transition: 0.3s ease;
   text-decoration: none;
   border: none;
-  background: linear-gradient(45deg, #37A408, #53EB12);
+  background: #53EB12;
   border-radius: 5px;
   cursor: pointer;
-  color: #fff;
+  color: #000000;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 700;
   opacity: 1;
   display: flex;
   gap: 10px;
   justify-content: center;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .quiz_link .name_link button svg,
 .custom_link .name_link button svg {
   width: 15px;
   height: 15px;
+}
+
+@media screen and (min-width: 500px) {
+  .quiz_link .name_link button,
+  .custom_link .name_link button {
+    height: 55px;
+    width: auto;
+    font-size: 21px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .name_link button,
+  .custom_link .name_link button {
+    margin: 0;
+    width: 320px;
+    border-radius: 16px;
+  }
 }
 
 .quiz_link .name_link button:disabled,
@@ -1024,9 +1074,19 @@ a:hover {
   height: 35px;
   cursor: pointer;
   border: none;
+  text-transform: uppercase;
   border-radius: 4px;
-  background: linear-gradient(45deg, #37A408, #53EB12);
+  background: #53EB12;
   color: #000000;
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line #add,
+  .custom_link .link_line #add {
+    height: 55px;
+    border-radius: 16px;
+    font-size: 21px;
+  }
 }
 
 .quiz_link .link_line .questions_quiz,
@@ -1070,7 +1130,6 @@ a:hover {
   color: #000;
   height: 100%;
   font-size: 16px;
-  font-family: "Rubik";
   display: flex;
   align-items: center;
 }
@@ -1093,6 +1152,14 @@ a:hover {
   height: 30px;
   background: #f7f7f7;
   transition: 0.3s ease;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line .questions_quiz .q_text button,
+  .custom_link .link_line .questions_quiz .q_text button {
+    font-size: 21px;
+  }
 }
 
 .quiz_link .link_line .questions_quiz .q_text button svg,
@@ -1142,7 +1209,6 @@ a:hover {
   color: #000;
   height: 100%;
   font-size: 16px;
-  font-family: "Rubik";
   display: flex;
   align-items: center;
 }
@@ -1184,6 +1250,14 @@ a:hover {
   color: #737373;
 }
 
+@media screen and (min-width: 1000px) {
+  .quiz_link .link_line p,
+  .custom_link .link_line p {
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+}
+
 .quiz_link .link_line .row,
 .custom_link .link_line .row {
   width: 100%;
@@ -1211,7 +1285,6 @@ a:hover {
   flex: 1 1 auto;
   padding: 7px 15px;
   height: 40px;
-  transition: 0.3s ease;
   text-decoration: none;
   border: none;
   width: 100%;
@@ -1220,13 +1293,17 @@ a:hover {
   cursor: pointer;
   color: #fff;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 500;
   opacity: 1;
   transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.quiz_link .check_container,
+.custom_link .check_container {
+  margin-bottom: 12px;
 }
 
 .quiz_link .check,
@@ -1237,9 +1314,16 @@ a:hover {
   margin-top: 4px;
 }
 
+@media screen and (min-width: 1000px) {
+  .quiz_link .check,
+  .custom_link .check {
+    gap: 16px;
+  }
+}
+
 .quiz_link .check button.active,
 .custom_link .check button.active {
-  background: linear-gradient(45deg, #37A408, #53EB12);
+  background: #53EB12;
   color: #000000;
   transition: 0.2s ease;
 }
@@ -1258,7 +1342,18 @@ a:hover {
   color: #000000;
   cursor: pointer;
   border: none;
+  font-weight: 700;
   border-radius: 7px;
+  box-shadow: 1px 2px 5px 0 #53525240;
+}
+
+@media screen and (min-width: 1000px) {
+  .quiz_link .check button,
+  .custom_link .check button {
+    height: 42px;
+    border-radius: 12px;
+    font-size: 21px;
+  }
 }
 
 .row.line {
@@ -1529,7 +1624,8 @@ a:hover {
 }
 
 .quiz_section,
-.tabs_analytics {
+.tabs_analytics,
+.custom_link {
   width: 100%;
   max-width: 1034px;
   display: flex;
@@ -1537,7 +1633,8 @@ a:hover {
 }
 
 .quiz_section .jw,
-.tabs_analytics .jw {
+.tabs_analytics .jw,
+.custom_link .jw {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -1547,7 +1644,8 @@ a:hover {
 
 @media screen and (min-width: 0px) {
   .quiz_section .jw,
-  .tabs_analytics .jw {
+  .tabs_analytics .jw,
+  .custom_link .jw {
     flex-direction: column;
   }
 }
@@ -1555,7 +1653,9 @@ a:hover {
 .quiz_section .jw .copy_a:hover,
 .quiz_section .jw .create:hover,
 .tabs_analytics .jw .copy_a:hover,
-.tabs_analytics .jw .create:hover {
+.tabs_analytics .jw .create:hover,
+.custom_link .jw .copy_a:hover,
+.custom_link .jw .create:hover {
   opacity: 0.7;
   transition: 0.3s ease;
 }
@@ -1563,7 +1663,9 @@ a:hover {
 .quiz_section .jw .copy_a,
 .quiz_section .jw .create,
 .tabs_analytics .jw .copy_a,
-.tabs_analytics .jw .create {
+.tabs_analytics .jw .create,
+.custom_link .jw .copy_a,
+.custom_link .jw .create {
   padding: 7px 15px;
   height: 40px;
   text-decoration: none;
@@ -1584,13 +1686,16 @@ a:hover {
   .quiz_section .jw .copy_a,
   .quiz_section .jw .create,
   .tabs_analytics .jw .copy_a,
-  .tabs_analytics .jw .create {
+  .tabs_analytics .jw .create,
+  .custom_link .jw .copy_a,
+  .custom_link .jw .create {
     min-width: 100%;
   }
 }
 
 .quiz_section .jw .create,
-.tabs_analytics .jw .create {
+.tabs_analytics .jw .create,
+.custom_link .jw .create {
   padding: 24px;
   box-sizing: border-box;
   position: relative;
@@ -1599,7 +1704,8 @@ a:hover {
 
 @media screen and (min-width: 1000px) {
   .quiz_section .jw .create,
-  .tabs_analytics .jw .create {
+  .tabs_analytics .jw .create,
+  .custom_link .jw .create {
     border-radius: 45px;
     height: 156px;
     align-items: end;
@@ -1607,7 +1713,8 @@ a:hover {
 }
 
 .quiz_section .jw .create svg,
-.tabs_analytics .jw .create svg {
+.tabs_analytics .jw .create svg,
+.custom_link .jw .create svg {
   width: 15px;
   position: absolute;
   left: 25%;
@@ -1615,7 +1722,8 @@ a:hover {
 
 @media screen and (min-width: 1000px) {
   .quiz_section .jw .create svg,
-  .tabs_analytics .jw .create svg {
+  .tabs_analytics .jw .create svg,
+  .custom_link .jw .create svg {
     width: 20px;
     bottom: 58px;
     left: auto;
@@ -1623,7 +1731,8 @@ a:hover {
 }
 
 .quiz_section .nav,
-.tabs_analytics .nav {
+.tabs_analytics .nav,
+.custom_link .nav {
   flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
@@ -1632,32 +1741,37 @@ a:hover {
 
 @media screen and (min-width: 0px) {
   .quiz_section .nav,
-  .tabs_analytics .nav {
+  .tabs_analytics .nav,
+  .custom_link .nav {
     min-width: 100%;
   }
 }
 
 @media screen and (min-width: 500px) {
   .quiz_section .nav,
-  .tabs_analytics .nav {
+  .tabs_analytics .nav,
+  .custom_link .nav {
     min-width: auto;
   }
 }
 
 .quiz_section .nav button:hover,
-.tabs_analytics .nav button:hover {
+.tabs_analytics .nav button:hover,
+.custom_link .nav button:hover {
   background: #d6d6d6;
   transition: 0.3s ease;
 }
 
 .quiz_section .nav button.active,
-.tabs_analytics .nav button.active {
+.tabs_analytics .nav button.active,
+.custom_link .nav button.active {
   background: linear-gradient(45deg, #3e2640, #000f26);
   color: #fff;
 }
 
 .quiz_section .nav button,
-.tabs_analytics .nav button {
+.tabs_analytics .nav button,
+.custom_link .nav button {
   border: none;
   display: flex;
   justify-content: center;
@@ -1673,16 +1787,26 @@ a:hover {
 
 @media screen and (min-width: 0px) {
   .quiz_section .nav button,
-  .tabs_analytics .nav button {
+  .tabs_analytics .nav button,
+  .custom_link .nav button {
     flex: 1;
   }
 }
 
 @media screen and (min-width: 500px) {
   .quiz_section .nav button,
-  .tabs_analytics .nav button {
+  .tabs_analytics .nav button,
+  .custom_link .nav button {
     flex: 0;
   }
+}
+
+.custom_link .jw a {
+  align-items: center !important;
+}
+
+.custom_link .jw a svg {
+  display: none;
 }
 
 .qr_code:hover {
@@ -2016,14 +2140,9 @@ a:hover {
   gap: 10px;
 }
 
-.anonymus_container .accordion .accordion-content {
-  font-family: "Rubik";
-}
-
 .anonymus_container .accordion .accordion-content h3 {
   color: #4d4d4d;
   font-weight: 600;
-  font-family: "Rubik";
   font-size: 20px;
 }
 
@@ -2034,12 +2153,10 @@ a:hover {
 .anonymus_container .accordion .accordion-content b {
   color: #0f0f0fa3;
   font-weight: 500;
-  font-family: "Rubik";
 }
 
 .anonymus_container .accordion .accordion-content h4 {
   color: #3a3b6c;
-  font-family: "Rubik";
   margin-top: 10px;
   font-weight: 500;
   font-size: 17px;
@@ -3745,10 +3862,8 @@ a:hover {
   cursor: pointer;
   color: #000;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 400;
   opacity: 1;
-  transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3768,11 +3883,9 @@ a:hover {
   cursor: text;
   color: #000;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 400;
   padding: 0 10px;
   opacity: 1;
-  transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3789,10 +3902,8 @@ a:hover {
   cursor: pointer;
   color: #000;
   font-size: 14px;
-  font-family: "Rubik";
   font-weight: 400;
   opacity: 1;
-  transition: 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4582,6 +4693,10 @@ a:hover {
   color: grey;
   pointer-events: none;
   display: block;
+}
+
+button:hover {
+  opacity: 0.6;
 }
 
 /*# sourceMappingURL=dashboard.css.map */
