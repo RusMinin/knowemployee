@@ -116,7 +116,7 @@ function startRecord() {
                 mediaRecorder.stop();
             }
         } else {
-            slideText(questionsArray[index_iter], questionsArray[index_iter-1]);
+            slideText(questiFonsArray[index_iter], questionsArray[index_iter-1]);
         }
     }
 
@@ -338,7 +338,7 @@ function drawVisualization() {
         for (let i = 0; i < dataArray.length; i++) {
             barHeight = dataArray[i] / 2;
     
-            canvasContext.fillStyle = '#af0afc';
+            canvasContext.fillStyle = "#34DD0A";
             canvasContext.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
     
             x += barWidth + 1;

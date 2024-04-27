@@ -615,7 +615,7 @@
 
 .bt {
   padding: 9px 30px;
-  background-color: #af0afc;
+  background-color: #000;
   display: flex;
   transition: 0.3s ease;
   justify-content: center;
@@ -626,7 +626,6 @@
 }
 .bt span {
   color: #fff;
-  font-family: "Roboto";
   font-size: 16px;
 }
 .bt svg {

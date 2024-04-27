@@ -211,7 +211,7 @@
     .circle_abs{
         width: 0;
         height: 0;
-        background: #9700ff;
+        background: $light_g;
         display: flex;
         position: absolute;
         transition: 1s ease;
@@ -345,7 +345,6 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            font-family: "Roboto";
             font-size: 12px;
             color: #27292c6b;
             margin-top: 10px;
@@ -562,7 +561,7 @@
 
 .bt{
     padding: 9px 30px;
-    background-color: #af0afc;
+    background-color: $light_g;
     display: flex;
     transition: 0.3s ease;
     justify-content: center;
@@ -608,7 +607,6 @@
     border: none;
 
     span{
-        font-family: "Roboto";
         font-size: 20px;
         font-weight: 500;
         transform: translateY(1px);
