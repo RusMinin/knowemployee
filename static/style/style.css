@@ -116,6 +116,12 @@ body {
   overflow: hidden !important;
 }
 
+@media screen and (min-width: 1150px) {
+  .thank_you {
+    width: 1310px;
+  }
+}
+
 .thank_you .load {
   display: flex !important;
 }
@@ -131,6 +137,16 @@ body {
   padding: 0 50px;
 }
 
+@media screen and (min-width: 1160px) {
+  .thank_you .content_thankyou {
+    padding: 0;
+    width: 223px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 27px;
+  }
+}
+
 .thank_you .content_thankyou h2 {
   color: #fff;
   margin-bottom: 20px;
@@ -138,31 +154,47 @@ body {
 
 @media screen and (min-width: 0px) {
   .thank_you .content_thankyou h2 {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .thank_you .content_thankyou h2 {
-    font-size: 25px;
+    font-size: 18px;
   }
 }
 
 @media screen and (min-width: 800px) {
   .thank_you .content_thankyou h2 {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
 @media screen and (min-width: 1160.98px) {
   .thank_you .content_thankyou h2 {
-    font-size: 35px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 27px;
+  }
+}
+
+.thank_you .content_thankyou img {
+  width: 100%;
+}
+
+@media screen and (min-width: 1160px) {
+  .thank_you .content_thankyou img {
+    width: 664px;
+    height: 392px;
   }
 }
 
 .thank_you .content_thankyou p {
+  max-width: 650px;
   color: #ffffffed;
   margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .thank_you .content_thankyou .star {

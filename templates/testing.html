@@ -53,6 +53,7 @@
 
                 {% if data_company.username_bool == True %}
                 <div class="input_user">
+                    <label class="visually-hidden" for="name">Your name</label>
                     <input type="text" placeholder="Your name">
                 </div>
                 {% endif %}
@@ -152,6 +153,7 @@
                 </svg>
             </div>
         </div>
+
         <div class="q hidden">
             <div class="question">
                 <div class="slide">
@@ -209,41 +211,60 @@
         </div>
 
         <div class="thank_you">
-            <div class="load">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
-                          fill="#34DD0A" class="fill-000000"></path>
-                </svg>
-            </div>
-            <div class="circle_abs"></div>
-            <div class="content_thankyou hidden">
-                <h2>Thank you for your feedback</h2>
-                <div class="star"></div>
-                <p>We hope your feedback can improve quality in the workplace</p>
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="./../../static/assets/images/logo-light.svg" alt="Know Employee survey page">
+                </div>
+                <div class="content_thankyou hidden">
+                    <h2>Thank you for your feedback</h2>
+                    <div class="load">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
+                                  fill="#34DD0A" class="fill-000000"></path>
+                        </svg>
+                    </div>
+                    <img alt="thank you for your feedback" src="../static/assets/images/people.png">
+                    <div class="star"></div>
+                    <p>
+                        We are sure your feedback can improve quality in the workplace.
+                        You have already left a review. This link is disposable!
+                    </p>
+                </div>
+                <div class="circle_abs"></div>
             </div>
         </div>
         {% endif %}
 
         <div class="thank_you {{ '' if data_company.multiple == False and data_company.checked == True else 'hidden' }}">
-            <div class="load">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
-                          fill="#34DD0A" class="fill-000000"></path>
-                </svg>
-            </div>
-            <div class="circle_abs"></div>
-            <div class="content_thankyou hidden">
-                {% if data_company.multiple == False and data_company.checked == True and data_company.username != "" %}
-                <h1 style="color: #fff;">{{ data_company.username }}</h1>
-                {% endif %}
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="./../../static/assets/images/logo-light.svg" alt="Know Employee survey page">
+                </div>
+                <div class="content_thankyou hidden">
+                    {% if data_company.multiple == False and data_company.checked == True and data_company.username !=
+                    "" %}
+                    <h1 style="color: #fff;">{{ data_company.username }}</h1>
+                    {% endif %}
+                    <div class="star"></div>
+                    <h2>Thank you<br> for your feedback</h2>
+                    <div class="load">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
+                                  fill="#34DD0A" class="fill-000000"></path>
+                        </svg>
+                    </div>
+                    <img alt="thank you for your feedback" src="../static/assets/images/people.png">
+                    <p>
+                        We are sure your feedback can improve quality in the workplace.
+                        You have already left a review. This link is disposable!
+                    </p>
 
-                <h2>Thank you for your feedback</h2>
-                <div class="star"></div>
-                <p>We hope your feedback can improve quality in the workplace.</p>
+                    {% if data_company.checked == True %}
+                    <p style="margin: 0;">You have already left a review. This link is disposable!</p>
+                    {% endif %}
+                </div>
+                <div class="circle_abs"></div>
 
-                {% if data_company.checked == True %}
-                <p style="margin: 0;">You have already left a review. This link is disposable!</p>
-                {% endif %}
             </div>
         </div>
 

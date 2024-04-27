@@ -172,7 +172,7 @@ input[type=password] {
 
 input[type=text]:focus,
 input[type=password]:focus {
-  outline: 3px solid #00a2ff46;
+  outline: 3px solid #34DD0A;
   transition: 0.1s ease;
 }
 

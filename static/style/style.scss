@@ -35,6 +35,9 @@
   height: 100%;
   position: relative;
   overflow: hidden !important;
+  @include mq(1150px){
+    width: 1310px;
+  }
 
   .load {
     display: flex !important;
@@ -50,26 +53,47 @@
     z-index: 100;
     padding: 0 50px;
 
+    @include mq(1160px){
+      padding: 0;
+      width: 223px;
+      font-size: 25px;
+      text-align: center;
+      line-height: 27px;
+    }
+
     h2 {
       color: #fff;
       margin-bottom: 20px;
       @include mq(0px) {
-        font-size: 20px;
+        font-size: 16px;
       }
       @include mq(600px) {
-        font-size: 25px;
+        font-size: 18px;
       }
       @include mq(800px) {
-        font-size: 30px;
+        font-size: 20px;
       }
       @include mq(1160.98px) {
-        font-size: 35px;
+        font-size: 25px;
+        text-align: center;
+        line-height: 27px;
+      }
+    }
+
+    img {
+      width: 100%;
+      @include mq(1160px) {
+        width: 664px;
+        height: 392px;
       }
     }
 
     p {
+      max-width: 650px;
       color: #ffffffed;
       margin-top: 20px;
+      font-size: 18px;
+      font-weight: 400;
     }
 
     .star {
@@ -440,7 +464,7 @@
   .row_button {
     margin-top: 20px;
 
-    @include mq(1160px){
+    @include mq(1160px) {
       margin-top: 75px;
     }
   }
@@ -454,7 +478,7 @@
     display: flex;
     margin-top: 30px;
 
-    @include mq(1160px){
+    @include mq(1160px) {
       margin-top: 45px;
     }
   }
