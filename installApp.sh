@@ -2,11 +2,11 @@
 sudo apt update -y # Update server to latest stable version
 sudo apt install -y python*-venv # We need python
 
-git clone git@github.com:KnowEmploee/knowemployee.git # Clone KnowEmployee repository as local branch
 
 python3 -m venv ~/env/knowemployee # Create python virtual environment
 sleep 3 # it may take time, so let's give it 3 seconds :)
 source ~/env/knowemployee/bin/activate # Connect to python virtual environment
+pip install -r requirements.txt # Install all dependencies
 
 pip  install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptography openai python-dotenv qrcode Pillow flask_migrate requests scrypt wheel gunicorn # Install needed dependencies 
 
@@ -30,10 +30,10 @@ sudo cp knowemployee.service /etc/systemd/system/
 # Add configuration file to NGINX
 sudo cp knowemployee.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/knowemployee.conf /etc/nginx/sites-enabled
+sudo sed -i "s/www-adm/$USER/g" /etc/nginx/nginx.conf
 
 # Create log files for gunicorn logging 
-me = $(whoami)
-sudo mkdir /var/log/gunicorn
-sudo chown $me:$me /var/log/gunicorn
+mkdir /var/log/gunicorn
+sudo chown $USER:$USER /var/log/gunicorn
 touch /var/log/gunicorn/gunicorn.access.log
 touch /var/log/gunicorn/gunicorn.error.log

@@ -1,28 +1,41 @@
 from knowemployee import app, db, TestingResult, GPTPricer, decrypt
 import time
 import json
-import openai
+import os
 import datetime
-from dotenv import dotenv_values
+from dotenv import load_dotenv
 from requests.exceptions import HTTPError
+from openai import OpenAI
 
-config = dotenv_values(".env") 
-MAX_TOKENS = int(config['MAX_TOKENS'])
-INPUT_COST_PER_1K_TOKENS = float(config['INPUT_COST_PER_1K_TOKENS'])
-OUTPUT_COST_PER_1K_TOKENS = float(config['OUTPUT_COST_PER_1K_TOKENS'])
-API_KEY_OPENAI = config['API_KEY_OPENAI']
+
+load_dotenv()
+
+# Connect to OpenAI
+client = OpenAI(
+    api_key=os.getenv('OPENAI_API_KEY'),
+    organization=os.getenv('OPENAI_ORGANIZATION_ID'),
+)
+# Set the maximum number of tokens that can be used in a single request and the cost of using them
+MAX_TOKENS = int(os.getenv('MAX_TOKENS'))
+INPUT_COST_PER_1K_TOKENS = float(os.getenv('INPUT_COST_PER_1K_TOKENS'))
+OUTPUT_COST_PER_1K_TOKENS = float(os.getenv('OUTPUT_COST_PER_1K_TOKENS'))
+
+
+
 
 def compute_request_cost(result):
     """
     Calculates how many tokens were spent (incoming, outgoing), and returns the price in USD of how many tokens were spent for 1 request.
     """
 
-    input_tokens = result['usage']['prompt_tokens']
-    output_tokens = result['usage']['completion_tokens']
+    # input_tokens = result['usage']['prompt_tokens'] # Refactor to use the new OpenAI API
+    # output_tokens = result['usage']['completion_tokens'] # Refactor to use the new OpenAI API
+    input_tokens = result.usage.prompt_tokens
+    output_tokens = result.usage.completion_tokens
     input_cost = (input_tokens / 1000) * INPUT_COST_PER_1K_TOKENS
     output_cost = (output_tokens / 1000) * OUTPUT_COST_PER_1K_TOKENS
     total_cost = input_cost + output_cost
-    
+    print(f"Input tokens: {input_tokens}, output tokens: {output_tokens}, cost: ${total_cost:.2f}")
     return total_cost
 
 def is_json(content):
@@ -39,6 +52,15 @@ def get_input_tokens_count(messages):
     
     return sum([len(message["content"].split()) for message in messages])
 
+# def get_input_tokens_count(messages, encoding_name: str) -> int: # Return summary of the number of tokens in the input messages
+#     # for message in messages:
+#         encoding = tiktoken.get_encoding(encoding_name)
+#         num_tokens = encoding.encode(messages).length
+#         return num_tokens
+#     # print(f"Total number of tokens in the input messages: {sum(num_tokens)}")
+#     # return sum(num_tokens)
+
+
 def get_prompt_result(messages):
     conter_iter = 0
     total_input_tokens = get_input_tokens_count(messages)
@@ -47,14 +69,13 @@ def get_prompt_result(messages):
         print("Warning: Input messages are too long, reducing available tokens for response.")
         available_tokens_for_response = MAX_TOKENS // 2
 
-    openai.api_key = API_KEY_OPENAI
     while True:
         conter_iter += 1
         try:
             if conter_iter >= 5:
                 return False
-            result = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+            result = client.chat.completions.create(
+                model="gpt-3.5-turbo",
                 messages=messages,
                 temperature=0.3,
                 max_tokens=available_tokens_for_response,
@@ -65,11 +86,11 @@ def get_prompt_result(messages):
             )
 
             cost = compute_request_cost(result)
-            message = result['choices'][0]['message']['content']
-
+            message = result.choices[0].message.content
+            print(f'Cost: {cost}, Message: {message} #1')
             try:
                 response_json = json.loads(message)
-                print(response_json)
+                # print(response_json) #For debuging purposes
                 return response_json, cost
             except json.JSONDecodeError as e:
                 print(f"Error decoding JSON response: {str(e)}")
@@ -126,6 +147,7 @@ def analyze_answers(arr_step):
                     Here are the questions and answers to analyze: \n {arr_step}
                 """}
             ]
+            # print(f'Messages: {messages_q1}')
 
             total_input_tokens = get_input_tokens_count(messages_q1)
             available_tokens_for_response = MAX_TOKENS - total_input_tokens
@@ -133,15 +155,16 @@ def analyze_answers(arr_step):
                 print("Warning: Input messages are too long, reducing available tokens for response.")
                 available_tokens_for_response = MAX_TOKENS // 2
 
-            openai.api_key = API_KEY_OPENAI
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
                 messages=messages_q1,
                 max_tokens=available_tokens_for_response,
                 stop=None
             )
-            answer = response['choices'][0]['message']['content']
-            
+            answer = response.choices[0].message.content
+
+            # print(f'This is the answer form OpenAI in &&&&&&&& analyze_answers &&&&&&&&: {answer}') #For debuging purposes
+
             result = json.loads(answer)
             cost = compute_request_cost(response)
             result = result['properties']
@@ -164,7 +187,7 @@ def sumarizator_gpt(results):
                     You are a helpful assistant. JSON keys should be double-quoted (\\"\\"), not single-quoted ('). It is important that the answer cannot exceed 5,000 tokens. The response should be returned immediately in JSON form: {schema}
                 """},
                 {"role": "user", "content": f"""
-                I give an array of questions and recommendations on what a business owner needs to do to make it easier for employees to work. JSON keys should be enclosed in double quotes (""), not single quotes (""). It is desirable to describe point by point, not just a bunch of recommendations. It is necessary to analyze and summarize, explain what and how to do better to make employees feel comfortable working in the company, it is forbidden to say that some of the requests are not relevant, it is necessary to give recommendations on how to make employees feel comfortable working. 
+                I give an array of questions and recommendations on what a business owner needs to do to make it easier for employees to work. JSON keys should be enclosed in double quotes (""), not single quotes (''). It is desirable to describe point by point, not just a bunch of recommendations. It is necessary to analyze and summarize, explain what and how to do better to make employees feel comfortable working in the company, it is forbidden to say that some of the requests are not relevant, it is necessary to give recommendations on how to make employees feel comfortable working. 
                 This is how the json in the response should look like: {schema}
                 Here is an array for analysis: \n {results}
                 """}
@@ -176,14 +199,15 @@ def sumarizator_gpt(results):
                 print("Warning: Input messages are too long, reducing available tokens for response.")
                 available_tokens_for_response = MAX_TOKENS // 2
 
-            openai.api_key = API_KEY_OPENAI
-            response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
                 messages=messages_q1,
                 max_tokens=available_tokens_for_response,
                 stop=None
             )
-            answer = response['choices'][0]['message']['content']
+            # answer = response['choices'][0]['message']['content']
+            answer = response.choices[0].message.content
+            # print(f'This is the answer form OpenAI in &&&&&&& sumarizator_gpt &&&&&&&&&: {answer}') #For debuging purposes
             
             result = json.loads(answer)
             cost = compute_request_cost(response)
@@ -199,9 +223,15 @@ def background_scan():
     """
 
     data = TestingResult.query.filter_by(checked=False).all()
+    
     for item in data:
         print(item)
         array = json.loads(item.user_answer)
+        user_answer = json.loads(item.user_answer)
+        if not isinstance(user_answer, list):
+            print(f"Unexpected user_answer: {item.user_answer}")
+            continue
+        array = user_answer
         results = []
         count_price = 0
         for arr in array:
@@ -232,6 +262,7 @@ def background_scan():
         for sat in results:
             print(sat)
             sat_value = sat['satisfaction']
+            # sat_value = sat.satisfaction
             if not sat_value:
                 sat_value = 0
             sat_value = str(sat_value).replace("%", "")
@@ -249,7 +280,7 @@ def background_scan():
 
         average_satisfaction = total_satisfaction / count if count else 0
         print(f"Average satisfaction: {average_satisfaction:.2f}%")
-        print("Суммировине результатов")
+        print("Summarization of the results")
         summation_result, count = sumarizator_gpt(new_array)
         print(summation_result)
         count_price += count
@@ -264,12 +295,15 @@ def background_scan():
         res.checked = True
         db.session.commit()
 
-        # price_db = GPTPricer(public_id=item.public_id, price_count=count_price, timestamp=datetime.datetime.utcnow())
-        # db.session.add(price_db)
-        # db.session.commit()
+        price_db = GPTPricer(public_id=item.public_id, price_count=count_price, timestamp=datetime.datetime.now(datetime.timezone.utc))
+        db.session.add(price_db)
+        db.session.commit()
 
-        print('Done')
-    print('Over!')
+        print(f'{item} processed.')
+    print(f'{item} AI processing Done!')
+
+
+
 
 if __name__ == '__main__':
     while True:
