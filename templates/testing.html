@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/style_ui_chunks/pre-questionary.css') }}"
           type="text/css">
-
 </head>
 <body>
 
 <div class="pre-questionary">
-{% include "ui_chunks/pre-questionary.html" %}
+    {% include "ui_chunks/pre-questionary.html" %}
 </div>
 
 <section class="wpr_tests hidden" id="wpr_tests" d-type="{{data_company.type}}" d-app="{{data_company.checked}}">
@@ -82,15 +81,24 @@
             </div>
         </div>
         <div class="q hidden">
+            <div class="logo">
+                <img src="./../../static/assets/images/logo-dark.svg" alt="Know Employee survey page">
+            </div>
             <div class="question">
+                <div class="q_count">Question <span id="a">1</span>/<span id="c"></span></div>
                 <div class="slide">
                     <h3></h3>
                     <h3></h3>
                 </div>
-                <div class="q_count"><span id="a">1</span>/<span id="c"></span></div>
+
                 <div class="recognize">
                     <canvas id="visualization"></canvas>
                 </div>
+                <h5>
+                    Your thoughtful and honest responses are crucial for your employer. Answering thoughtfully ensures
+                    meaningful insights that contribute to a better work environment. Rest assured, your responses are
+                    completely anonymous, prioritizing your privacy throughout the process
+                </h5>
 
                 <div class="row_button">
                     <button class="bt button button_big" type="button" id="stopRecording">
@@ -98,8 +106,6 @@
                     </button>
                 </div>
 
-                <h5>Please answer the questions for accurate analysis, you will have the opportunity to add information
-                    from yourself at the end of the thesis</h5>
 
             </div>
             <div class="load hidden">

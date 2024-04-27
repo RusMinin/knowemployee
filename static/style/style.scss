@@ -136,20 +136,24 @@
 .content {
   height: 100vh;
   @include mq(0px) {
-    padding: 50px 0;
+    padding-top: 20px;
   }
   @include mq(1160.98px) {
+    margin: 0 auto;
+    max-width: 1400px;
     padding: 50px 0;
-    padding-top: 20px;
     padding-bottom: 200px;
   }
 
   .hd {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+
+    @include mq(1160.98px) {
+      justify-content: center;
+    }
   }
 }
 
@@ -191,13 +195,14 @@
 .q,
 .content {
   width: 100%;
-  @include mq(1160.98px) {
-    overflow: auto;
-  }
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  @include mq(1160.98px) {
+    align-items: flex-start;
+    justify-content: center;
+  }
 
   .row_user {
     width: 100%;
@@ -250,6 +255,10 @@
     overflow: hidden;
     padding-top: 20px;
 
+    @include mq(1160px) {
+      padding-top: 80px;
+    }
+
     .image {
       width: 134px;
       height: 134px;
@@ -298,7 +307,10 @@
 }
 
 .q_count {
-  color: #a8a8a8;
+  margin-bottom: 18px;
+  color: #a5a5a5;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .wpr_tests {
@@ -315,14 +327,19 @@
     width: 100%;
     min-height: 100%;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
     @include mq(0px) {
       flex-direction: column;
     }
     @include mq(1160.98px) {
+      max-width: 1278px;
+      justify-content: center;
+      margin: 0 auto;
       flex-direction: row;
       overflow: hidden;
+      align-items: flex-start;
     }
     display: flex;
     position: relative;
@@ -411,23 +428,35 @@
 .question {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   position: relative;
   justify-content: center;
+  flex-direction: column;
+
+  @include mq(1160px) {
+    margin-top: 50px;
+  }
 
   .row_button {
     margin-top: 20px;
+
+    @include mq(1160px){
+      margin-top: 75px;
+    }
   }
 
   h5 {
-    max-width: 90%;
+    max-width: 70%;
     text-align: center;
     color: #a8a8a8b2;
-    font-weight: 500;
-    font-size: 11px;
+    font-weight: 700;
+    font-size: 15px;
     display: flex;
     margin-top: 30px;
+
+    @include mq(1160px){
+      margin-top: 45px;
+    }
   }
 
   h3 {
@@ -439,8 +468,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin: 40px 0;
   }
 }
 
@@ -617,8 +645,6 @@ html, body {
 
 body {
   overflow: auto;
-  font-family: 'Gabarito';
-  // font-family: 'Noto Sans', sans-serif;
 }
 
 .hidden {
