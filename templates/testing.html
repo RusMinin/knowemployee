@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ data_company.title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style_ui_chunks/pre-questionary.css') }}"
+          type="text/css">
+
 </head>
 <body>
-<section class="wpr_tests" id="wpr_tests" d-type="{{data_company.type}}" d-app="{{data_company.checked}}">
+
+<div class="pre-questionary">
+{% include "ui_chunks/pre-questionary.html" %}
+</div>
+
+<section class="wpr_tests hidden" id="wpr_tests" d-type="{{data_company.type}}" d-app="{{data_company.checked}}">
     <div class="wrapper">
 
         {% if data_company.type == "custom" %}
@@ -25,11 +33,11 @@
                     <p>{{ data_company.slogan if data_company.slogan != "" and data_company.slogan != '0' else "" }}</p>
                 </div>
                 <div class="description">
-                        <p>Anonymous company review to improve level of satisfaction</p>
-                        <p>Do not worry that your feedback can be seen. We don’t save your feedback voice or
-                            results.<br>
-                            The employer will only get a squeeze of artificial intelligence.</p>
-                    </div>
+                    <p>Anonymous company review to improve level of satisfaction</p>
+                    <p>Do not worry that your feedback can be seen. We don’t save your feedback voice or
+                        results.<br>
+                        The employer will only get a squeeze of artificial intelligence.</p>
+                </div>
 
                 {% if data_company.anonimus_feedback == "1" %}
                 <div class="row_user">
@@ -123,11 +131,7 @@
                     <button class="button button_big" type="button"
                             type_test="{{ 'custom' if data_company.type == 'custom' else 'anonymous' }}"
                             id="startRecording">
-                        <span>Start testing</span>
-                        <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M69.844 43.388 33.842 13.386a6.003 6.003 0 0 0-7.688 9.223L56.624 48l-30.47 25.39a6.003 6.003 0 0 0 7.688 9.223l36.002-30.001a6.01 6.01 0 0 0 0-9.223Z"
-                                  fill="#ffffff" class="fill-000000"></path>
-                        </svg>
+                        <span>Get Started</span>
                     </button>
                     <span id="error"></span>
 

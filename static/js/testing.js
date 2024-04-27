@@ -8,6 +8,17 @@ let decodedData = atob(qr);
 let questionsArray = JSON.parse(decodedData);
 let NAME_USER_GLOBAL = ""
 
+if(document.querySelector('.button_big')){
+    let wprTests = document.querySelector('.wpr_tests');
+    let preQuestionary = document.querySelector('.pre-questionary')
+
+    $('.button_big').on('click', function() {
+        preQuestionary.classList.add('hidden');
+        wprTests.classList.remove('hidden');
+    });
+}
+
+
 if(document.querySelector('.input_user')){
     if(document.querySelector('.input_user input').value.length <= 2){
         $('#startRecording').attr('disabled', true)
