@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='assets/style_ui_chunks/pre-questionary.css') }}" type="text/css">
-    <title>Pre questionary explanation</title>
-</head>
-<body class="pre-questionary">
 
-<!--By setting active_color we're changing theme -->
+    <!--By setting active_color we're changing theme -->
 
-{% set active_color = "light" %}
-<div class="{% if active_color == 'light' %} light {% else %} dark {% endif %}">
-    <div class="image">
-        <img src="{% if active_color == 'dark' %} {{ url_for('static', filename='assets/images/logo-light.svg') }} {% else %} {{ url_for('static', filename='assets/images/logo-dark.svg') }} {% endif %}"
-             alt="KnowEmployee">
+    {% set active_color = "light" %}
+    <div class="{% if active_color == 'light' %} light {% else %} dark {% endif %}">
+        <div class="image">
+            <img src="{% if active_color == 'dark' %} {{ url_for('static', filename='assets/images/logo-light.svg') }} {% else %} {{ url_for('static', filename='assets/images/logo-dark.svg') }} {% endif %}"
+                 alt="KnowEmployee">
+        </div>
+        {% include "w-know.html" %}
+        <div class="button-wrapper">
+            <a class="{% if active_color == 'dark' %} button button_big button_big-light {% else %} button button_big button_big-dark {% endif %}">Continue</a>
+        </div>
     </div>
-    {% include "w-know.html" %}
-    <div class="button-wrapper">
-        <a class="{% if active_color == 'dark' %} button button_big button_big-light {% else %} button button_big button_big-dark {% endif %}">Continue</a>
-    </div>
-</div>
 
-
-</body>
-</html>

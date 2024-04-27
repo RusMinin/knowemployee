@@ -2,6 +2,12 @@
 
 
 //styles for w-know
+
+html {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
 .w-know {
   width: 100%;
   min-height: 400px;
@@ -97,7 +103,7 @@
   }
 
   .image {
-    padding-top: 60px;
+    padding-top: 65px;
     width: 100%;
   }
 

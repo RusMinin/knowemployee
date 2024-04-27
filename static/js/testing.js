@@ -8,6 +8,17 @@ let decodedData = atob(qr);
 let questionsArray = JSON.parse(decodedData);
 let NAME_USER_GLOBAL = ""
 
+if(document.querySelector('.button_big')){
+    let wprTests = document.querySelector('.wpr_tests');
+    let preQuestionary = document.querySelector('.pre-questionary')
+
+    $('.button_big').on('click', function() {
+        preQuestionary.classList.add('hidden');
+        wprTests.classList.remove('hidden');
+    });
+}
+
+
 if(document.querySelector('.input_user')){
     if(document.querySelector('.input_user input').value.length <= 2){
         $('#startRecording').attr('disabled', true)
@@ -116,7 +127,7 @@ function startRecord() {
                 mediaRecorder.stop();
             }
         } else {
-            slideText(questionsArray[index_iter], questionsArray[index_iter-1]);
+            slideText(questiFonsArray[index_iter], questionsArray[index_iter-1]);
         }
     }
 
@@ -338,7 +349,7 @@ function drawVisualization() {
         for (let i = 0; i < dataArray.length; i++) {
             barHeight = dataArray[i] / 2;
     
-            canvasContext.fillStyle = '#af0afc';
+            canvasContext.fillStyle = "#34DD0A";
             canvasContext.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
     
             x += barWidth + 1;

@@ -1,21 +1,19 @@
-@import url('https://fonts.google.com/css2?family=Open+Sans:wght@400;600;700;800;900&display=swap');
-
+@import url('https://fonts.google.com/css2?family=Open+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 $dark_g: #37A408;
-$light_g: #34DD0A;
+$light_g: #53EB12;
 $dark_bg: #424141;
 $light_t: #D9D9D9;
 $dark_t: #AFAFAF;
 
-
-.button {
+button, .button {
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   transition: 0.3s ease;
   box-sizing: border-box;
-  color: #fff;
+  color: #ffffff;
   padding: 9px 20px;
   border-radius: 20px;
   margin-top: 10px;
@@ -26,7 +24,15 @@ $dark_t: #AFAFAF;
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-  cursor: pointer;
+}
+
+
+button:hover(:not(:disabled)), .button:hover(:not(:disabled)) {
+  background-color: $light_g;
+}
+
+button:disabled, .button:disabled {
+  opacity: 0.1;
 }
 
 
@@ -99,3 +105,11 @@ body {
   color: #ffffff;
 }
 
+.shadow {
+  box-shadow: 1px 2px 5px 0 #53525240;
+}
+
+.big_fields {
+  height: 55px;
+  border-radius: 16px;
+}

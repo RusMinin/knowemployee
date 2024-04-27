@@ -28,7 +28,7 @@
                             <div class="title_quiz">
                                 {{ data_company.title_quiz }}
                             </div>
-                            
+
 
                             {% if data_company.request == "email"  %}
                                 <div class="form_request">
@@ -56,11 +56,11 @@
                                     <button class="start" style="--primary: {{ data_company.theme_color }};"><span>Start a survey</span></button>
                                 </div>
                             {% endif  %}
-                            
+
 
                         </div>
                         <div class="content_quiz hidden">
-                            <dib class="status_quiz"><p>Question <span>1</span>/<count>10</count></p></dib>
+                            <div class="status_quiz"><p>Question <span>1</span>/<count>10</count></p></div>
                             <div class="question_quiz">{{ data_company.encoded_data.question }}</div>
                             <div class="grid_button">
                                 {% for item_data in data_company.encoded_data.buttons %}
@@ -77,10 +77,10 @@
 
             <div class="thank_you hidden">
                 <div class="load">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#af0afc" class="fill-000000"></path></svg>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z" fill="#34DD0A" class="fill-000000"></path></svg>
                 </div>
                 <div class="circle_abs"></div>
-                <div class="content_thankyou hidden">
+                <div class="content_thankyou">
                     <svg id="completion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 101">
                         <style>
                           .st0{fill:#d0ff00; fill-opacity:1;} .st1{fill:#0F4B5594;fill-opacity:0.5;} .st2{fill:#00FFBE;}
