@@ -327,7 +327,7 @@ a:hover {
   color: #fff;
   gap: 2em;
   font-weight: 500;
-  background: linear-gradient(45deg, #4fd2e9, #0099ff, #ae00ff);
+  background: linear-gradient(45deg, #000, #4b4542, #333333);
 }
 
 @media screen and (min-width: 0px) {
@@ -361,20 +361,20 @@ a:hover {
 }
 
 .alert_promo button:hover {
-  background: #5111ff;
+  background: #6ec206;
   transition: 0.3s ease;
-  box-shadow: 0 0 20px #e100ff;
+  box-shadow: 0 0 20px #a4df5c;
 }
 
 .alert_promo button {
   margin-bottom: 5px;
   color: #fff;
-  background: #ff116c;
+  background: #53EB12;
   border: none;
   transition: 0.3s ease;
-  cursor: pointer;
-  font-weight: 500;
   border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 0px) {
