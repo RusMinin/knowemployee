@@ -4,11 +4,11 @@ Description=Gunicorn instance to serve knowemployee Flash app
 After=network.target
 
 [Service]
-User=ubuntu
-Group=www-data
-WorkingDirectory=/home/ubuntu/knowemployee
-Environment="PATH=/home/ubuntu/env/knowemployee/bin"
-ExecStart=/home/ubuntu/env/knowemployee/bin/gunicorn --workers 3 --bind unix:knowemployee.sock -m 007 wsgi:app -c /home/liokap/knowemployee/gunicorn.conf.py
+User=know
+Group=know
+WorkingDirectory=/home/know/knowemployee
+Environment="PATH=/home/know/env/knowemployee/bin"
+ExecStart=/home/know/env/knowemployee/bin/gunicorn --workers 3 --bind unix:knowemployee.sock -m 007 wsgi:app -c /home/know/knowemployee/gunicorn.conf.py
 
 [Install]
 WantedBy=multi-user.target

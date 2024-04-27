@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response, render_template, redirect, session, url_for, render_template_string#, current_app as app
+from flask import Flask, request, jsonify, make_response, render_template, redirect, session, url_for, render_template_string, current_app as app
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 import jwt
@@ -9,10 +9,15 @@ from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import uuid
-from deepgram import Deepgram
-import asyncio
+from deepgram import (
+    DeepgramClient, 
+    PrerecordedOptions, 
+    FileSource,
+)
+from dotenv import load_dotenv
 from functools import wraps
 import aiohttp
+import asyncio
 import io
 import sys
 import json
@@ -20,15 +25,20 @@ from flask_migrate import Migrate, init, migrate, upgrade
 import os
 import re
 import base64
-import time
+# import time
 import hashlib
-import scrypt
+# import scrypt
 from cryptography.fernet import Fernet
 from functions import create_image_with_qrcode
 import base64
 from PIL import Image
 import io
+from threading import Thread
+import subprocess
 
+
+
+load_dotenv()
 
 # DOMAIN = "http://127.0.0.1:3000"
 DOMAIN = "knowemployee.com"
@@ -36,7 +46,7 @@ NAME_PLATFORM = "KnowEmployee"
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '97473497e94c7289a98fae8e9636ae67'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///service.db'
-DEEPGRAM_API_KEY = '176aa82078b4c8dd570dc560dfbee88e9bba7410'
+DG_API_KEY = os.getenv('DEEPGRAM_API_KEY') 
 KEY = b'LIuLpwBjtQgsOlEKmY43Zd5xO_HqwW332ZM478rkHRM='
 MIMETYPE = 'audio/wav'
 QUESTIONS = [
@@ -51,7 +61,7 @@ QUESTIONS = [
     "Do you feel you have sufficient resources and tools for effective work? If not, where specifically do you feel the lack?",
     "How do you evaluate the interaction with colleagues and teamwork in the company? Are there any points that hinder effective team collaboration?",
     
-    # Свободный фитбэк
+    # Free fitback
     "Now you can add from yourself what you like or dislike about the company or your suggestions",
 ]
 
@@ -202,10 +212,8 @@ def home():
                 is_authenticated = True
         except (jwt.ExpiredSignatureError, jwt.InvalidTokenError):
             pass
-    year = datetime.datetime.now().year
 
-    return render_template('index.html', year=year, is_authenticated=is_authenticated)
-
+    return render_template('index.html', is_authenticated=is_authenticated)
 
 def token_required(f):
     @wraps(f)
@@ -681,7 +689,7 @@ def add_token_new_quiz(current_user):
             questions=json.dumps(questions),
             request=request_var,
             company_badge=company_badge,
-            timestamp=datetime.datetime.utcnow()
+            timestamp=datetime.datetime.now(datetime.timezone.utc)
         )
 
         db.session.add(quiz_question)
@@ -982,45 +990,55 @@ def logout():
 def testing():
     return render_template('testing.html')
 
+#! Record audio and send to Deepgram API for transcription 
 @app.route('/stream', methods=['POST'])
 def stream():
     token = request.files.get('token')
     audio_file = request.files.get('buffer')
     audio_bytes = audio_file.read()
     path_audio = "./file/audio/" +  str(uuid.uuid4()) + "_" + str(uuid.uuid4()) + ".wav"
-    with open(path_audio, 'wb') as f:
-        f.write(audio_bytes)
+    print(f"Path: {path_audio}")
+    with open(path_audio, 'wb') as file:
+        file.write(audio_bytes)
+
         
     async def main():
-        deepgram = Deepgram(DEEPGRAM_API_KEY)
-        source = {
-            'buffer': io.BytesIO(audio_bytes),
-            'mimetype': MIMETYPE
+        deepgram = DeepgramClient(DG_API_KEY)
+        with open(path_audio, 'rb') as file:
+            buffer_data = file.read()
+            MIMETYPE = 'audio/wav'
+        payload: FileSource = {
+            'buffer': buffer_data,
         }
-
-        response = await asyncio.create_task(
-            deepgram.transcription.prerecorded(
-                source,
-                {
-                    'smart_format': True,
-                    'model': 'base',
-                    'punctuate': True,
-                    'language': 'en'
-                }
-            )
+        
+        options = PrerecordedOptions(
+            model='nova-2',
+            smart_format=True,
+            punctuate=True,
         )
+
+        response = deepgram.listen.prerecorded.v("1").transcribe_file(payload, options)
+        # print(response.to_json(indent=4)) # Uncomment to see the full response
         result = response["results"]["channels"][0]["alternatives"][0]["transcript"]
+        print(f"11 Result: {result}")
         os.remove(path_audio)
+        print(f"Removed: {path_audio}")
         return result
+        
     try:
         result = asyncio.run(main())
         encrypted_message = encrypt(result)
-        # decrypted_message = decrypt(encrypted_message)
+        # decrypted_message = decrypt(encrypted_message) # Uncomment to see the decrypted message
         return jsonify({"success": True, "message": "Thanks for the feedback!", "text": encrypted_message})
+        
+        
     except Exception as e:
         exception_type, exception_object, exception_traceback = sys.exc_info()
+        print(f"Error: {e}")
         line_number = exception_traceback.tb_lineno
+        print(f"Line: {line_number}")
         return jsonify({"success": False, "message": "There was some kind of error. Try again"})
+        
 
 @app.route('/anonymous/<token>', methods=['GET'])
 def anonimy(token):
@@ -1041,7 +1059,6 @@ def anonimy(token):
         "slogan": data_company.slogan,
         "questions": f"<script> var qr = '{base64_encoded_data}'; var to = '{token}'; </script>",
     }
-
     return render_template('testing.html', data_company=data_company)
 
 @app.route('/feedback/<token>', methods=['GET'])
@@ -1132,7 +1149,7 @@ def quiz_done(token):
             type=str(response['type']),
             username=str(response['username']),
             answer=json.dumps(user_answer),
-            timestamp=datetime.datetime.utcnow()
+            timestamp=datetime.datetime.now(datetime.timezone.utc)
         )
         db.session.add(quiz_db)
         db.session.commit()
@@ -1156,7 +1173,7 @@ def feedback_done(token):
         
         name_user_str = response.get('name_user', "")
         if find_this_token.multiple == False:
-            print("Одноразовые")
+            print("Disposable links")
 
             user_answer = json.dumps(user_answer)
             public_id = find_this_token.public_id
@@ -1170,13 +1187,13 @@ def feedback_done(token):
 
             db.session.commit()
         else:
-            print("Многоразовые")
+            print("Reusable links")
 
 
         return jsonify({"success": True, "message": "Thanks for the feedback!"})
     except Exception as e:
         print(f"Error: {e}")
-        return jsonify({"success": False, "message": "Not parameters not received"})
+        return jsonify({"success": False, "message": "No parameters where received"})
     
 @app.route('/anonymous/done/<token>', methods=['POST'])
 def anonymous_done(token):
@@ -1195,7 +1212,7 @@ def anonymous_done(token):
         public_id = user_data.public_id
         user_answer = json.dumps(user_answer)
 
-        test_question = TestingResult(public_id=public_id, anonimus_feedback=True, user_answer=user_answer, only=False, username=False, multiple=False, username_bool=False, result=False, checked=False, type="anonymous", timestamp=datetime.datetime.utcnow())
+        test_question = TestingResult(public_id=public_id, anonimus_feedback=True, user_answer=user_answer, only=False, username=False, multiple=False, username_bool=False, result=False, checked=False, type="anonymous", timestamp=datetime.datetime.now(datetime.timezone.utc))
         db.session.add(test_question)
         db.session.commit()
 
@@ -1365,7 +1382,7 @@ def edit_link_feedback(current_user, token):
         test_edit.questions = json.dumps(questions)
         test_edit.username_bool = username_bool
         test_edit.ai = ai
-        test_edit.timestamp = datetime.datetime.utcnow()
+        test_edit.timestamp = datetime.datetime.now(datetime.timezone.utc)
 
         db.session.commit()
 
@@ -1575,7 +1592,7 @@ def add_to_testing(current_user):
     name_token = data["name_token"]
     token = str(uuid.uuid4()) + "" + str(uuid.uuid4())
 
-    new_test_record = Testing(public_id=public_id, name_token=name_token, token=token, valid=False, timestamp=datetime.datetime.utcnow())
+    new_test_record = Testing(public_id=public_id, name_token=name_token, token=token, valid=False, timestamp=datetime.datetime.now(datetime.timezone.utc))
     
     db.session.add(new_test_record)
     db.session.commit()
@@ -1604,32 +1621,16 @@ def get_user_data(current_user):
 
     return jsonify({'status': True, 'data': output})
 
-
-@app.route("/chunks/pre-questionary")
-def pre_questionary():
-    return render_template("ui_chunks/pre-questionary.html")
-
-@app.route("/chunks/ai-team")
-def ai_team():
-    return render_template("ui_chunks/ai-team.html")
-
-
-@app.route("/chunks/survey")
-def survey():
-    return render_template("ui_chunks/survey.html")
-
-@app.route("/chunks/statistic")
-def statistic_panel():
-    return render_template("ui_chunks/statistic-panel.html")
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
-
+#! Run other scripts
+def run_analytics():
+    try:
+        subprocess.run(['python3', 'analytics.py'])
+    except Exception as e:
+        print(f"Error: {e}")
 
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade
+    Thread(target=run_analytics).start()
     run_migrations()
     app.run('0.0.0.0', port=3000, debug=True)

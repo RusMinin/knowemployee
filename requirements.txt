@@ -1,16 +1,16 @@
-deepgram-sdk==2.11.0
-Flask==3.0.0
+deepgram-sdk==3.2.6
+Flask==3.0.2
 Flask-SQLAlchemy==3.1.1
-aiohttp==3.8.5
-Werkzeug==3.0.0
-PyJWT==2.8.0 #First uninstall jwt from your environment
+aiohttp==3.9.3
+Werkzeug==3.0.1
+PyJWT==2.8.0
 cryptography==41.0.4
-openai==0.28.1 
-python-dotenv==1.0.0
+openai==1.23.2 
+python-dotenv==1.0.1
 qrcode==7.4.2
 Pillow==10.0.1
 flask_migrate==4.0.5
 scrypt==0.8.20
 requests==2.31.0
-wheel
-gunicorn
+wheel==0.43.0
+gunicorn==22.0.0
