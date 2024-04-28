@@ -375,6 +375,7 @@ body > .container {
 }
 
 #chart-filters {
+  padding: 5px 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -382,8 +383,12 @@ body > .container {
   overflow-y: auto;
 
   button:hover {
-    background: rgb(221, 221, 221);
+    opacity: 0.6;
     transition: 0.3s ease;
+  }
+
+  .active-button {
+    background-color: #45a01e;
   }
 
   button {
@@ -393,7 +398,7 @@ body > .container {
     transition: 0.3s ease;
     cursor: pointer;
     border-radius: 20px;
-    background: rgb(235, 235, 235);
+    background: $light_g;
   }
 }
 

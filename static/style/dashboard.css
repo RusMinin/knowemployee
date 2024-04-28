@@ -494,6 +494,7 @@ a:hover {
 }
 
 #chart-filters {
+  padding: 5px 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -502,8 +503,12 @@ a:hover {
 }
 
 #chart-filters button:hover {
-  background: #dddddd;
+  opacity: 0.6;
   transition: 0.3s ease;
+}
+
+#chart-filters .active-button {
+  background-color: #45a01e;
 }
 
 #chart-filters button {
@@ -513,7 +518,7 @@ a:hover {
   transition: 0.3s ease;
   cursor: pointer;
   border-radius: 20px;
-  background: #ebebeb;
+  background: #53EB12;
 }
 
 .main.menu-m::before {
@@ -3129,7 +3134,7 @@ a:hover {
   width: 100%;
   display: flex;
   min-height: 300px;
-  background: url("../assets/images/bg-header.png") 100%/cover;
+  background: url("../assets/images/bg-header.png") 40%/cover;
   border-radius: 20px;
   position: relative;
   margin-bottom: 30px;

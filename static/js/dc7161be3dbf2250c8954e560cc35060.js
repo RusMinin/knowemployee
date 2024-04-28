@@ -58,11 +58,11 @@ function processData(rawData) {
                 {
                     label: 'Feedback in days',
                     data: Object.values(groupedByDay),
-                    borderColor: '#3498db',
-                    backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                    pointBorderColor: '#2980b9',
-                    pointBackgroundColor: '#3498db',
-                    pointHoverBackgroundColor: '#2980b9',
+                    borderColor: '#45a01e',
+                    backgroundColor: 'rgba(169,214,148,0.5)',
+                    pointBorderColor: '#68c241',
+                    pointBackgroundColor: '#45a01e',
+                    pointHoverBackgroundColor: '#68c241',
                     pointHoverBorderColor: '#ffffff',
                     pointStyle: 'circle',
                     pointRadius: 10,
@@ -132,7 +132,15 @@ if (document.getElementById('chart-filters') && document.getElementById('analysi
     uniqueMonths.forEach(month => {
         const button = document.createElement('button');
         button.innerText = month;
-        button.onclick = () => updateChart(month);
+        button.classList.add('shadow')
+        button.onclick = () => {
+            updateChart(month);
+        document.querySelectorAll('#chart-filters button').forEach(btn => {
+            btn.classList.remove('active-button');
+        });
+
+        button.classList.add('active-button');
+        }
         filtersDiv.appendChild(button);
     });
 
