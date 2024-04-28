@@ -4757,9 +4757,9 @@ button:hover {
   color: #37A408;
 }
 
-.white_box {
+.box_survey {
   width: auto;
-  height: 40px;
+  min-height: 40px;
   border-radius: 4px;
   border: 1px solid #b3b3b344;
   box-shadow: 1px 2px 5px 0 #53525240;
@@ -4767,11 +4767,53 @@ button:hover {
 }
 
 @media screen and (min-width: 768px) {
-  .white_box {
+  .box_survey {
     height: 55px;
     font-size: 21px;
     border-radius: 16px;
   }
+}
+
+.box_dark, .box_grey {
+  color: #ffffff;
+  background-color: #595959;
+  font-weight: 400;
+}
+
+.box_dark p, .box_dark p > span, .box_grey p, .box_grey p > span {
+  color: #ffffff;
+}
+
+.box_grey {
+  background-color: #7B7B7B;
+}
+
+@media screen and (min-width: 1160px) {
+  .box_grey {
+    height: 70px;
+  }
+}
+
+.surveys meter {
+  width: 100%;
+  height: 20px;
+  margin-top: 8px;
+}
+
+.surveys h3 {
+  padding: 0 15px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.surveys h3 span {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 27px;
 }
 
 .surveys .survey {
@@ -4787,6 +4829,7 @@ button:hover {
 @media screen and (min-width: 767px) {
   .surveys .survey {
     font-size: 21px;
+    margin-bottom: 25px;
   }
 }
 
@@ -4805,6 +4848,96 @@ button:hover {
   font-weight: 600;
   font-size: 17px;
   text-transform: uppercase;
+}
+
+.surveys meter::-webkit-meter-optimum-value, .surveys .meter-hign {
+  background: #3EF150;
+}
+
+.surveys meter::-webkit-meter-suboptimum-value, .surveys .meter-mid {
+  background: #e4a240;
+}
+
+.surveys meter::-webkit-meter-even-less-good-value, .surveys .meter-low {
+  background: #bb1b40;
+}
+
+.surveys .impression {
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1160px) {
+  .surveys .impression {
+    margin-bottom: 35px;
+  }
+}
+
+.surveys .impression label {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.surveys .recommendations {
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 1160px) {
+  .surveys .recommendations {
+    margin-bottom: 110px;
+  }
+}
+
+.surveys .recommendations .recommendation {
+  margin: 20px 0;
+  margin-left: 5px;
+}
+
+@media screen and (min-width: 1160px) {
+  .surveys .recommendations .recommendation {
+    margin-top: 28px;
+    margin-bottom: 38px;
+  }
+}
+
+.surveys .recommendations .recommendation h3 {
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.surveys .recommendations .recommendation h3 .l, .surveys .recommendations .recommendation h3 .r {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.surveys .recommendations .recommendation h3 .l {
+  margin-right: 5px;
+}
+
+.surveys .recommendations .recommendation p .l, .surveys .recommendations .recommendation p .r {
+  margin-right: 5px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.surveys .recommendations .recommendation p .r {
+  font-weight: 400;
+}
+
+.surveys .summary p {
+  margin-top: 15px;
+  margin-left: 5px;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 27px;
+}
+
+@media screen and (min-width: 1160px) {
+  .surveys .summary p {
+    margin-top: 28px;
+  }
 }
 
 /*# sourceMappingURL=dashboard.css.map */

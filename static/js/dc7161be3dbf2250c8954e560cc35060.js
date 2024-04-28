@@ -2099,4 +2099,20 @@ if (document.querySelector('.quiz_veiwer .copy_link')) {
     });
 }
 
+if (document.querySelector('.level_satisfaction')){
+    const meter = document.querySelector('.level_satisfaction');
+    const value = parseInt(meter.value);
+    const low = parseInt(meter.low);
+    const high = parseInt(meter.high);
+    const optimum = parseInt(meter.optimum);
+
+    if (value < low) {
+        meter.classList.add('meter-low');
+    } else if (value > high) {
+        meter.classList.add('meter-high');
+    } else {
+        meter.classList.add('meter-mid');
+    }
+}
+
 
