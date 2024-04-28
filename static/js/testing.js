@@ -127,7 +127,7 @@ function startRecord() {
                 mediaRecorder.stop();
             }
         } else {
-            slideText(questiFonsArray[index_iter], questionsArray[index_iter-1]);
+            slideText(questionsArray[index_iter], questionsArray[index_iter-1]);
         }
     }
 
@@ -156,7 +156,6 @@ $("#stopRecording").on("click", function(event) {
 
 function sendData(audioBlob) {
     let index_q = index_iter-2;
-    console.log(index_q)
     let formData = new FormData();
     formData.append('buffer', audioBlob);
     formData.append('token', 'token');
