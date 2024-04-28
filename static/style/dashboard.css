@@ -320,6 +320,7 @@ a:hover {
 
 .alert_promo {
   width: 100%;
+  display: none;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -328,18 +329,6 @@ a:hover {
   gap: 2em;
   font-weight: 500;
   background: linear-gradient(45deg, #000, #4b4542, #333333);
-}
-
-@media screen and (min-width: 0px) {
-  .alert_promo {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 716px) {
-  .alert_promo {
-    display: flex;
-  }
 }
 
 @media screen and (min-width: 0px) {
