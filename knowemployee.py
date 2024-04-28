@@ -1628,6 +1628,28 @@ def run_analytics():
     except Exception as e:
         print(f"Error: {e}")
 
+
+@app.route('/dashboard/services/analytics', methods=['GET'])
+@token_required
+def survey_analytics(current_user):
+    user_data = getUserData(current_user)
+    with open("./templates/pages_dashboard/analytics_surveys.html", 'r', encoding='utf-8') as f:
+        html = f.read()
+    rendered_html = render_template_string(html, data_page=user_data)
+    data_page = {
+        "title": "Survey Analytics",
+        "path": request.path,
+        "name_platform": NAME_PLATFORM,
+        "html_page": rendered_html,
+        "branch": [
+            {"link": "/", "name": "Home"},
+            {"link": "/dashboard/analytics", "name": "Analytics"},
+        ],
+        "user_data": user_data,
+    }
+    return render_template('dashboard.html', data_page=data_page)
+
+
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade
