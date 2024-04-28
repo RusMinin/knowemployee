@@ -35,7 +35,7 @@
   height: 100%;
   position: relative;
   overflow: hidden !important;
-  @include mq(1150px){
+  @include mq(1150px) {
     width: 1310px;
   }
 
@@ -50,12 +50,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     z-index: 100;
     padding: 0 50px;
 
-    @include mq(1160px){
+    @include mq(1160px) {
       padding: 0;
-      width: 223px;
+      margin-right: 150px;
+      margin-top: 98px;
       font-size: 25px;
       text-align: center;
       line-height: 27px;
@@ -83,13 +85,14 @@
     img {
       width: 100%;
       @include mq(1160px) {
+        margin-top: 18px;
         width: 664px;
         height: 392px;
       }
     }
 
     p {
-      max-width: 650px;
+      max-width: 550px;
       color: #ffffffed;
       margin-top: 20px;
       font-size: 18px;
@@ -177,6 +180,10 @@
 
     @include mq(1160.98px) {
       justify-content: center;
+
+      .submit {
+        margin-top: 30px;
+      }
     }
   }
 }
@@ -358,7 +365,7 @@
       flex-direction: column;
     }
     @include mq(1160.98px) {
-      max-width: 1278px;
+      max-width: 1310px;
       justify-content: center;
       margin: 0 auto;
       flex-direction: row;
@@ -367,6 +374,13 @@
     }
     display: flex;
     position: relative;
+
+    .logo {
+      margin-top: 20px;
+      @include mq(1160.98px) {
+        margin-top: 40px;
+      }
+    }
 
     .boxed_info::before {
       @include mq(1160.98px) {
@@ -752,5 +766,9 @@ body {
     color: $dark_t;
   }
 
+}
+
+.dark {
+  background-color: $dark-bg;
 }
 

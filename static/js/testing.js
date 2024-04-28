@@ -18,6 +18,19 @@ if(document.querySelector('.button_big')){
     });
 }
 
+if(document.querySelector('.thank_you')){
+  let wprTests = document.querySelector('.wpr_tests');
+  let thankYou = document.querySelector('.thank_you');
+
+  if (thankYou.classList.contains('hidden')){
+      wprTests.style.backgroundColor = '#e7e7e7';
+  }else {
+      wprTests.style.backgroundColor = '#424141';
+  }
+
+
+}
+
 
 if(document.querySelector('.input_user')){
     if(document.querySelector('.input_user input').value.length <= 2){

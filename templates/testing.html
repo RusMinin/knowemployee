@@ -54,7 +54,7 @@
                 {% if data_company.username_bool == True %}
                 <div class="input_user">
                     <label class="visually-hidden" for="name">Your name</label>
-                    <input type="text" placeholder="Your name">
+                    <input id="name" type="text" placeholder="Your name">
                 </div>
                 {% endif %}
 
@@ -215,8 +215,9 @@
                 <div class="logo">
                     <img src="./../../static/assets/images/logo-light.svg" alt="Know Employee survey page">
                 </div>
-                <div class="content_thankyou hidden">
-                    <h2>Thank you for your feedback</h2>
+                <div class="content_thankyou">
+                    <div class="star"></div>
+                    <h2>Thank you<br> for your feedback</h2>
                     <div class="load">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8V2C6.579 2 2 6.58 2 12c0 5.421 4.579 10 10 10z"
@@ -224,7 +225,6 @@
                         </svg>
                     </div>
                     <img alt="thank you for your feedback" src="../static/assets/images/people.png">
-                    <div class="star"></div>
                     <p>
                         We are sure your feedback can improve quality in the workplace.
                         You have already left a review. This link is disposable!

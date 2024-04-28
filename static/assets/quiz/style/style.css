@@ -383,6 +383,10 @@ body {
 @media screen and (min-width: 1160.98px) {
   .content .hd {
     align-items: center;
+
+    .submit {
+      margin-top: 30px;
+    }
   }
 }
 
