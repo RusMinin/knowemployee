@@ -3129,7 +3129,7 @@ a:hover {
   width: 100%;
   display: flex;
   min-height: 300px;
-  background: linear-gradient(180deg, black, #005aaa);
+  background: url("../assets/images/bg-header.png") 100%/cover;
   border-radius: 20px;
   position: relative;
   margin-bottom: 30px;
@@ -3146,12 +3146,12 @@ a:hover {
 }
 
 .dashboard_welcome .box h1 {
-  color: #fff;
+  color: #424141;
   font-size: 45px;
 }
 
 .dashboard_welcome .box p {
-  color: #ddd;
+  color: #424141;
   font-size: 20px;
 }
 

@@ -2771,7 +2771,7 @@ body > .container {
   width: 100%;
   display: flex;
   min-height: 300px;
-  background: linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 90, 170));
+  background: url("../assets/images/bg-header.png") 100% /cover;
   border-radius: 20px;
   position: relative;
   margin-bottom: 30px;
@@ -2786,12 +2786,12 @@ body > .container {
     padding-top: 50px;
 
     h1 {
-      color: #fff;
+      color: $dark_bg;
       font-size: 45px;
     }
 
     p {
-      color: #ddd;
+      color: $dark_bg;
       font-size: 20px;
     }
   }
