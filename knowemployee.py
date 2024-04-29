@@ -1672,6 +1672,9 @@ def survey_analytic(current_user):
     return render_template('dashboard.html', data_page=data_page)
 
 
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
 
 
 if __name__ == "__main__":

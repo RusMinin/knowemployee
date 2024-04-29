@@ -4940,4 +4940,8 @@ button:hover {
   }
 }
 
+.links_page {
+  align-items: center !important;
+}
+
 /*# sourceMappingURL=dashboard.css.map */
