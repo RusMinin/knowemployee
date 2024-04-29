@@ -635,7 +635,7 @@ function startFullListCustomFeedbacks() {
                                                 
                                                     <div class="link_buttons">
                                                         <a class="copy_link button button_green shadow">Copy the link</a>
-                                                        <a  href="${domain}/anonymous/${item.only}" class="qr_link button button_green shadow">
+                                                        <a  href="/anonymous/${item.only}" class="qr_link button button_green shadow">
                                                             qr code
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
                                                                 <path d="M13.1339 7.5H11.8752V3.33333C11.8752 2.875 11.5189 2.5 11.0835 2.5H7.91683C7.48141 2.5 7.12516 2.875 7.12516 3.33333V7.5H5.86641C5.16183 7.5 4.80558 8.4 5.30433 8.925L8.93808 12.75C9.24683 13.075 9.74558 13.075 10.0543 12.75L13.6881 8.925C14.1868 8.4 13.8385 7.5 13.1339 7.5ZM3.9585 15.8333C3.9585 16.2917 4.31475 16.6667 4.75016 16.6667H14.2502C14.6856 16.6667 15.0418 16.2917 15.0418 15.8333C15.0418 15.375 14.6856 15 14.2502 15H4.75016C4.31475 15 3.9585 15.375 3.9585 15.8333Z" fill="#111111"/>
