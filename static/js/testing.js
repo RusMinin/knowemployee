@@ -18,6 +18,19 @@ if(document.querySelector('.button_big')){
     });
 }
 
+if(document.querySelector('.thank_you')){
+  let wprTests = document.querySelector('.wpr_tests');
+  let thankYou = document.querySelector('.thank_you');
+
+  if (thankYou.classList.contains('hidden')){
+      wprTests.style.backgroundColor = '#e7e7e7';
+  }else {
+      wprTests.style.backgroundColor = '#424141';
+  }
+
+
+}
+
 
 if(document.querySelector('.input_user')){
     if(document.querySelector('.input_user input').value.length <= 2){
@@ -127,7 +140,7 @@ function startRecord() {
                 mediaRecorder.stop();
             }
         } else {
-            slideText(questiFonsArray[index_iter], questionsArray[index_iter-1]);
+            slideText(questionsArray[index_iter], questionsArray[index_iter-1]);
         }
     }
 
@@ -156,7 +169,6 @@ $("#stopRecording").on("click", function(event) {
 
 function sendData(audioBlob) {
     let index_q = index_iter-2;
-    console.log(index_q)
     let formData = new FormData();
     formData.append('buffer', audioBlob);
     formData.append('token', 'token');

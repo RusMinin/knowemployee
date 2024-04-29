@@ -133,6 +133,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   z-index: 100;
   padding: 0 50px;
 }
@@ -140,7 +141,8 @@ body {
 @media screen and (min-width: 1160px) {
   .thank_you .content_thankyou {
     padding: 0;
-    width: 223px;
+    margin-right: 150px;
+    margin-top: 98px;
     font-size: 25px;
     text-align: center;
     line-height: 27px;
@@ -184,13 +186,14 @@ body {
 
 @media screen and (min-width: 1160px) {
   .thank_you .content_thankyou img {
+    margin-top: 18px;
     width: 664px;
     height: 392px;
   }
 }
 
 .thank_you .content_thankyou p {
-  max-width: 650px;
+  max-width: 550px;
   color: #ffffffed;
   margin-top: 20px;
   font-size: 18px;
@@ -284,6 +287,9 @@ body {
 @media screen and (min-width: 1160.98px) {
   .content .hd {
     justify-content: center;
+  }
+  .content .hd .submit {
+    margin-top: 30px;
   }
 }
 
@@ -516,12 +522,22 @@ body {
 
 @media screen and (min-width: 1160.98px) {
   .wpr_tests .wrapper {
-    max-width: 1278px;
+    max-width: 1310px;
     justify-content: center;
     margin: 0 auto;
     flex-direction: row;
     overflow: hidden;
     align-items: flex-start;
+  }
+}
+
+.wpr_tests .wrapper .logo {
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 1160.98px) {
+  .wpr_tests .wrapper .logo {
+    margin-top: 40px;
   }
 }
 
@@ -959,6 +975,10 @@ body {
 
 .description p:last-child {
   color: #AFAFAF;
+}
+
+.dark {
+  background-color: #424141;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1628,6 +1628,55 @@ def run_analytics():
     except Exception as e:
         print(f"Error: {e}")
 
+
+@app.route('/dashboard/services/analytics', methods=['GET'])
+@token_required
+def surveys_analytics(current_user):
+    user_data = getUserData(current_user)
+    with open("./templates/pages_dashboard/analytics_surveys.html", 'r', encoding='utf-8') as f:
+        html = f.read()
+    rendered_html = render_template_string(html, data_page=user_data)
+    data_page = {
+        "title": "Survey Analytics",
+        "path": request.path,
+        "name_platform": NAME_PLATFORM,
+        "html_page": rendered_html,
+        "branch": [
+            {"link": "/", "name": "Home"},
+            {"link": "/dashboard/analytics", "name": "Analytics"},
+        ],
+        "user_data": user_data,
+    }
+    return render_template('dashboard.html', data_page=data_page)
+
+
+@app.route('/dashboard/services/analytics/survey_id', methods=['GET'])
+@token_required
+def survey_analytic(current_user):
+    user_data = getUserData(current_user)
+    with open("templates/pages_dashboard/analyse_survey.html", 'r', encoding='utf-8') as f:
+        html = f.read()
+    rendered_html = render_template_string(html, data_page=user_data)
+    data_page = {
+        "title": "Survey Analytics",
+        "path": request.path,
+        "name_platform": NAME_PLATFORM,
+        "html_page": rendered_html,
+        "branch": [
+            {"link": "/", "name": "Home"},
+            {"link": "/dashboard/analytics", "name": "Analytics"},
+            {"link": "/dashboard/analytics/surveyid", "name": "Survey"},
+        ],
+        "user_data": user_data,
+    }
+    return render_template('dashboard.html', data_page=data_page)
+
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+
+
 if __name__ == "__main__":
     # flask db migrate -m "description of the change"
     # flask db upgrade

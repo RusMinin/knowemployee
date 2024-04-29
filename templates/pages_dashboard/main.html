@@ -3,11 +3,10 @@
         <h1>Welcome, {{data_page.company_name}}</h1>
         <p>The place of your atmosphere management in the work of your employees</p>
     </div>
-    <img class="welcome" src="{{ url_for('static', filename='assets/images/welcome.svg') }}">
 </div>
 
 <div id="chart-filters">
-    <button onclick="updateChart('all')">All</button>
+    <button class="active-button shadow" onclick="updateChart('all')">All</button>
 </div>
 <canvas class="analysis_chart" id="analysis"></canvas>
 <!-- 

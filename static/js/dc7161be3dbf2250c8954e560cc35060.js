@@ -58,11 +58,11 @@ function processData(rawData) {
                 {
                     label: 'Feedback in days',
                     data: Object.values(groupedByDay),
-                    borderColor: '#3498db',
-                    backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                    pointBorderColor: '#2980b9',
-                    pointBackgroundColor: '#3498db',
-                    pointHoverBackgroundColor: '#2980b9',
+                    borderColor: '#45a01e',
+                    backgroundColor: 'rgba(169,214,148,0.5)',
+                    pointBorderColor: '#68c241',
+                    pointBackgroundColor: '#45a01e',
+                    pointHoverBackgroundColor: '#68c241',
                     pointHoverBorderColor: '#ffffff',
                     pointStyle: 'circle',
                     pointRadius: 10,
@@ -77,11 +77,11 @@ function processData(rawData) {
                 {
                     label: 'Feedback in days',
                     data: Object.values(groupedByMonth),
-                    borderColor: '#3498db',
-                    backgroundColor: 'rgba(52, 152, 219, 0.5)',
-                    pointBorderColor: '#2980b9',
-                    pointBackgroundColor: '#3498db',
-                    pointHoverBackgroundColor: '#2980b9',
+                    borderColor: '#45a01e',
+                    backgroundColor: 'rgba(169,214,148,0.5)',
+                    pointBorderColor: '#68c241',
+                    pointBackgroundColor: '#45a01e',
+                    pointHoverBackgroundColor: '#68c241',
                     pointHoverBorderColor: '#ffffff',
                     pointStyle: 'circle',
                     pointRadius: 10,
@@ -132,7 +132,15 @@ if (document.getElementById('chart-filters') && document.getElementById('analysi
     uniqueMonths.forEach(month => {
         const button = document.createElement('button');
         button.innerText = month;
-        button.onclick = () => updateChart(month);
+        button.classList.add('shadow')
+        button.onclick = () => {
+            updateChart(month);
+        document.querySelectorAll('#chart-filters button').forEach(btn => {
+            btn.classList.remove('active-button');
+        });
+
+        button.classList.add('active-button');
+        }
         filtersDiv.appendChild(button);
     });
 
@@ -628,6 +636,7 @@ function startFullListCustomFeedbacks() {
                                                     <div class="link_buttons">
                                                         <a class="copy_link button button_green shadow">Copy the link</a>
                                                         <a class="qr_link button button_green shadow">
+                                                            <span class="visually-hidden">${domain}/anonymous/${item.only}</span>
                                                             qr code
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
                                                                 <path d="M13.1339 7.5H11.8752V3.33333C11.8752 2.875 11.5189 2.5 11.0835 2.5H7.91683C7.48141 2.5 7.12516 2.875 7.12516 3.33333V7.5H5.86641C5.16183 7.5 4.80558 8.4 5.30433 8.925L8.93808 12.75C9.24683 13.075 9.74558 13.075 10.0543 12.75L13.6881 8.925C14.1868 8.4 13.8385 7.5 13.1339 7.5ZM3.9585 15.8333C3.9585 16.2917 4.31475 16.6667 4.75016 16.6667H14.2502C14.6856 16.6667 15.0418 16.2917 15.0418 15.8333C15.0418 15.375 14.6856 15 14.2502 15H4.75016C4.31475 15 3.9585 15.375 3.9585 15.8333Z" fill="#111111"/>
@@ -663,6 +672,33 @@ function startFullListCustomFeedbacks() {
                                     await navigator.clipboard.writeText(link);
                                     $.toast({
                                         text: "Link to review copied",
+                                        position: 'top-right',
+                                        hideAfter: 3000,
+                                        showHideTransition: 'fade',
+                                        icon: 'success',
+                                        stack: false
+                                    })
+                                } catch (err) {
+                                    $.toast({
+                                        text: "Copy error",
+                                        position: 'top-right',
+                                        hideAfter: 3000,
+                                        showHideTransition: 'fade',
+                                        icon: 'error',
+                                        stack: false
+                                    })
+                                }
+                            });
+
+                            $('.box_row .qr_link').click(async (e) => {
+                                let target = $(e.target).closest('.qr_link');
+                                let father = $(target).closest('.link');
+                                let link = $(father).find('.visually-hidden').text();
+
+                                try {
+                                    await navigator.clipboard.writeText(link);
+                                    $.toast({
+                                        text: "Link to anonymous copied",
                                         position: 'top-right',
                                         hideAfter: 3000,
                                         showHideTransition: 'fade',
@@ -2089,6 +2125,22 @@ if (document.querySelector('.quiz_veiwer .copy_link')) {
             })
         }
     });
+}
+
+if (document.querySelector('.level_satisfaction')){
+    const meter = document.querySelector('.level_satisfaction');
+    const value = parseInt(meter.value);
+    const low = parseInt(meter.low);
+    const high = parseInt(meter.high);
+    const optimum = parseInt(meter.optimum);
+
+    if (value < low) {
+        meter.classList.add('meter-low');
+    } else if (value > high) {
+        meter.classList.add('meter-high');
+    } else {
+        meter.classList.add('meter-mid');
+    }
 }
 
 
