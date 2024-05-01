@@ -1435,8 +1435,9 @@ def anonymous_list(current_user):
 
     results = []
     for item in all_list:
-        if item.checked == False or item.anonimus_feedback == "0" or item.anonimus_feedback == False or item.type != "anonymous":
-            continue
+        # This will list all surveys, including those that are not anonymous
+        # if item.checked == False or item.anonimus_feedback == "0" or item.anonimus_feedback == False or item.type != "anonymous":
+        #     continue
 
         results.append({
             'result': json.loads(item.result),
