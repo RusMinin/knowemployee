@@ -2,14 +2,6 @@
 sudo apt update -y # Update server to latest stable version
 sudo apt install -y python*-venv # We need python
 
-
-python3 -m venv ~/env/knowemployee # Create python virtual environment
-sleep 3 # it may take time, so let's give it 3 seconds :)
-source ~/env/knowemployee/bin/activate # Connect to python virtual environment
-pip install -r requirements.txt # Install all dependencies
-
-pip  install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptography openai python-dotenv qrcode Pillow flask_migrate requests scrypt wheel gunicorn # Install needed dependencies 
-
 sudo apt install sqlite3 sqlitebrowser -y # We need SQLite
 sudo apt install nginx -y # We need NGINX 
 sudo apt install cabextract -y # This is needed for msfonts extraction
@@ -37,3 +29,10 @@ mkdir /var/log/gunicorn
 sudo chown $USER:$USER /var/log/gunicorn
 touch /var/log/gunicorn/gunicorn.access.log
 touch /var/log/gunicorn/gunicorn.error.log
+
+python3 -m venv ~/env/knowemployee # Create python virtual environment
+sleep 3 # it may take time, so let's give it 3 seconds :)
+source ~/env/knowemployee/bin/activate # Connect to python virtual environment
+pip install -r requirements.txt # Install all dependencies
+
+# pip install deepgram-sdk Flask Flask-SQLAlchemy aiohttp Werkzeug PyJWT cryptography openai python-dotenv qrcode Pillow flask_migrate requests scrypt wheel gunicorn # Install needed dependencies 
