@@ -1,0 +1,2 @@
+'__pycache__','/migratons/__pycache__','/versions/__pycache__','*.pyc'  # Ignore cache files
+'*.wav' # Ignore audio files
