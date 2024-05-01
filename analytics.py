@@ -222,85 +222,93 @@ def background_scan():
     Scanning the database for unanswered ChatGPT questionnaires, after scanning it will mark in the database that it has already read it and the answer has been given.
     """
 
-    data = TestingResult.query.filter_by(checked=False).all()
-    
-    for item in data:
-        print(item)
-        array = json.loads(item.user_answer)
-        user_answer = json.loads(item.user_answer)
-        if not isinstance(user_answer, list):
-            print(f"Unexpected user_answer: {item.user_answer}")
-            continue
-        array = user_answer
-        results = []
-        count_price = 0
-        for arr in array:
-            try:
-                question = arr['question']
-                text = decrypt(arr['text'])
-                arr_step = {"question": question, "text": text}
-                result, count = analyze_answers(arr_step)
-                if result == False:
+    data = TestingResult.query.filter_by(ai=True, ai_status=False, checked=True).all()
+    if not data:
+        print('No data to process.')
+        return
+
+    else:
+        for item in data:
+            print(f"Survey ID: {item.id}, name: {item.name}")
+            array = json.loads(item.user_answer)
+            user_answer = json.loads(item.user_answer)
+            if not isinstance(user_answer, list):
+                print(f"Unexpected user_answer: [{item.user_answer}], skipping... ")
+                # res = TestingResult.query.filter_by(id=item.id).first()
+                # res.checked = True
+                # db.session.commit()
+                return
+            else:
+                array = user_answer
+                results = []
+                count_price = 0
+                for arr in array:
+                    try:
+                        question = arr['question']
+                        text = decrypt(arr['text'])
+                        arr_step = {"question": question, "text": text}
+                        result, count = analyze_answers(arr_step)
+                        if result == False:
+                            continue
+                        print(result)
+                        
+                        count_price = count_price + count
+                        results.append(result)
+                    except Exception as e:
+                        print(e)
+                        continue
+
+                if len(results) == 0:
                     continue
-                print(result)
-                
-                count_price = count_price + count
-                results.append(result)
-            except Exception as e:
-                print(e)
-                continue
 
-        if len(results) == 0:
-            continue
+                print("Count price: ", count_price)
 
-        print("Count price: ", count_price)
+                # Average satisfaction value
+                total_satisfaction = 0
+                new_array = []
+                count = 0
+                for sat in results:
+                    print(sat)
+                    sat_value = sat['satisfaction']
+                    # sat_value = sat.satisfaction
+                    if not sat_value:
+                        sat_value = 0
+                    sat_value = str(sat_value).replace("%", "")
+                    obj = {
+                        "question": sat['question']['data'],
+                        "recommendation": sat['recommendation']['data'],
+                        "satisfaction": sat['satisfaction']
+                    }
+                    new_array.append(obj)
+                    try:
+                        total_satisfaction += float(sat_value)
+                        count += 1
+                    except ValueError:
+                        print(f"Error converting satisfaction value '{sat_value}' to float")
 
-        # Average satisfaction value
-        total_satisfaction = 0
-        new_array = []
-        count = 0
-        for sat in results:
-            print(sat)
-            sat_value = sat['satisfaction']
-            # sat_value = sat.satisfaction
-            if not sat_value:
-                sat_value = 0
-            sat_value = str(sat_value).replace("%", "")
-            obj = {
-                "question": sat['question']['data'],
-                "recommendation": sat['recommendation']['data'],
-                "satisfaction": sat['satisfaction']
-            }
-            new_array.append(obj)
-            try:
-                total_satisfaction += float(sat_value)
-                count += 1
-            except ValueError:
-                print(f"Error converting satisfaction value '{sat_value}' to float")
+                average_satisfaction = total_satisfaction / count if count else 0
+                print(f"Average satisfaction: {average_satisfaction:.2f}%")
+                print("Summarization of the results")
+                summation_result, count = sumarizator_gpt(new_array)
+                print(summation_result)
+                count_price += count
 
-        average_satisfaction = total_satisfaction / count if count else 0
-        print(f"Average satisfaction: {average_satisfaction:.2f}%")
-        print("Summarization of the results")
-        summation_result, count = sumarizator_gpt(new_array)
-        print(summation_result)
-        count_price += count
+                data = []
+                data.append({"result": new_array})
+                data.append({"summation": summation_result})
+                data.append({"satisfaction": f"{average_satisfaction:.2f}%"})
 
-        data = []
-        data.append({"result": new_array})
-        data.append({"summation": summation_result})
-        data.append({"satisfaction": f"{average_satisfaction:.2f}%"})
+                res = TestingResult.query.filter_by(id=item.id).first()
+                res.result = json.dumps(data)
+                res.ai_status = True
+                db.session.commit()
 
-        res = TestingResult.query.filter_by(id=item.id).first()
-        res.result = json.dumps(data)
-        res.checked = True
-        db.session.commit()
+                price_db = GPTPricer(public_id=item.public_id, price_count=count_price, timestamp=datetime.datetime.now(datetime.timezone.utc))
+                db.session.add(price_db)
+                db.session.commit()
 
-        price_db = GPTPricer(public_id=item.public_id, price_count=count_price, timestamp=datetime.datetime.now(datetime.timezone.utc))
-        db.session.add(price_db)
-        db.session.commit()
-
-        print(f'{item} processed.')
-    print(f'{item} AI processing Done!')
+                print(f'Survey ID: {item.id} processed.')
+        print('OpenAI processing Done!')
 
 
 
@@ -309,4 +317,4 @@ if __name__ == '__main__':
     while True:
         with app.app_context():
             background_scan()
-            time.sleep(60)
+            time.sleep(30)
